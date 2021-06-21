@@ -43,6 +43,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
               <a class="nav-link" href="index.html">
+              <!-- <a class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" href="#multiCollapseExample1"> -->
                 <i class="fas fa-fw fa-wrench"></i>
                 <span>Dashboard</span></a>
             </li>
@@ -56,25 +57,29 @@
             </div>
 
 	    <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link"
+	      	 role="button" data-bs-toggle="collapse" data-bs-target="#subtract" aria-expanded="false" aria-controls="subtract">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>SubTract</span></a>
             </li>
 
-	    <li class="nav-item active">
-              <a class="nav-link" href="index.html">
+	    <li class="nav-item">
+              <a class="nav-link"
+	      	 role="button" data-bs-toggle="collapse" data-bs-target="#vosim" aria-expanded="false" aria-controls="vosim">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>VoSim</span></a>
             </li>
 
 	    <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link"
+	      	 role="button" data-bs-toggle="collapse" data-bs-target="#wavebank" aria-expanded="false" aria-controls="wavebank">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>WaveBank</span></a>
             </li>
 
 	    <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link"
+	      	 role="button" data-bs-toggle="collapse" data-bs-target="#quadsampler" aria-expanded="false" aria-controls="quadsampler">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>QuadSampler</span></a>
             </li>
@@ -97,9 +102,11 @@
 
             <!-- Sidebar Message -->
             <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/RebelCircular.svg" alt="...">
-                <p class="text-center mb-2"><strong>Rebel Technology</strong></p>
-                <a class="btn btn-secondary btn-sm" href="https://www.rebeltech.org">Visit Website</a>
+	      <a href="https://www.rebeltech.org">
+                <img class="sidebar-card-illustration mb-2" src="img/RebelCircular.svg" alt="Rebel Technology">
+	      </a>
+              <p class="text-center mb-2"><strong>Rebel Technology</strong></p>
+              <a class="btn btn-secondary btn-sm" href="https://www.rebeltech.org">Visit Website</a>
             </div>
 
         </ul>
@@ -145,9 +152,112 @@
                     <div class="row">
                       <h1>Dashboard</h1>
                     </div>
-		      
+
+		    <div class="accordion" id="accordionExample">
+		      <div class="accordion-item">
+			<div id="subtract" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#accordionExample">
+			  <h2 class="accordion-header" id="heading1">SubTract</h2>
+			  <div class="accordion-body">
+			    <strong>Virtual analogue synthesizer with 48dB resonant low pass filter and overdrive effect.</strong>
+			    <pre>
+Polyphony: 8 voices
+Controls:
+A: Oscillator Frequency
+B: Filter Cutoff
+C: Filter Resonance
+D: Envelope
+E: Overdrive
+Out F: LFO1 Sine
+Out G: LFO2 Agnesi
+1: Note
+2: Tap LFO1
+3: Tap LFO2
+4: Sustain
+Out 5: LFO1 Clock
+Out 6: LFO2 Clock
+In Left: Oscillator Linear FM
+In Right: Audio Through</pre>
+			  </div>
+			</div>
+		      </div>
+		      <div class="accordion-item">
+			<div id="vosim" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionExample">
+			  <h2 class="accordion-header" id="heading2">VoSim</h2>
+			  <div class="accordion-body">
+			    <strong>Voice Simulator formant synthesizer</strong>
+			    <pre>
+Polyphony: 6 voices
+A: Frequency
+B: Formant Low
+C: Formant High
+D: Envelope
+E: Phaser
+Out F: LFO1 Sine
+Out G: LFO2 Agnesi
+1: Note
+2: Tap LFO1
+3: Tap LFO2
+4: Sustain
+Out 5: LFO1 Clock
+Out 6: LFO2 Clock
+In Left: Oscillator Linear FM
+In Right: Audio Through</pre>
+			  </div>
+			</div>
+		      </div>
+		      <div class="accordion-item">
+			<div id="wavebank" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionExample">
+			  <h2 class="accordion-header" id="heading3">WaveBank</h2>
+			  <div class="accordion-body">
+			    <strong>Multidimensional wavetable synthesizer with x/y morphing.</strong>
+			    <pre>
+Polyphony: 4 voices
+A: Frequency
+B: Morph X
+C: Morph Y
+D: Envelope
+E: Overdrive
+Out F: LFO1 Sine
+Out G: LFO2 Agnesi
+1: Note
+2: Tap LFO1
+3: Tap LFO2
+4: Sustain
+Out 5: LFO1 Clock
+Out 6: LFO2 Clock
+In Left: FM Left
+In Right: FM Right</pre>			    
+			  </div>
+			</div>
+		      </div>
+		      <div class="accordion-item">
+			<div id="quadsampler" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
+			  <h2 class="accordion-header" id="heading4">QuadSampler</h2>
+			  <div class="accordion-body">
+			    <strong>Four voice sampler with resonant peaking filter</strong>
+			    <pre>
+Polyphony: 4 voices
+A: Frequency
+B: Filter Cutoff
+C: Filter Resonance
+D: Envelope Decay
+E: LFO Rate
+Out F: LFO1 Sine
+Out G: LFO2 Agnesi
+1: Sample 1
+2: Sample 2
+3: Sample 3
+4: Sample 4
+Out 5: LFO1 Clock
+Out 6: Envelope
+In Left: todo
+In Right: todo</pre>
+			  </div>
+			</div>
+		      </div>
+		    </div>
                     <div class="row">
-		      <h2>MIDI Keyboard</h1>
+		      <h2>MIDI Keyboard</h2>
 		    </div>
                     <div class="row">
 		      <div id="mod"></div>
@@ -155,7 +265,7 @@
 		    </div>
 		    
                     <div class="row">
-		      <h2>ADSR Envelope</h1>
+		      <h2>ADSR Envelope</h2>
 		    </div>
                     <div class="row">
 		      <div id="envelope"></div>
@@ -166,7 +276,7 @@
 		    </div>
 
 		    <div class="row">
-		      <h2>Settings</h1>
+		      <h2>Settings</h2>
 		    </div>
                     <div class="row">
 		      <div class="col-2">External Input Amount Left</div>
@@ -186,7 +296,7 @@
 		    </div>
 
 		    <div class="row">
-		      <h2>Scope and Spectrogram</h1>
+		      <h2>Scope and Spectrogram</h2>
 		    </div>
                     <div class="row">
 		      <div id="scope"></div>
