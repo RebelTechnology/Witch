@@ -200,7 +200,7 @@ HoxtonOwl.midiClient = {
     sendSysexCommand: function(cmd) {
         console.log("sending sysex command 0x"+cmd.toString(16));
         var msg = [0xf0, MIDI_SYSEX_MANUFACTURER, MIDI_SYSEX_OMNI_DEVICE, cmd, 0xf7 ];
-        this.logMidiData(msg);
+        // this.logMidiData(msg);
         if(this.midiOutput)
             this.midiOutput.send(msg, 0);
     },
@@ -211,7 +211,7 @@ HoxtonOwl.midiClient = {
         for(var i=0; i<data.length; ++i)
     	    msg.push(data[i]);
         msg.push(0xf7);
-        this.logMidiData(msg);
+        // this.logMidiData(msg);
         if(this.midiOutput)
           this.midiOutput.send(msg, 0);
     },
@@ -222,7 +222,7 @@ HoxtonOwl.midiClient = {
         for(var i=0; i<str.length; ++i)
     	    msg.push(str.charCodeAt(i));
         msg.push(0xf7);
-        this.logMidiData(msg);
+        // this.logMidiData(msg);
         if(this.midiOutput)
           this.midiOutput.send(msg, 0);
     },

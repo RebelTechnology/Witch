@@ -373,10 +373,10 @@ function sendFirmwareFlash(checksum){
     var crc = parseInt(checksum, 16);
     console.log("sending firmware flash ["+checksum+":"+crc+"] command");
     var b = encodeInt(crc);
-    console.log("bytes ["+b+"] command");
+    // console.log("bytes ["+b+"] command");
     var msg = [0xf0, MIDI_SYSEX_MANUFACTURER, MIDI_SYSEX_OMNI_DEVICE, 
                OpenWareMidiSysexCommand.SYSEX_FIRMWARE_FLASH, b[0], b[1], b[2], b[3], b[4], 0xf7 ];
-    HoxtonOwl.midiClient.logMidiData(msg);
+    // HoxtonOwl.midiClient.logMidiData(msg);
     if(HoxtonOwl.midiClient.midiOutput)
         HoxtonOwl.midiClient.midiOutput.send(msg, 0);
 }
@@ -386,7 +386,7 @@ function sendProgramRun(){
 	console.log("sending sysex run command");
 	var msg = [0xf0, MIDI_SYSEX_MANUFACTURER, MIDI_SYSEX_OMNI_DEVICE, 
 		   OpenWareMidiSysexCommand.SYSEX_FIRMWARE_RUN, 0xf7 ];
-	HoxtonOwl.midiClient.logMidiData(msg);
+	// HoxtonOwl.midiClient.logMidiData(msg);
 	if(HoxtonOwl.midiClient.midiOutput)
             HoxtonOwl.midiClient.midiOutput.send(msg, 0);
     });
@@ -401,7 +401,7 @@ function sendResourceSave(name){
 	    msg.push(name.charCodeAt(i));
 	msg.push(0x00);
 	msg.push(0xf7);
-	HoxtonOwl.midiClient.logMidiData(msg);
+	// HoxtonOwl.midiClient.logMidiData(msg);
 	if(HoxtonOwl.midiClient.midiOutput)
             HoxtonOwl.midiClient.midiOutput.send(msg, 0);
     });    
@@ -412,7 +412,7 @@ function sendProgramStore(slot){
 	console.log("sending sysex store ["+slot+"] command");
 	var msg = [0xf0, MIDI_SYSEX_MANUFACTURER, MIDI_SYSEX_OMNI_DEVICE, 
 		   OpenWareMidiSysexCommand.SYSEX_FIRMWARE_STORE, 0, 0, 0, 0, slot, 0xf7 ];
-	HoxtonOwl.midiClient.logMidiData(msg);
+	// HoxtonOwl.midiClient.logMidiData(msg);
 	if(HoxtonOwl.midiClient.midiOutput)
             HoxtonOwl.midiClient.midiOutput.send(msg, 0);
     });
@@ -433,7 +433,7 @@ function chunkData(data){
 
 function sendDataChunks(index, chunks, resolve){
     if(index < chunks.length){
-        HoxtonOwl.midiClient.logMidiData(chunks[index]);
+        // HoxtonOwl.midiClient.logMidiData(chunks[index]);
         if(HoxtonOwl.midiClient.midiOutput){
             console.log("sending chunk "+ index + ' with '+ chunks[index].length +" bytes sysex");
             HoxtonOwl.midiClient.midiOutput.send(chunks[index], 0);            
