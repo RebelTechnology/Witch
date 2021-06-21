@@ -308,6 +308,7 @@ function saveResource(name, files){
 	log("Saved resource "+name);
 	sendRequest(OpenWareMidiSysexCommand.SYSEX_RESOURCE_NAME_COMMAND);
     }, function(err){ console.error(err); });
+    return false;
 }
 
 function eraseResource(slot){
@@ -317,6 +318,7 @@ function eraseResource(slot){
     msg.push(0xf7);
     if(HoxtonOwl.midiClient.midiOutput)
         HoxtonOwl.midiClient.midiOutput.send(msg, 0);            
+    return false;
 }
 
 function requestResource(slot){
@@ -326,6 +328,7 @@ function requestResource(slot){
     msg.push(0xf7);
     if(HoxtonOwl.midiClient.midiOutput)
         HoxtonOwl.midiClient.midiOutput.send(msg, 0);
+    return false;
 }
 
 function sendResource(files, resolve){
@@ -354,7 +357,6 @@ function sendProgram(files, resolve){
             //     continue;
 	    // }
 	    var reader = new FileReader();
-
 	    // Closure to capture the file information.
 	    reader.onload = (function(theFile) {
 		return function(e) {

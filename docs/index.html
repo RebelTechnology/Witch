@@ -242,19 +242,19 @@ Out 6: LFO2 Clock
 In Left: FM Left
 In Right: FM Right</pre>			    
 			  </div>
-			  <button class="btn btn-link" onclick="loadPatch(WaveBankExpression')">Load WaveBank Expression Patch</button>
+			  <button class="btn btn-link" onclick="loadPatch('WaveBankExpression')">Load WaveBank Expression Patch</button>
 			  <button class="btn btn-link" onclick="loadPatch('WaveBankPerformance')">Load WaveBank Performance Patch</button>
 
 			  <p>
 			    <form>
 			      File: <input type="file" name="files[]" multiple="false" accept=".wav"/>
-			      <button class="btn btn-link" onclick="saveResource('wavebank1.wav', this.form[0].files);">Save Wavebank 1</button>
+			      <button type="button" class="btn btn-link" onclick="saveResource('wavebank1.wav', this.form[0].files)">Save Wavebank 1</button>
 			    </form>
 			  </p>
 			  <p>
 			    <form>
 			      File: <input type="file" name="files[]" multiple="false" accept=".wav"/>
-			      <button class="btn btn-link" onclick="saveResource('wavebank2.wav', this.form[0].files);">Save Wavebank 2</button>
+			      <button type="button" class="btn btn-link" onclick="saveResource('wavebank2.wav', this.form[0].files)">Save Wavebank 2</button>
 			    </form>
 			  </p>
 			</div>
