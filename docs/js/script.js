@@ -1,8 +1,8 @@
 var piano = new Nexus.Piano('#piano',{
-    'size': [480,120],
-    'mode': 'button',  // 'button', 'toggle', or 'impulse'
-    'lowNote': 24,
-    'highNote': 60
+    size: [500,120],
+    mode: 'button',
+    lowNote: 24,
+    highNote: 60
 })
 
 piano.on('change',function(v) {
@@ -12,7 +12,8 @@ piano.on('change',function(v) {
 	HoxtonOwl.midiClient.sendNoteOff(v.note, 0);
 })
 
-var mod = new Nexus.Position('#mod',{size: [120,120], mode:'relative', y:0, maxX:0.99});
+var mod = new Nexus.Position('#mod',{
+    size: [100,120], mode:'relative', y:0, maxX:0.99});
 mod.on('change',function(v) {
     console.log(v);
     HoxtonOwl.midiClient.sendPb((v.x - 0.5)*8192*2);
