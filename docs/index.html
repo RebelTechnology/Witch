@@ -36,50 +36,51 @@
               <img class="sidebar-card-illustration mb-2" src="img/WitchLogo.svg" alt="The Witch">
                 <!-- <div class="sidebar-brand-text mx-3">The Witch</div> -->
             <!-- </a> -->
+            
+	    <li class="nav-item">
+            <a class="nav-link"
+	       role="button" data-bs-toggle="collapse" data-bs-target="#accordion0" aria-expanded="false" aria-controls="accordion0">
+              <i class="fas fa-fw fa-info"></i>
+            <span>About</span></a>
+	    </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">
-              <!-- <a class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" href="#multiCollapseExample1"> -->
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+            <!-- <li class="nav-item active"> -->
+            <!--   <a class="nav-link" href="index.html"> -->
+            <!--     <i class="fas fa-fw fa-wrench"></i> -->
+            <!--     <span>Dashboard</span></a> -->
+            <!-- </li> -->
 
             <!-- Heading -->
-            <div class="sidebar-heading">
-                Patches
-            </div>
+            <div class="sidebar-heading">Patches</div>
 
 	    <li class="nav-item">
               <a class="nav-link"
-	      	 role="button" data-bs-toggle="collapse" data-bs-target="#subtract" aria-expanded="false" aria-controls="subtract">
+	      	 role="button" data-bs-toggle="collapse" data-bs-target="#accordion1" aria-expanded="false" aria-controls="accordion1">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>SubTract</span></a>
             </li>
 
 	    <li class="nav-item">
               <a class="nav-link"
-	      	 role="button" data-bs-toggle="collapse" data-bs-target="#vosim" aria-expanded="false" aria-controls="vosim">
+	      	 role="button" data-bs-toggle="collapse" data-bs-target="#accordion2" aria-expanded="false" aria-controls="accordion2">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>VoSim</span></a>
             </li>
 
 	    <li class="nav-item">
               <a class="nav-link"
-	      	 role="button" data-bs-toggle="collapse" data-bs-target="#wavebank" aria-expanded="false" aria-controls="wavebank">
+	      	 role="button" data-bs-toggle="collapse" data-bs-target="#accordion3" aria-expanded="false" aria-controls="accordion3">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>WaveBank</span></a>
             </li>
 
 	    <li class="nav-item">
               <a class="nav-link"
-	      	 role="button" data-bs-toggle="collapse" data-bs-target="#quadsampler" aria-expanded="false" aria-controls="quadsampler">
+	      	 role="button" data-bs-toggle="collapse" data-bs-target="#accordion4" aria-expanded="false" aria-controls="accordion4">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>QuadSampler</span></a>
             </li>
@@ -88,9 +89,7 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
-                Tools
-            </div>
+            <div class="sidebar-heading">Tools</div>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -149,13 +148,23 @@
 
                     <!-- Page Heading -->
                     <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4"> -->
-                    <div class="row">
-                      <h1>Dashboard</h1>
-                    </div>
+                    <!-- <div class="row"> -->
+                    <!--   <h1>Dashboard</h1> -->
+                    <!-- </div> -->
 
-		    <div class="accordion" id="accordionExample">
+		    <div class="accordion" id="accordionContent">
 		      <div class="accordion-item">
-			<div id="subtract" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#accordionExample">
+			<div id="accordion0" class="accordion-collapse collapse active" aria-labelledby="heading0" data-bs-parent="#accordionContent">
+			  <h2 class="accordion-header" id="heading0">The Witch</h2>
+			  <div class="accordion-body">
+			    <strong>The Witch is a compact and versatile polyphonic synthesizer.</strong>
+			    It comes with a set of eight factory patches, implementing four different synthesis engines.
+			  </div>
+			</div>
+		      </div>
+		      
+		      <div class="accordion-item">
+			<div id="accordion1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#accordionContent">
 			  <h2 class="accordion-header" id="heading1">SubTract</h2>
 			  <div class="accordion-body">
 			    <strong>Virtual analogue synthesizer with 48dB resonant low pass filter and overdrive effect.</strong>
@@ -181,7 +190,7 @@ In Right: Audio Through</pre>
 			</div>
 		      </div>
 		      <div class="accordion-item">
-			<div id="vosim" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionExample">
+			<div id="accordion2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionContent">
 			  <h2 class="accordion-header" id="heading2">VoSim</h2>
 			  <div class="accordion-body">
 			    <strong>Voice Simulator formant synthesizer</strong>
@@ -206,7 +215,7 @@ In Right: Audio Through</pre>
 			</div>
 		      </div>
 		      <div class="accordion-item">
-			<div id="wavebank" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionExample">
+			<div id="accordion3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionContent">
 			  <h2 class="accordion-header" id="heading3">WaveBank</h2>
 			  <div class="accordion-body">
 			    <strong>Multidimensional wavetable synthesizer with x/y morphing.</strong>
@@ -231,7 +240,7 @@ In Right: FM Right</pre>
 			</div>
 		      </div>
 		      <div class="accordion-item">
-			<div id="quadsampler" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
+			<div id="accordion4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionContent">
 			  <h2 class="accordion-header" id="heading4">QuadSampler</h2>
 			  <div class="accordion-body">
 			    <strong>Four voice sampler with resonant peaking filter</strong>

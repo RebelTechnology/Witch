@@ -1,18 +1,15 @@
 var piano = new Nexus.Piano('#piano',{
-    'size': [500,120],
+    'size': [480,120],
     'mode': 'button',  // 'button', 'toggle', or 'impulse'
     'lowNote': 24,
     'highNote': 60
 })
 
 piano.on('change',function(v) {
-    console.log(v);
     if(v.state)
 	HoxtonOwl.midiClient.sendNoteOn(v.note, 100);
     else
 	HoxtonOwl.midiClient.sendNoteOff(v.note, 0);
-    // there's a bug in keyboard that sends out velocity up to 128
-    // HoxtonOwl.midiClient.sendNoteOn(data.note, Math.min(data.on, 127));
 })
 
 var mod = new Nexus.Position('#mod',{size: [120,120], mode:'relative', y:0, maxX:0.99});
