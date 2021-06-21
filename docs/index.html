@@ -29,15 +29,13 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">The Witch</div>
-            </a>
+            <!-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html"> -->
+              <img class="sidebar-card-illustration mb-2" src="img/WitchLogo.svg" alt="The Witch">
+                <!-- <div class="sidebar-brand-text mx-3">The Witch</div> -->
+            <!-- </a> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -101,7 +99,7 @@
             <div class="sidebar-card d-none d-lg-flex">
                 <img class="sidebar-card-illustration mb-2" src="img/RebelCircular.svg" alt="...">
                 <p class="text-center mb-2"><strong>Rebel Technology</strong></p>
-                <a class="btn btn-primary btn-sm" href="https://www.rebeltech.org">Visit Website</a>
+                <a class="btn btn-info btn-sm" href="https://www.rebeltech.org">Visit Website</a>
             </div>
 
         </ul>
@@ -145,12 +143,13 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                      <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4"> -->
+                    <div class="row">
+                      <h1>Dashboard</h1>
                     </div>
 		      
                     <div class="row">
-		      <h1 class="h3 mb-0 text-gray-800">MIDI Keyboard</h1>
+		      <h2>MIDI Keyboard</h1>
 		    </div>
                     <div class="row">
 		      <div id="mod"></div>
@@ -158,7 +157,7 @@
 		    </div>
 		    
                     <div class="row">
-		      <h1 class="h3 mb-0 text-gray-800">ADSR Envelope</h1>
+		      <h2>ADSR Envelope</h1>
 		    </div>
                     <div class="row">
 		      <div id="envelope"></div>
@@ -169,13 +168,35 @@
 		    </div>
 
 		    <div class="row">
-		      <h1 class="h3 mb-0 text-gray-800">Settings</h1>
+		      <h2>Settings</h1>
 		    </div>
                     <div class="row">
-		      <p><div id="slider1"></div>&nbsp;FM Amount </p>
+		      <div class="col-2">External Input Amount Left</div>
+		      <div class="col" id="slider1"></div>
 		    </div>
                     <div class="row">
-		      <p><div id="select1"></div>&nbsp;FX Select </p>
+		      <div class="col-2">External Input Amount Right</div>
+		      <div class="col" id="slider2"></div>
+		    </div>
+                    <div class="row">
+		      <div class="col-2">Output Gain</div>
+		      <div class="col" id="slider3"></div>
+		    </div>
+                    <div class="row">
+		      <div class="col-2">FX Select</div>
+		      <div class="col" id="select1"></div>
+		    </div>
+
+		    <div class="row">
+		      <h2>Scope and Spectrogram</h1>
+		    </div>
+                    <div class="row">
+		      <div id="scope"></div>
+		      <div id="gram"></div>
+		    </div>
+                    <div class="row">
+		      <div class="col-2">Scope On/Off</div>
+		      <div class="col" id="scopebutton"></div>
 		    </div>
 
 		</div>
@@ -202,26 +223,6 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>	    

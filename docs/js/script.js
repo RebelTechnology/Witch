@@ -53,7 +53,7 @@ var envelope = new Nexus.Envelope('#envelope',{
     // envelope.movePoint(3, v[3].x, v[3].y);
 // })
 
-var attack = new Nexus.Slider('#attack', { value: adsr.attack, size: [20, 120] });
+var attack = new Nexus.Slider('#attack', { value: adsr.attack, mode:'absolute', size: [20, 120] });
 attack.on('change',function(v) {
     adsr.attack = v;
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AA, v*127);
@@ -66,7 +66,7 @@ attack.on('change',function(v) {
     envelope.setPoints(makeEnvelope(adsr));
 })
 
-var decay = new Nexus.Slider('#decay', { value: adsr.decay, size: [20, 120] });
+var decay = new Nexus.Slider('#decay', { value: adsr.decay, mode:'absolute', size: [20, 120] });
 decay.on('change',function(v) {
     adsr.decay = v;
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AB, v*127);
@@ -76,14 +76,14 @@ decay.on('change',function(v) {
     envelope.setPoints(makeEnvelope(adsr));
 })
 
-var sustain = new Nexus.Slider('#sustain', { value: adsr.sustain, size: [20, 120], max: 0.95 });
+var sustain = new Nexus.Slider('#sustain', { value: adsr.sustain, mode:'absolute', size: [20, 120], max: 0.95 });
 sustain.on('change',function(v) {
     adsr.sustain = v;
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AC, v*127);
     envelope.setPoints(makeEnvelope(adsr));
 })
 
-var release = new Nexus.Slider('#release', { value: adsr.release, size: [20, 120] });
+var release = new Nexus.Slider('#release', { value: adsr.release, mode:'absolute', size: [20, 120] });
 release.on('change',function(v) {
     adsr.release = v;
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AD, v*127);
@@ -93,17 +93,66 @@ release.on('change',function(v) {
     envelope.setPoints(makeEnvelope(adsr));
 })
 
-var slider1 = new Nexus.Slider('#slider1', { value: 0.5, size: [120, 20] });
+var slider1 = new Nexus.Slider('#slider1', { value: 0.25, mode:'absolute', size: [120, 20] });
 slider1.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AE, v*127);
 })
 
-var select1 = new Nexus.Select('#select1', {'size': [120, 30], 'options': ['Phaser', 'Delay', 'Overdrive','Chorus']})
+var slider2 = new Nexus.Slider('#slider2', { value: 0.25, mode:'absolute', size: [120, 20] });
+slider2.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AF, v*127);
+})
+
+var slider3 = new Nexus.Slider('#slider3', { value: 0.75, mode:'absolute', size: [120, 20] });
+slider3.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(7, v*127);
+})
+
+var select1 = new Nexus.Select('#select1', {size: [120, 30], options: ['Phaser', 'Delay', 'Overdrive','Chorus']})
 select1.on('change', function(v) {
     var value = Math.floor((v.index+0.5)*127/4);
-    console.log("select "+value);
-    HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AF, value);
+    HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AG, value);
 })
+
+var scope = new Nexus.Oscilloscope('#scope',{
+  'size': [300,150]
+})
+var gram = new Nexus.Spectrogram('#gram',{
+  'size': [300,150]
+})
+var scopebutton = new Nexus.Toggle('#scopebutton',{
+    'size': [20,20],
+    'state': false
+})
+scopebutton.on('change',function(v) {
+    console.log(v);
+    if(v === true){
+	var context = new window.AudioContext()
+		var constraints = { video: false,
+				    // audio: true };
+			    audio: {
+			  	echoCancellation: false,
+			  	autoGainControl: false,
+			  	noiseSuppression: false,
+			  	latency: 0
+			    }
+			  };
+	// navigator.mediaDevices.getUserMedia(constraints, function(stream) {
+	navigator.getUserMedia(constraints, function(stream) {
+	    var source = context.createMediaStreamSource(stream);
+	    scope.connect(source);
+	    gram.connect(source);
+	    console.log('scope connected')
+	}, function (error) {
+	    console.error("getUserMedia error:", error);
+	});
+	context.resume();
+    }else{
+	scope.disconnect();
+	gram.disconnect();
+	console.log('scope disconnected')
+    }
+});
 
 function controlChange(status, cc, value){
     var ch = parseInt(status)&0x0f;
