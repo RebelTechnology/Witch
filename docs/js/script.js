@@ -172,6 +172,18 @@ function controlChange(status, cc, value){
     }
 }
 
+function loadPatch(name){
+    var url = "patches/"+name+".syx";
+    console.log("loading patch "+url);
+    sendProgramFromUrl(url)
+	.then(function(){ sendProgramRun(); }, function(err){ console.error(err); });			    
+}
+
+function setButton(bid, ison){
+    HoxtonOwl.midiClient.sendCc(ison ? OpenWareMidiControl.PATCH_BUTTON_ON :
+				OpenWareMidiControl.PATCH_BUTTON_OFF, bid+3);
+}
+
 $(document).ready(function() {
     connectToOwl();
 });
