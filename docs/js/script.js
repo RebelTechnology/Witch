@@ -1,5 +1,5 @@
 var piano = new Nexus.Piano('#piano',{
-    size: [500,120],
+    size: [480,120],
     mode: 'button',
     lowNote: 24,
     highNote: 60
@@ -20,58 +20,58 @@ mod.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(1, v.y*127);
 });
 
-var attack = new Nexus.Slider('#attack', { mode:'absolute', size: [120, 20] });
+var attack = new Nexus.Slider('#attack', { mode:'absolute', size: [240, 20] });
 attack.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AA, v*127);
     envADSR.setAttackRate(v*200); drawADSR();
 })
 
-var decay = new Nexus.Slider('#decay', { mode:'absolute', size: [120, 20] });
+var decay = new Nexus.Slider('#decay', { mode:'absolute', size: [240, 20] });
 decay.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AB, v*127);
     envADSR.setDecayRate(v*200); drawADSR();
 })
 
-var sustain = new Nexus.Slider('#sustain', { mode:'absolute', size: [120, 20] });
+var sustain = new Nexus.Slider('#sustain', { mode:'absolute', size: [240, 20] });
 sustain.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AC, v*127);
     envADSR.setSustainLevel(v); drawADSR();
 })
 
-var release = new Nexus.Slider('#release', { mode:'absolute', size: [120, 20] });
+var release = new Nexus.Slider('#release', { mode:'absolute', size: [240, 20] });
 release.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AD, v*127);
     envADSR.setReleaseRate(v*200); drawADSR();
 })
 
-var ratioA = new Nexus.Slider('#ratioASlider', { mode:'absolute', size: [120, 20] });
+var ratioA = new Nexus.Slider('#ratioASlider', { mode:'absolute', size: [240, 20] });
 ratioA.on('change',function(v) {
     // HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_??, v*127);
     envADSR.setTargetRatioA(0.001 * (Math.exp(12.0*v)-1.0)); drawADSR();
 })
 
-var ratioDR = new Nexus.Slider('#ratioDRSlider', { mode:'absolute', size: [120, 20] });
+var ratioDR = new Nexus.Slider('#ratioDRSlider', { mode:'absolute', size: [240, 20] });
 ratioDR.on('change',function(v) {
     // HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_??, v*127);
     envADSR.setTargetRatioDR(0.001 * (Math.exp(12.0*v)-1.0)); drawADSR();
 })
 
-var slider1 = new Nexus.Slider('#slider1', { value: 0.25, mode:'absolute', size: [120, 20] });
+var slider1 = new Nexus.Slider('#slider1', { value: 0.25, mode:'absolute', size: [240, 20] });
 slider1.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AE, v*127);
 })
 
-var slider2 = new Nexus.Slider('#slider2', { value: 0.25, mode:'absolute', size: [120, 20] });
+var slider2 = new Nexus.Slider('#slider2', { value: 0.25, mode:'absolute', size: [240, 20] });
 slider2.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AF, v*127);
 })
 
-var slider3 = new Nexus.Slider('#slider3', { value: 0.75, mode:'absolute', size: [120, 20] });
+var slider3 = new Nexus.Slider('#slider3', { value: 0.75, mode:'absolute', size: [240, 20] });
 slider3.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(7, v*127);
 })
 
-var select1 = new Nexus.Select('#select1', {size: [120, 30], options: ['Phaser', 'Delay', 'Overdrive','Chorus']})
+var select1 = new Nexus.Select('#select1', {size: [240, 30], options: ['Phaser', 'Delay', 'Overdrive','Chorus']})
 select1.on('change', function(v) {
     var value = Math.floor((v.index+0.5)*127/4);
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AG, value);
@@ -173,7 +173,14 @@ function drawADSR() {
 	envPlot.push([idx, envADSR.process()]);
     
     // plot linear
-    Flotr.draw(document.getElementById('container20130623'), [ envPlot ], { colors: ['#22bbbb'], xaxis: { ticks: [] }, yaxis: { max: 1.0, min: 0, ticks: []} });
+    // colours: nexus azure #22bbbb, bootstrap grey dark: #5a5c69, secondary: #858796
+    var options = {
+	colors: ['#858796'],
+	grid: { show: false },
+	xaxis: { showLabels: false },
+	yaxis: { max: 1.0, min: 0, showLabels: false }
+    };
+    Flotr.draw(document.getElementById('container20130623'), [ envPlot ], options);
 }
 
 
