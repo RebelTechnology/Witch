@@ -165,6 +165,8 @@
 			    <button type="button" data-bs-toggle="collapse" data-bs-target="#accordion3" aria-expanded="false" aria-controls="accordion3">WaveBank</button>
 			    <button type="button" data-bs-toggle="collapse" data-bs-target="#accordion4" aria-expanded="false" aria-controls="accordion4">QuadSampler</button>
 
+
+			    <button type="button" data-bs-toggle="collapse" data-bs-target="#accordion0" aria-expanded="true" aria-controls="accordion0"><span class="fa fa-angle-up"/></button>
 			  </div>
 			</div>
 		      </div>
@@ -248,6 +250,7 @@ Out 6: LFO2 Clock
 In Left: FM Left
 In Right: FM Right</pre>			    
 			  </div>
+			  <p>The WaveBank patch loads two wav resources, each containing a bank of 8 by 8 single cycle waveforms. One is for the left output channel, the other for the right. The wavebank format is compatible with the popular WaveEdit software and its online <a href="https://waveeditonline.com/">library of free wavetable banks</a>.
 			  <button class="btn btn-link" onclick="loadPatch('WaveBankExpression')">Load WaveBank Expression Patch</button>
 			  <button class="btn btn-link" onclick="loadPatch('WaveBankPerformance')">Load WaveBank Performance Patch</button>
 
@@ -302,12 +305,33 @@ In Right: todo</pre>
                     <div class="row">
 		      <h2>ADSR Envelope</h2>
 		    </div>
+		    <div class="row">
+		      <div id="container20130623" style="width: 600px; height: 120px; position: relative;">
+			<canvas class="flotr-canvas" width="600" height="120" style="position: absolute; left: 0px; top: 0px; width: 600px; height: 120px;"></canvas>
+		      </div>
+		    </div>
                     <div class="row">
-		      <div id="envelope"></div>
-		      <div id="attack"></div>
-		      <div id="decay"></div>
-		      <div id="sustain"></div>
-		      <div id="release"></div>
+		      <div class="col-2">Attack</div>
+		      <div class="col" id="attack"></div>
+		    </div>
+
+		    <div class="row">
+		      <div class="col-2">Decay</div>
+		      <div class="col" id="decay"></div>
+		    </div>
+
+		    <div class="row">
+		      <div class="col-2">Sustain</div>
+		      <div class="col" id="sustain"></div>
+		    </div>
+
+		    <div class="row">
+		      <div class="col-2">Release</div>
+		      <div class="col" id="release"></div>
+		    </div>
+		    <div class="row d-none">
+		      <p>Attack Curve <div id="ratioASlider"></div></p>
+		      <p>Decay/Release Curve <div id="ratioDRSlider"></div></p>
 		    </div>
 
 		    <div class="row">
@@ -380,6 +404,10 @@ In Right: todo</pre>
     <script src="js/midiclient.js"></script>
     <script src="js/owlcmd.js"></script>
     <script src="js/OpenWareMidiControl.js"></script>
+    
+    <script type="text/javascript" src="js/ADSR.js"></script>
+    <!-- <script type="text/javascript" src="js/drawADSR.js"></script> -->
+    <script type="text/javascript" src="js/flotr2.min.js"></script>
 </body>
 
 </html>

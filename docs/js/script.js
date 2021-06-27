@@ -20,75 +20,40 @@ mod.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(1, v.y*127);
 });
 
-var adsr = {
-    attack:  0.1,
-    decay: 0.1,
-    sustain: 0.9,
-    release: 0.1
-};
-
-function makeEnvelope(adsr){
-    return [
-	{ x: 0, y: 0 },
-	{ x: adsr.attack/4, y: 0.95 },
-	{ x: adsr.attack/4 + adsr.decay/4, y: adsr.sustain },
-	{ x: 3/4, y: adsr.sustain },
-	{ x: 3/4 + adsr.release/4, y: 0 }
-    ];
-}
-
-var envelope = new Nexus.Envelope('#envelope',{
-    'size': [300,120],
-    'noNewPoints': true,
-    'points': makeEnvelope(adsr)
-})
-
-// envelope.on('change',function(v) {
-    // console.log(v);
-    // envelope.movePoint(0, 0, 0);
-    // envelope.movePoint(1, v[1].x, 0.95);
-    // envelope.movePoint(2, v[2].x, v[2].y);
-    // envelope.movePoint(3, v[3].x, v[3].y);
-// })
-
-var attack = new Nexus.Slider('#attack', { value: adsr.attack, mode:'absolute', size: [20, 120] });
+var attack = new Nexus.Slider('#attack', { mode:'absolute', size: [120, 20] });
 attack.on('change',function(v) {
-    adsr.attack = v;
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AA, v*127);
-    // if(adsr.attack+adsr.decay+adsr.release > 1)
-    // 	decay.value = Math.max(0, 1 - (adsr.attack + adsr.release));
-    // 	// adsr.decay = Math.max(0, 1 - adsr.attack - adsr.release);
-    // 	// if(adsr.decay == 0)
-    // 	//     adsr.release = Math.max(0, 1 - adsr.attack);
-    // else
-    envelope.setPoints(makeEnvelope(adsr));
+    envADSR.setAttackRate(v*200); drawADSR();
 })
 
-var decay = new Nexus.Slider('#decay', { value: adsr.decay, mode:'absolute', size: [20, 120] });
+var decay = new Nexus.Slider('#decay', { mode:'absolute', size: [120, 20] });
 decay.on('change',function(v) {
-    adsr.decay = v;
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AB, v*127);
-    // if(adsr.attack+adsr.decay+adsr.release > 1)
-    // 	release.value = Math.max(0, 1 - (adsr.attack + adsr.decay));
-    // else
-    envelope.setPoints(makeEnvelope(adsr));
+    envADSR.setDecayRate(v*200); drawADSR();
 })
 
-var sustain = new Nexus.Slider('#sustain', { value: adsr.sustain, mode:'absolute', size: [20, 120], max: 0.95 });
+var sustain = new Nexus.Slider('#sustain', { mode:'absolute', size: [120, 20] });
 sustain.on('change',function(v) {
-    adsr.sustain = v;
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AC, v*127);
-    envelope.setPoints(makeEnvelope(adsr));
+    envADSR.setSustainLevel(v); drawADSR();
 })
 
-var release = new Nexus.Slider('#release', { value: adsr.release, mode:'absolute', size: [20, 120] });
+var release = new Nexus.Slider('#release', { mode:'absolute', size: [120, 20] });
 release.on('change',function(v) {
-    adsr.release = v;
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AD, v*127);
-    // if(adsr.attack+adsr.decay+adsr.release > 1)
-    // 	attack.value = Math.max(0, 1 - (adsr.decay + adsr.release));
-    // else
-    envelope.setPoints(makeEnvelope(adsr));
+    envADSR.setReleaseRate(v*200); drawADSR();
+})
+
+var ratioA = new Nexus.Slider('#ratioASlider', { mode:'absolute', size: [120, 20] });
+ratioA.on('change',function(v) {
+    // HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_??, v*127);
+    envADSR.setTargetRatioA(0.001 * (Math.exp(12.0*v)-1.0)); drawADSR();
+})
+
+var ratioDR = new Nexus.Slider('#ratioDRSlider', { mode:'absolute', size: [120, 20] });
+ratioDR.on('change',function(v) {
+    // HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_??, v*127);
+    envADSR.setTargetRatioDR(0.001 * (Math.exp(12.0*v)-1.0)); drawADSR();
 })
 
 var slider1 = new Nexus.Slider('#slider1', { value: 0.25, mode:'absolute', size: [120, 20] });
@@ -184,6 +149,43 @@ function setButton(bid, ison){
 				OpenWareMidiControl.PATCH_BUTTON_OFF, bid+3);
 }
 
+function drawAllADSR() {
+    envADSR.setAttackRate(attack.value*200);
+    envADSR.setDecayRate(decay.value*200);
+    envADSR.setSustainLevel(sustain.value);
+    envADSR.setReleaseRate(release.value*200);
+    envADSR.setTargetRatioA(0.001 * (Math.exp(12.0*ratioASlider.value)-1.0));
+    envADSR.setTargetRatioDR(0.001 * (Math.exp(12.0*ratioDRSlider.value)-1.0));
+    drawADSR();
+}
+
+function drawADSR() {
+    var val;
+    var envPlot = [];
+    envADSR.reset();
+    envADSR.gate(1);
+    envPlot.push([0, 0]);
+    var idx;
+    for (idx = 1; idx < 400; idx++)
+	envPlot.push([idx, envADSR.process()]);
+    envADSR.gate(0);
+    for (idx = 400; idx < 600; idx++)
+	envPlot.push([idx, envADSR.process()]);
+    
+    // plot linear
+    Flotr.draw(document.getElementById('container20130623'), [ envPlot ], { colors: ['#22bbbb'], xaxis: { ticks: [] }, yaxis: { max: 1.0, min: 0, ticks: []} });
+}
+
+
 $(document).ready(function() {
     connectToOwl();
+
+    envADSR = new ADSR;
+    attack.value = 0.1;
+    decay.value = 0.1;
+    sustain.value = 0.9;
+    release.value = 0.1;
+    ratioA.value = 1;
+    ratioDR.value = 1;
+
 });
