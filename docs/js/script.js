@@ -228,13 +228,14 @@ function drawADSR() {
 	xaxis: { showLabels: false },
 	yaxis: { max: 1.0, min: 0, showLabels: false }
     };
-    Flotr.draw(document.getElementById('container20130623'), [ envPlot ], options);
+    Flotr.draw(document.getElementById('adsr'), [ envPlot ], options);
 }
 
 
 $(document).ready(function() {
     connectToOwl();
 
+    // $('#collapse2').collapse('show');
     envADSR = new ADSR;
     attack.value = 0.2;
     decay.value = 0.2;
@@ -242,5 +243,9 @@ $(document).ready(function() {
     release.value = 0.2;
     ratioA.value = 1;
     ratioDR.value = 1;
-
+    $('#collapse2').toggleClass('show');
+    // document.getElementById('collapse2').hide();
+    // $('#collapse2').hide();
+    // $('#accordionMain .accordion-body').hide()
+    
 });
