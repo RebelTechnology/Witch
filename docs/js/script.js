@@ -56,18 +56,18 @@ ratioDR.on('change',function(v) {
     envADSR.setTargetRatioDR(0.001 * (Math.exp(12.0*v)-1.0)); drawADSR();
 })
 
-var slider1 = new Nexus.Slider('#slider1', { value: 0.25, mode:'absolute', size: [240, 20] });
-slider1.on('change',function(v) {
+var extL = new Nexus.Slider('#extL', { value: 0.25, mode:'absolute', size: [240, 20] });
+extL.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AE, v*127);
 })
 
-var slider2 = new Nexus.Slider('#slider2', { value: 0.25, mode:'absolute', size: [240, 20] });
-slider2.on('change',function(v) {
+var extR = new Nexus.Slider('#extR', { value: 0.25, mode:'absolute', size: [240, 20] });
+extR.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AF, v*127);
 })
 
-var slider3 = new Nexus.Slider('#slider3', { value: 0.75, mode:'absolute', size: [240, 20] });
-slider3.on('change',function(v) {
+var gain = new Nexus.Slider('#gain', { value: 0.75, mode:'absolute', size: [240, 20] });
+gain.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(7, v*127);
 })
 
@@ -76,6 +76,54 @@ select1.on('change', function(v) {
     var value = Math.floor((v.index+0.5)*127/4);
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AG, value);
 })
+
+
+var parameterA = new Nexus.Dial('#parameterA', { value: 0.5, mode:'absolute', size: [80, 80] });
+parameterA.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_A, v*127);
+})
+
+var parameterB = new Nexus.Dial('#parameterB', { value: 0.5, mode:'absolute', size: [80, 80] });
+parameterB.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_B, v*127);
+})
+
+var parameterC = new Nexus.Dial('#parameterC', { value: 0.5, mode:'absolute', size: [80, 80] });
+parameterC.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_C, v*127);
+})
+
+var parameterD = new Nexus.Dial('#parameterD', { value: 0.5, mode:'absolute', size: [80, 80] });
+parameterD.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_D, v*127);
+})
+
+var parameterE = new Nexus.Dial('#parameterE', { value: 0.5, mode:'absolute', size: [80, 80] });
+parameterE.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_E, v*127);
+})
+
+
+var attenuvertA = new Nexus.Dial('#attenuvertA', { max: 127, value: 97, mode:'absolute', size: [80, 80] });
+attenuvertA.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_BA, v);
+})
+
+var attenuvertB = new Nexus.Dial('#attenuvertB', { max: 127, value: 97, mode:'absolute', size: [80, 80] });
+attenuvertB.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_BB, v);
+})
+
+var attenuvertC = new Nexus.Dial('#attenuvertC', { max: 127, value: 97, mode:'absolute', size: [80, 80] });
+attenuvertC.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_BC, v);
+})
+
+var attenuvertD = new Nexus.Dial('#attenuvertD', { max: 127, value: 97, mode:'absolute', size: [80, 80] });
+attenuvertD.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_BD, v);
+})
+
 
 var scope = new Nexus.Oscilloscope('#scope',{
   'size': [300,150]
@@ -188,10 +236,10 @@ $(document).ready(function() {
     connectToOwl();
 
     envADSR = new ADSR;
-    attack.value = 0.1;
-    decay.value = 0.1;
-    sustain.value = 0.9;
-    release.value = 0.1;
+    attack.value = 0.2;
+    decay.value = 0.2;
+    sustain.value = 0.8;
+    release.value = 0.2;
     ratioA.value = 1;
     ratioDR.value = 1;
 

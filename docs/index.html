@@ -295,6 +295,7 @@ In Right: todo</pre>
 			</div>
 		      </div>
 		    </div>
+
                     <div class="row">
 		      <h2>MIDI Keyboard</h2>
 		    </div>
@@ -336,19 +337,88 @@ In Right: todo</pre>
 		    </div>
 
 		    <div class="row">
+		      <h2>Controls</h2>
+		    </div>
+		    <div class="row">
+                    <table class="table">
+		      <thead class="thead-light">
+			<tr>
+		      <th id="labelA">A</th>
+		      <th id="labelB">B</th>
+		      <th id="labelC">C</th>
+		      <th id="labelD">D</th>
+		      <th id="labelE">E</th>
+			</tr>
+		    </thead
+		      <tbody>
+                    <tr>
+		      <td id="parameterA"></td>
+		      <td id="parameterB"></td>
+		      <td id="parameterC"></td>
+		      <td id="parameterD"></td>
+		      <td id="parameterE"></td>
+		    </tr>
+		      </tbody>
+		      </table>
+		    
+                    <!-- <div class="row"> -->
+		    <!--   <div class="col" id="parameterA"></div> -->
+		    <!--   <div class="col" id="parameterB"></div> -->
+		    <!--   <div class="col" id="parameterC"></div> -->
+		    <!--   <div class="col" id="parameterD"></div> -->
+		    <!--   <div class="col" id="parameterE"></div> -->
+		    <!-- </div> -->
+		    </div>
+
+		    
+		    <div class="row">
+		      <h2>CV Attenuvertion</h2>
+		    </div>
+		    <div class="row">
+		      <div class="container">
+			<div class="row">
+			  <div class="col">A</div>
+			  <div class="col">B</div>
+			  <div class="col">C</div>
+			  <div class="col">D</div>
+			</div>
+			<div class="row">
+			  <div class="col" id="attenuvertA"></div>
+			  <div class="col" id="attenuvertB"></div>
+			  <div class="col" id="attenuvertC"></div>
+			  <div class="col" id="attenuvertD"></div>
+			</div>
+			<div class="row">
+			  <div class="col">
+			    <button type="button" class="btn btn-light" onclick="attenuvertA.value=97">1V/Oct</button>
+			  </div>
+			  <div class="col">
+			    <button type="button" class="btn btn-light" onclick="attenuvertB.value=97">1V/Oct</button>
+			  </div>
+			  <div class="col">
+			    <button type="button" class="btn btn-light" onclick="attenuvertC.value=97">1V/Oct</button>
+			  </div>
+			  <div class="col">
+			    <button type="button" class="btn btn-light" onclick="attenuvertD.value=97">1V/Oct</button>
+			  </div>
+			</div>
+		      </div>
+		    </div>
+
+		    <div class="row">
 		      <h2>Settings</h2>
 		    </div>
                     <div class="row">
 		      <div class="col-2">External Input Amount Left</div>
-		      <div class="col" id="slider1"></div>
+		      <div class="col" id="extL"></div>
 		    </div>
                     <div class="row">
 		      <div class="col-2">External Input Amount Right</div>
-		      <div class="col" id="slider2"></div>
+		      <div class="col" id="extR"></div>
 		    </div>
                     <div class="row">
 		      <div class="col-2">Output Gain</div>
-		      <div class="col" id="slider3"></div>
+		      <div class="col" id="gain"></div>
 		    </div>
                     <div class="row">
 		      <div class="col-2">FX Select</div>
