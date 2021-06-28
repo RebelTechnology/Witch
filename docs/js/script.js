@@ -66,6 +66,11 @@ extR.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AF, v*127);
 })
 
+var waveshape = new Nexus.Slider('#waveshape', { value: 0, mode:'absolute', size: [240, 20] });
+waveshape.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_H, v*127);
+})
+
 var gain = new Nexus.Slider('#gain', { value: 0.75, mode:'absolute', size: [240, 20] });
 gain.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(7, v*127);
