@@ -33,10 +33,12 @@
     <ul class="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <!-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html"> -->
-      <img class="sidebar-card-illustration mb-2" src="img/WitchLogo.svg" alt="The Witch" />
-      <!-- <div class="sidebar-brand-text mx-3">The Witch</div> -->
-      <!-- </a> -->
+      <!-- <li> -->
+      	<!-- <a href="index.html" target="_blank"> -->
+	  <img src="img/WitchLogo.svg" alt="The Witch" />
+	  <!-- <div class="sidebar-brand-text mx-3">The Witch</div> -->
+      	<!-- </a> -->
+      <!-- </li> -->
       
       <li class="nav-item">
         <a class="nav-link"
@@ -90,10 +92,10 @@
       <hr class="sidebar-divider" />
 
       <!-- Heading -->
-      <div class="sidebar-heading">Tools</div>
+      <!-- <div class="sidebar-heading">Tools</div> -->
 
       <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block" />
+      <!-- <hr class="sidebar-divider d-none d-md-block" /> -->
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
@@ -102,11 +104,11 @@
 
       <!-- Sidebar Message -->
       <div class="sidebar-card d-none d-lg-flex">
-	<a href="https://www.rebeltech.org">
+	<a href="https://www.rebeltech.org" target="_blank">
           <img class="sidebar-card-illustration mb-2" src="img/RebelCircular.svg" alt="Rebel Technology" />
 	</a>
         <p class="text-center mb-2"><strong>Rebel Technology</strong></p>
-        <a class="btn btn-secondary btn-sm" href="https://www.rebeltech.org">Visit Website</a>
+        <a class="btn btn-secondary btn-sm" href="https://www.rebeltech.org" target="_blank">Visit Website</a>
       </div>
 
     </ul>
@@ -131,10 +133,12 @@
             <li class="nav-item">
 	      <p id="patchmessage">&nbsp;</p>
 	    </li>
+	    <!--
             <div class="topbar-divider d-none d-sm-block"></div>
             <li class="nav-item">
 	      <p id="patchstatus">&nbsp;</p>
 	    </li>
+	    -->
             <div class="topbar-divider d-none d-sm-block"></div>
             <li class="nav-item">
 	      <p id="ourstatus">Not Connected</p>
@@ -154,7 +158,7 @@
 		<div class="accordion-body">
 		  <img src="img/WitchLogo.svg" alt="The Witch" width="20%" />
 		  <p><strong>The Witch is a compact and versatile polyphonic synthesizer.</strong></p>
-		  <p>This website is a MIDI synth editor for <a href="https://www.rebeltech.org/product/witch">the Witch</a>. Use a <a href="https://www.midi.org/midi-articles/about-web-midi">WebMIDI</a> capable browser (such as Chome/Chromium) and connect your Witch with the USB cable to enable the editor functions.</p>
+		  <p>This website is a MIDI synth editor for <a href="https://www.rebeltech.org/product/witch" target="_blank">the Witch</a>. Use a <a href="https://www.midi.org/midi-articles/about-web-midi" target="_blank">WebMIDI</a> capable browser (such as Chome/Chromium) and connect your Witch with the USB cable to enable the editor functions.</p>
 		  <p>The Witch comes with a set of eight factory patches, implementing four different synthesis engines:</p>
 		  <div class="row">
 		    <button class="col" type="button" data-bs-toggle="collapse" data-bs-target="#accordion1" aria-expanded="false" aria-controls="accordion1">SubTract</button>
@@ -246,7 +250,7 @@ Out 6: LFO2 Clock
 In Left: FM Left
 In Right: FM Right</pre>			    
 		</div>
-		<p>The WaveBank patch loads two resources. Each contains a bank of 8 x 8 single cycle waveforms. One is for the left output channel, the other for the right. The wavebanks are standard 16-bit mono wav files, and are compatible with the popular WaveEdit software and its online <a href="https://waveeditonline.com/">library of free wavetable banks</a>.
+		<p>The WaveBank patch loads two resources. Each contains a bank of 8 x 8 single cycle waveforms. One is for the left output channel, the other for the right. The wavebanks are standard 16-bit mono wav files, and are compatible with the popular WaveEdit software and its online <a href="https://waveeditonline.com/" target="_blank">library of free wavetable banks</a>.
 		</p>
 		<button class="btn btn-link" onclick="loadPatch('WaveBankExpression')">Load WaveBank Expression Patch</button>
 		<button class="btn btn-link" onclick="loadPatch('WaveBankPerformance')">Load WaveBank Performance Patch</button>
@@ -410,6 +414,8 @@ In Right: todo</pre>
 			<button type="button" class="btn btn-light" onclick="attenuvertD.value=97">1V/Oct</button>
 		      </div>
 		    </div>
+		  </div>
+		  <div class="row">The CV attenuverters pass no CV at the centre position. Clockwise adds a positive amount while anti-clockwise adds a negative (inverted) amount. Click 1V/Oct to set a 5V range suitable for 1V/octave 
 		  </div>
 		</div>
 	      </div>

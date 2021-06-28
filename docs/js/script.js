@@ -1,5 +1,5 @@
 var piano = new Nexus.Piano('#piano',{
-    size: [480,120],
+    size: [480, 120],
     mode: 'button',
     lowNote: 24,
     highNote: 60
