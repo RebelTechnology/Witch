@@ -3,24 +3,24 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
     <title>The Witch</title>
 
     <!-- Custom fonts for this template-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet" />
 
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
 
 </head>
 
@@ -153,7 +153,7 @@
                     <!--   <h1>Dashboard</h1> -->
                     <!-- </div> -->
 
-		    <div class="accordion" id="accordionContent">
+		    <div class="accordion accordion-flush" id="accordionContent">
 		      <div class="accordion-item">
 			<div id="accordion0" class="accordion-collapse collapse show" aria-labelledby="heading0" data-bs-parent="#accordionContent">
 			  <!-- <h2 class="accordion-header" id="heading0">The Witch</h2> -->
@@ -254,7 +254,7 @@ In Right: FM Right</pre>
 			  <p>The WaveBank patch loads two wav resources, each containing a bank of 8 by 8 single cycle waveforms. One is for the left output channel, the other for the right. The wavebank format is compatible with the popular WaveEdit software and its online <a href="https://waveeditonline.com/">library of free wavetable banks</a>.
 			  <button class="btn btn-link" onclick="loadPatch('WaveBankExpression')">Load WaveBank Expression Patch</button>
 			  <button class="btn btn-link" onclick="loadPatch('WaveBankPerformance')">Load WaveBank Performance Patch</button>
-
+			  </p>
 			  <p>
 			    <form>
 			      File: <input type="file" name="files[]" multiple="false" accept=".wav"/>
@@ -296,150 +296,190 @@ In Right: todo</pre>
 		      </div>
 		    </div>
 
-                    <div class="row">
-		      <h2>MIDI Keyboard</h2>
-		    </div>
-                    <div class="row">
-		      <div id="mod"></div>
-		      <div id="piano"></div>
-		    </div>
-		    
-                    <div class="row">
-		      <h2>ADSR Envelope</h2>
-		    </div>
-		    <div class="row">
-		      <div id="container20130623" style="width: 600px; height: 120px; position: relative;">
-			<canvas class="flotr-canvas" width="600" height="120" style="position: absolute; left: 0px; top: 0px; width: 600px; height: 120px;"></canvas>
-		      </div>
-		    </div>
-                    <div class="row">
-		      <div class="col-2">Attack</div>
-		      <div class="col" id="attack"></div>
-		    </div>
-
-		    <div class="row">
-		      <div class="col-2">Decay</div>
-		      <div class="col" id="decay"></div>
-		    </div>
-
-		    <div class="row">
-		      <div class="col-2">Sustain</div>
-		      <div class="col" id="sustain"></div>
-		    </div>
-
-		    <div class="row">
-		      <div class="col-2">Release</div>
-		      <div class="col" id="release"></div>
-		    </div>
-		    <div class="row d-none">
-		      <p>Attack Curve <div id="ratioASlider"></div></p>
-		      <p>Decay/Release Curve <div id="ratioDRSlider"></div></p>
-		    </div>
-
-		    <div class="row">
-		      <h2>Controls</h2>
-		    </div>
-		    <div class="row">
-                    <table class="table">
-		      <thead class="thead-light">
-			<tr>
-		      <th id="labelA">A</th>
-		      <th id="labelB">B</th>
-		      <th id="labelC">C</th>
-		      <th id="labelD">D</th>
-		      <th id="labelE">E</th>
-			</tr>
-		    </thead
-		      <tbody>
-                    <tr>
-		      <td id="parameterA"></td>
-		      <td id="parameterB"></td>
-		      <td id="parameterC"></td>
-		      <td id="parameterD"></td>
-		      <td id="parameterE"></td>
-		    </tr>
-		      </tbody>
-		      </table>
-		    
-                    <!-- <div class="row"> -->
-		    <!--   <div class="col" id="parameterA"></div> -->
-		    <!--   <div class="col" id="parameterB"></div> -->
-		    <!--   <div class="col" id="parameterC"></div> -->
-		    <!--   <div class="col" id="parameterD"></div> -->
-		    <!--   <div class="col" id="parameterE"></div> -->
-		    <!-- </div> -->
-		    </div>
-
-		    
-		    <div class="row">
-		      <h2>CV Attenuvertion</h2>
-		    </div>
-		    <div class="row">
-		      <div class="container">
-			<div class="row">
-			  <div class="col">A</div>
-			  <div class="col">B</div>
-			  <div class="col">C</div>
-			  <div class="col">D</div>
-			</div>
-			<div class="row">
-			  <div class="col" id="attenuvertA"></div>
-			  <div class="col" id="attenuvertB"></div>
-			  <div class="col" id="attenuvertC"></div>
-			  <div class="col" id="attenuvertD"></div>
-			</div>
-			<div class="row">
-			  <div class="col">
-			    <button type="button" class="btn btn-light" onclick="attenuvertA.value=97">1V/Oct</button>
-			  </div>
-			  <div class="col">
-			    <button type="button" class="btn btn-light" onclick="attenuvertB.value=97">1V/Oct</button>
-			  </div>
-			  <div class="col">
-			    <button type="button" class="btn btn-light" onclick="attenuvertC.value=97">1V/Oct</button>
-			  </div>
-			  <div class="col">
-			    <button type="button" class="btn btn-light" onclick="attenuvertD.value=97">1V/Oct</button>
+		    <div class="accordion accordion-flush" id="accordion2">
+                      <div class="accordion-item">
+			<h2 class="accordion-header" id="heading1b">
+			  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+			    MIDI Keyboard
+			  </button>
+			</h2>
+			<div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1b">
+			  <div class="accordion-body">
+			    <div class="row">
+			      <div id="mod"></div>
+			      <div id="piano"></div>
+			    </div>
 			  </div>
 			</div>
 		      </div>
-		    </div>
 
-		    <div class="row">
-		      <h2>Settings</h2>
-		    </div>
-                    <div class="row">
-		      <div class="col-2">External Input Amount Left</div>
-		      <div class="col" id="extL"></div>
-		    </div>
-                    <div class="row">
-		      <div class="col-2">External Input Amount Right</div>
-		      <div class="col" id="extR"></div>
-		    </div>
-                    <div class="row">
-		      <div class="col-2">Output Gain</div>
-		      <div class="col" id="gain"></div>
-		    </div>
-                    <div class="row">
-		      <div class="col-2">FX Select</div>
-		      <div class="col" id="select1"></div>
-		    </div>
+		      <div class="accordion-item">
+			<h2 class="accordion-header" id="heading2b">
+			  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+			    ADSR Envelope
+			  </button>
+			</h2>
+			<div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2b">
+			  <div class="accordion-body">
+			    <div class="row">
+			      <div id="container20130623" style="width: 600px; height: 120px; position: relative;">
+				<canvas class="flotr-canvas" width="600" height="120" style="position: absolute; left: 0px; top: 0px; width: 600px; height: 120px;"></canvas>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="col-2">Attack</div>
+			      <div class="col" id="attack"></div>
+			    </div>
+			    <div class="row">
+			      <div class="col-2">Decay</div>
+			      <div class="col" id="decay"></div>
+			    </div>
+			    <div class="row">
+			      <div class="col-2">Sustain</div>
+			      <div class="col" id="sustain"></div>
+			    </div>
+			    <div class="row">
+			      <div class="col-2">Release</div>
+			      <div class="col" id="release"></div>
+			    </div>
+			    <div class="row d-none">
+			      <p>Attack Curve <div id="ratioASlider"></div></p>
+			      <p>Decay/Release Curve <div id="ratioDRSlider"></div></p>
+			    </div>
+			  </div>
+			</div>
+		      </div>
 
-		    <div class="row">
-		      <h2>Scope and Spectrogram</h2>
-		    </div>
-                    <div class="row">
-		      <div id="scope"></div>
-		      <div id="gram"></div>
-		    </div>
-                    <div class="row">
-		      <div class="col-2">Scope On/Off</div>
-		      <div class="col" id="scopebutton"></div>
-		    </div>
-                    <div class="row">
-		      <p>To enable the scope and spectrogram, first select <strong>OWL-WITCH</strong> as your device microphone. Then select Scope On and, when prompted, allow the browser access to your microphone.</p>
+		      <div class="accordion-item">
+			<h2 class="accordion-header" id="heading3b">
+			  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+			    Parameter Controls
+			  </button>
+			</h2>
+			<div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3b">
+			  <div class="accordion-body">
+			    <div class="row">
+			      <table class="table">
+				<thead class="thead-light">
+				  <tr>
+				    <th id="labelA">A</th>
+				    <th id="labelB">B</th>
+				    <th id="labelC">C</th>
+				    <th id="labelD">D</th>
+				    <th id="labelE">E</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr>
+				    <td id="parameterA"></td>
+				    <td id="parameterB"></td>
+				    <td id="parameterC"></td>
+				    <td id="parameterD"></td>
+				    <td id="parameterE"></td>
+				  </tr>
+				</tbody>
+			      </table>
+			    </div>
+			  </div>
+			</div>
+		      </div>
+		      
+		      <div class="accordion-item">
+			<h2 class="accordion-header" id="heading4b">
+			  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+			    CV Attenuvertion
+			  </button>
+			</h2>
+			<div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4b">
+			  <div class="accordion-body">
+		      	    <div class="container">
+			      <div class="row">
+				<div class="col">A</div>
+				<div class="col">B</div>
+				<div class="col">C</div>
+				<div class="col">D</div>
+			      </div>
+			      <div class="row">
+				<div class="col" id="attenuvertA"></div>
+				<div class="col" id="attenuvertB"></div>
+				<div class="col" id="attenuvertC"></div>
+				<div class="col" id="attenuvertD"></div>
+			      </div>
+			      <div class="row">
+				<div class="col">
+				  <button type="button" class="btn btn-light" onclick="attenuvertA.value=97">1V/Oct</button>
+				</div>
+				<div class="col">
+				  <button type="button" class="btn btn-light" onclick="attenuvertB.value=97">1V/Oct</button>
+				</div>
+				<div class="col">
+				  <button type="button" class="btn btn-light" onclick="attenuvertC.value=97">1V/Oct</button>
+				</div>
+				<div class="col">
+				  <button type="button" class="btn btn-light" onclick="attenuvertD.value=97">1V/Oct</button>
+				</div>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		      </div>
+		      
+		      <div class="accordion-item">
+			<h2 class="accordion-header" id="heading5b">
+			  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
+			    Patch Settings
+			  </button>
+			</h2>
+			<div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5b">
+			  <div class="accordion-body">
+			    <div class="row">
+			      <div class="col-2">External Input Amount Left</div>
+			      <div class="col" id="extL"></div>
+			    </div>
+			    <div class="row">
+			      <div class="col-2">External Input Amount Right</div>
+			      <div class="col" id="extR"></div>
+			    </div>
+			    <div class="row">
+			      <div class="col-2">Output Gain</div>
+			      <div class="col" id="gain"></div>
+			    </div>
+			    <div class="row">
+			      <div class="col-2">FX Select</div>
+			      <div class="col" id="select1"></div>
+			    </div>
+			  </div>
+			</div>
+		      </div>
+
+		      
+		      <div class="accordion-item">
+			<h2 class="accordion-header" id="heading6b">
+			  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
+			    Scope and Spectrogram
+			  </button>
+			</h2>
+			<div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6b">
+			  <div class="accordion-body">
+			    <div class="row">
+			      <div id="scope"></div>
+			      <div id="gram"></div>
+			    </div>
+			    <div class="row">
+			      <div class="col-2">Scope On/Off</div>
+			      <div class="col" id="scopebutton"></div>
+			    </div>
+			    <div class="row">
+			      <p>To enable the scope and spectrogram, first select <strong>OWL-WITCH</strong> as your device microphone. Then select Scope On and, when prompted, allow the browser access to your microphone.</p>
+			    </div>
+			  </div>
+			</div>
+		      </div>
+
+		    </div> <!-- accordion -->
+		    
+		  </div>
 		</div>
-            </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -479,6 +519,6 @@ In Right: todo</pre>
     
     <script type="text/javascript" src="js/ADSR.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flotr2@0.1.0/flotr2.min.js" integrity="sha256-jpHTJcuJpXPIfsh5MKF6DdTha1mSbUvMBmkcJuN6ufw=" crossorigin="anonymous"></script>
-</body>
+  </body>
 
 </html>
