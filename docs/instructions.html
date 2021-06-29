@@ -103,48 +103,43 @@
         <div class="container-fluid">
 
 	  <div class="card">
-	    <h3>Acknowledgements</h3>
-	    <div class="list-group">
-	      <a class="list-group-item list-group-item-action"
-		 href="https://nexus-js.github.io/ui/" target="_blank">
-		MIDI Keyboard, Scope and Spectrogram widgets: Nexus UI
-	      </a>
-	      <a class="list-group-item list-group-item-action"
-		 href="https://www.earlevel.com/main/2013/06/23/envelope-generators-adsr-widget" target="_blank">
-		ADSR Envelope widget: Nigel Redmon, Earlevel Engineering
-	      </a>
-	      <a class="list-group-item list-group-item-action"
-		 href="http://blog.synthesizerwriter.com/" target="_blank">
-		Beta Testing: Martin Russ
-	      </a>
-	      <a class="list-group-item list-group-item-action"
-		 href="https://github.com/pichenettes/stmlib/blob/master/dsp/polyblep.h" target="_blank">
-		Polyblep oscillator: Émilie Gillet
-	      </a>
-	      <a class="list-group-item list-group-item-action"
-		 href="https://electro-music.com/nm_classic/015_workshops/Clavia/NordModularWorkshops&Threads/WerkMap/WorkShops/Hordijk1999-2000/VOSIM.html" target="_blank">
-		VoSim algorithm: Rob Hordijk
-	      </a>
-	      <a class="list-group-item list-group-item-action"
-		 href="https://github.com/AlWared/RebelTechPatches" target="_blank">
-		Wavetable code: Alex Niger
-	      </a>
+	    <h3>Expression vs Performance</h3>
+	    <div>
+	      The Expression version of each patch provides continuous pitch control on parameter A, and supports MPE controllers (MIDI Polyphonic Expression).
+The Performance version has discrete pitch control on parameter A, supports regular MIDI controllers, and allows for sustained polyphonic voicings without the use of a controller.
 	    </div>
 	  </div>
 
 	  <div class="card">
-	    <h3>Links</h3>
-	    <div class="list-group">
-	      <a class="list-group-item list-group-item-action"
-		 href="https://www.rebeltech.org/product/witch" target="_blank">
-		Product Page
-	      </a>
-	      <a class="list-group-item list-group-item-action"
-		 href="https://github.com/RebelTechnology/Witch/" target="_blank">
-		GitHub Project
-	      </a>
+	    <h3>Changing Patches</h3>
+	    <div>
+	      <!-- You can change the active patch at any point using the Mode button, or with a MIDI PC message. -->
+	      Press and hold the Mode button. The currently active patch number will be indicated on the buttons, in yellow for patches 1 to 4, and red for patches 5 to 8. Press a button to select the new patch, then press again to toggle between red and yellow (high and low patch numbers). Release the Mode button to start the new patch.
 	    </div>
 	  </div>
+
+	  <div class="card">
+	    <h3>Takeover Controls</h3>
+	    <div>
+	      Each knob serves a dual purpose, and the Mode button determines which one is active. To prevent snap-back when the button is used, or inadvertently changing a setting, we only update the value when it aligns with the knob position. This is what is known as 'takeover' logic. When a parameter is in 'takeover', that is to say, its present value is different from the one indicated by the knob, we indicate this with the LED above it (or the two LEDs, in the case of knob E).
+	    </div>
+	  </div>
+
+	  <div class="card">
+	    <h3>Changing Output Volume</h3>
+	    <div>
+Press and hold the Mode button. Turn knob E until the two middle LEDs are no longer lit. Turn it to the required volume setting then release the Mode button. The two middle LEDs will light up again, to indicate that parameter E is in takeover mode. Turn the E knob again until the LEDs resume their normal function of indicating the CV output levels.
+	    </div>
+
+	  </div>
+
+	  <div class="card">
+	    <h3>Changing CV Attenuation</h3>
+	    <div>
+	      The Mode button allows adjustment of the CV attenuation for each of the CV inputs A to D. Press and hold the Mode button, then turn the knob corresponding to the CV attenuation you want to adjust. When the knob reaches the current value (default is in the mid position) then the LED light will go out. You can now turn the knob up or down to the attenuation level you want. When you release the mode button, the LED corresponding to the adjusted parameter (or parameters) will again light up, until the knob is moved back to the previous position.
+	    </div>
+	  </div>
+
 	</div>
       </div>
       <!-- End of Main Content -->
