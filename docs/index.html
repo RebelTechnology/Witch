@@ -206,6 +206,19 @@ Out 5: LFO1 Clock
 Out 6: LFO2 Clock
 In Left: Oscillator Linear FM
 In Right: Audio Through</pre>
+		  <pre>The patch has an ADSR envelope which controls the output amplitude.
+The envelope attack and release times can be adjusted with Parameter E. The setting goes from long attack/short release, to short attack/short release, short attack/long release, and finally long attack and long release in the fully clockwise position.
+The MIDI controls for the envelope are:
+CC75: Attack
+CC76: Decay
+CC77: Sustain
+CC78: Release
+		  </pre>
+		  <pre>
+There are two LFOs, one with a sine output (CV output F), the other with a special Agnesi curve (CV output G). The LFO speeds are set by tap tempo on buttons 2 and 3, or with an input clock connected to the corresponding gate/trigger input jack.
+LFO1 sets the effect time basis. Apart from this the LFOs are unassigned and can be patched to any function.
+
+		  </pre>
 <button class="btn btn-link" onclick="loadPatch('SubTractExpression')">Load SubTract Expression Patch</button>
 <button class="btn btn-link" onclick="loadPatch('SubTractPerformance')">Load SubTract Performance Patch</button>
 		</div>
@@ -387,6 +400,7 @@ In Right: todo</pre>
 		      <div class="col" id="parameterE"></div>
 		    </div>
 		  </div>
+		  <div class="row">Note: controlling parameters by MIDI will put the knob in takeover mode.</div>
 		</div>
 	      </div>
 	    </div>
@@ -427,7 +441,7 @@ In Right: todo</pre>
 		      </div>
 		    </div>
 		  </div>
-		  <div class="row">The CV attenuverters are used to attenuate or amplify, and optionally invert, the Control Voltage signals going into the CV inputs. In the centre position, they pass no CV (0 gain). Clockwise adds a positive amount, up to 2x gain, while anti-clockwise adds a negative (inverted) amount. Click 1V/Oct to set a 5V range suitable for 1V/octave pitch control.
+		  <div class="row">The CV attenuverters are used to scale the Control Voltage signals going into the CV inputs. They attenuate or amplify, and optionally invert the CV signal. In the centre position, they pass no CV (0 gain). Clockwise adds a positive amount, up to 2x gain, while anti-clockwise adds a negative (inverted) amount. Click 1V/Oct to set a 5V range suitable for 1V/octave pitch control.
 		  </div>
 		</div>
 	      </div>
@@ -460,6 +474,48 @@ In Right: todo</pre>
 		  <div class="row">
 		    <div class="col-2">FX Select</div>
 		    <div class="col" id="select1"></div>
+		  </div>
+		  <div class="row">
+		    <div class="col-2">LFO1 Curve</div>
+		    <div class="col" id="lfo1curve"></div>
+		  </div>
+		  <div class="row">
+		    <div class="col">
+		      <button type="button" class="btn btn-light" onclick="lfo1curve.value=0">Agnesi</button>
+		    </div>
+		    <div class="col">
+		      <button type="button" class="btn btn-light" onclick="lfo1curve.value=32">Sine</button>
+		    </div>
+		    <div class="col">
+		      <button type="button" class="btn btn-light" onclick="lfo1curve.value=64">Triangle</button>
+		    </div>
+		    <div class="col">
+		      <button type="button" class="btn btn-light" onclick="lfo1curve.value=96">Ramp</button>
+		    </div>
+		    <div class="col">
+		      <button type="button" class="btn btn-light" onclick="lfo1curve.value=127">Square</button>
+		    </div>
+		  </div>
+		  <div class="row">
+		    <div class="col-2">LFO2 Curve</div>
+		    <div class="col" id="lfo2curve"></div>
+		  </div>
+		  <div class="row">
+		    <div class="col">
+		      <button type="button" class="btn btn-light" onclick="lfo2curve.value=0">Agnesi</button>
+		    </div>
+		    <div class="col">
+		      <button type="button" class="btn btn-light" onclick="lfo2curve.value=32">Sine</button>
+		    </div>
+		    <div class="col">
+		      <button type="button" class="btn btn-light" onclick="lfo2curve.value=64">Triangle</button>
+		    </div>
+		    <div class="col">
+		      <button type="button" class="btn btn-light" onclick="lfo2curve.value=96">Ramp</button>
+		    </div>
+		    <div class="col">
+		      <button type="button" class="btn btn-light" onclick="lfo2curve.value=127">Square</button>
+		    </div>
 		  </div>
 		</div>
 	      </div>

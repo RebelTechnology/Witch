@@ -103,14 +103,17 @@
         <div class="container-fluid">
 
 	  <div class="card">
+	  <div class="card-body">
 	    <h3>Expression vs Performance</h3>
 	    <div>
 	      The Expression version of each patch provides continuous pitch control on parameter A, and supports MPE controllers (MIDI Polyphonic Expression).
 The Performance version has discrete pitch control on parameter A, supports regular MIDI controllers, and allows for sustained polyphonic voicings without the use of a controller.
 	    </div>
 	  </div>
+	  </div>
 
 	  <div class="card">
+	  <div class="card-body">
 	    <h3>Changing Patches</h3>
 	    <div>
 	      <!-- You can change the active patch at any point using the Mode button, or with a MIDI PC message. -->
@@ -120,27 +123,33 @@ The Performance version has discrete pitch control on parameter A, supports regu
 	      <img src="img/PatchNumbers.png" class="img-fluid" alt="Patch Numbering" />
 	    </div>
 	  </div>
-
-	  <div class="card">
-	    <h3>Takeover Controls</h3>
-	    <div>
-	      Each knob serves a dual purpose, and the Mode button determines which one is active. To prevent snap-back when the button is used, or inadvertently changing a setting, we only update the value when it aligns with the knob position. This is what is known as 'takeover' logic. When a parameter is in 'takeover', that is to say, its present value is different from the one indicated by the knob, we indicate this with the LED above it (or the two LEDs, in the case of knob E).
-	    </div>
 	  </div>
 
 	  <div class="card">
+	  <div class="card-body">
+	    <h3>Takeover Controls</h3>
+	    <div>
+	      Each knob serves a dual purpose, and the Mode button determines which one is active. To prevent snap-back when the button is used, or inadvertently changing a setting, we only update the value when it aligns with the knob position. This is what is known as 'takeover' logic. When a parameter is in 'takeover', that is to say, its present value is different from the one indicated by the knob, we indicate this with the LED above it (or the two LEDs above it, in the case of knob E).
+	    </div>
+	  </div>
+	  </div>
+
+	  <div class="card">
+	  <div class="card-body">
 	    <h3>Changing Output Volume</h3>
 	    <div>
 Press and hold the Mode button. Turn knob E until the two middle LEDs are no longer lit. Turn it to the required volume setting then release the Mode button. The two middle LEDs will light up again, to indicate that parameter E is in takeover mode. Turn the E knob again until the LEDs resume their normal function of indicating the CV output levels.
 	    </div>
-
+	  </div>
 	  </div>
 
 	  <div class="card">
+	  <div class="card-body">
 	    <h3>Changing CV Attenuation</h3>
 	    <div>
 	      The Mode button allows adjustment of the CV attenuation for each of the CV inputs A to D. Press and hold the Mode button, then turn the knob corresponding to the CV attenuation you want to adjust. When the knob reaches the current value (default is in the mid position) then the LED light will go out. You can now turn the knob up or down to the attenuation level you want. When you release the mode button, the LED corresponding to the adjusted parameter (or parameters) will again light up, until the knob is moved back to the previous position.
 	    </div>
+	  </div>
 	  </div>
 
 	</div>

@@ -76,6 +76,16 @@ gain.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(7, v*127);
 })
 
+var lfo1curve = new Nexus.Slider('#lfo1curve', { max: 127, value: 32, mode:'absolute', size: [240, 20] });
+lfo1curve.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AG, v);
+})
+
+var lfo2curve = new Nexus.Slider('#lfo2curve', { max: 127, value: 0, mode:'absolute', size: [240, 20] });
+lfo2curve.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.PATCH_PARAMETER_AH, v);
+})
+
 var select1 = new Nexus.Select('#select1', {size: [240, 30], options: ['Phaser', 'Delay', 'Overdrive','Chorus']})
 select1.on('change', function(v) {
     var value = Math.floor((v.index+0.5)*127/4);
