@@ -275,19 +275,20 @@ Out 6: LFO2 Clock
 In Left: FM Left
 In Right: FM Right</pre>			    
 		</div>
-		<p>The WaveBank patch loads two resources. Each contains a bank of 8 x 8 single cycle waveforms. One is for the left output channel, the other for the right. The wavebanks are standard 16-bit mono wav files, and are compatible with the popular WaveEdit software and its online <a href="https://waveeditonline.com/" target="_blank">library of free wavetable banks</a>.
-		</p>
 		<button class="btn btn-link" onclick="loadPatch('WaveBankExpression')">Load WaveBank Expression Patch</button>
 		<button class="btn btn-link" onclick="loadPatch('WaveBankPerformance')">Load WaveBank Performance Patch</button>
-		  <form>
-		    <p>File: <input type="file" name="files[]" multiple="false" accept=".wav"/>
-		    <button type="button" class="btn btn-link" onclick="saveResource('wavebank1.wav', this.form[0].files)">Update Wavebank 1</button>
-		    </p>
-		  </form>
+		<p>The WaveBank patch loads two resources. Each contains a bank of 8 x 8 single cycle waveforms. One is for the left output channel, the other for the right. The wavebanks are standard 16-bit mono wav files, and are compatible with the popular WaveEdit software and its online <a href="https://waveeditonline.com/" target="_blank">library of free wavetable banks</a>.
+		</p>
 		<form>
-		  <p>File: <input type="file" name="files[]" multiple="false" accept=".wav"/>
-		  <button type="button" class="btn btn-link" onclick="saveResource('wavebank2.wav', this.form[0].files)">Update Wavebank 2</button>
-		  </p>
+		  <div class="mb-3">
+		    <input type="file" name="files[]" class="form-control" id="inputWavetableFile" aria-describedby="inputWavetableFileHelp" />
+		    <div id="inputWavetableFileHelp" class="form-text">Select a 16-bit mono wavebank with 8 x 128 samples</div>
+		    <div class="input-group mb-3">
+		      <label class="input-group-text">Store</label>
+		      <button class="btn btn-outline-secondary" type="button" onclick="saveResource(wavetable1.wav', this.form[0].files)">Wavetable 1</button>
+		      <button class="btn btn-outline-secondary" type="button" onclick="saveResource(wavetable2.wav', this.form[0].files)">Wavetable 2</button>
+		    </div>
+		  </div>
 		</form>
 	      </div>
 	    </div>
@@ -313,7 +314,27 @@ Out 5: LFO1 Clock
 Out 6: Envelope
 In Left: todo
 In Right: todo</pre>
-		</div>
+
+		  <button class="btn btn-link" onclick="loadPatch('QuadSamplerExpression')">Load QuadSampler Expression Patch</button>
+		  <button class="btn btn-link" onclick="loadPatch('QuadSamplerPerformance')">Load QuadSampler Performance Patch</button>
+		  <p>The QuadSampler loads four samples in 16-bit mono or stereo wav file format. The samples can be replaced by the user. Use the links below to upload and store new samples.</p>
+		  <div class="container">
+		    <form>
+		      <div class="mb-3">
+			<input type="file" name="files[]" class="form-control" id="inputSampleFile" aria-describedby="inputSampleFileHelp" />
+			<div id="inputSampleFileHelp" class="form-text">Select a 16-bit mono or stereo wav samples</div>
+			<div class="input-group mb-3">
+			  <label class="input-group-text">Store</label>
+			  <button class="btn btn-outline-secondary" type="button" onclick="saveResource('sample1.wav', this.form[0].files)">Sample 1</button>
+			  <button class="btn btn-outline-secondary" type="button" onclick="saveResource('sample2.wav', this.form[0].files)">Sample 2</button>
+			  <button class="btn btn-outline-secondary" type="button" onclick="saveResource('sample3.wav', this.form[0].files)">Sample 3</button>
+			  <button class="btn btn-outline-secondary" type="button" onclick="saveResource('sample4.wav', this.form[0].files)">Sample 4</button>
+			</div>
+		      </div>
+		    </form>
+		  </div>
+
+		</div> <!-- accordion-body -->
 	      </div>
 	    </div>
 	  </div>
