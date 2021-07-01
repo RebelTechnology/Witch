@@ -10,7 +10,7 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    enable-background="new"
-   sodipodi:docname="Witch System Controls.svg"
+   sodipodi:docname="WitchSystemControls.svg"
    inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
    version="1.1"
    id="svg2"
@@ -556,19 +556,6 @@
          offset="1"
          id="stop51833" />
     </linearGradient>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter51773-0-0"
-       x="-0.024"
-       width="1.048"
-       y="-0.024"
-       height="1.048">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.18644531"
-         id="feGaussianBlur51775-2-9" />
-    </filter>
     <linearGradient
        gradientTransform="translate(-85.130532,-850.40686)"
        inkscape:collect="always"
@@ -591,123 +578,6 @@
          offset="1"
          id="stop51841" />
     </linearGradient>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter51825-3-2"
-       x="-0.024"
-       width="1.048"
-       y="-0.024"
-       height="1.048">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.2344453"
-         id="feGaussianBlur51827-2-5" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter51773-1"
-       x="-0.024"
-       width="1.048"
-       y="-0.024"
-       height="1.048">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.18644531"
-         id="feGaussianBlur51775-0" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter51825-0"
-       x="-0.024"
-       width="1.048"
-       y="-0.024"
-       height="1.048">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.2344453"
-         id="feGaussianBlur51827-4" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter51773-1-9"
-       x="-0.024"
-       width="1.048"
-       y="-0.024"
-       height="1.048">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.18644531"
-         id="feGaussianBlur51775-0-0" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter51825-0-9"
-       x="-0.024"
-       width="1.048"
-       y="-0.024"
-       height="1.048">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.2344453"
-         id="feGaussianBlur51827-4-0" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter51773-1-5"
-       x="-0.024"
-       width="1.048"
-       y="-0.024"
-       height="1.048">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.18644531"
-         id="feGaussianBlur51775-0-2" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter51825-0-96"
-       x="-0.024"
-       width="1.048"
-       y="-0.024"
-       height="1.048">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.2344453"
-         id="feGaussianBlur51827-4-04" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter51773-1-2"
-       x="-0.024"
-       width="1.048"
-       y="-0.024"
-       height="1.048">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.18644531"
-         id="feGaussianBlur51775-0-4" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter51825-0-92"
-       x="-0.024"
-       width="1.048"
-       y="-0.024"
-       height="1.048">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.2344453"
-         id="feGaussianBlur51827-4-8" />
-    </filter>
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath8296">
@@ -848,7 +718,7 @@
      inkscape:window-width="1920"
      units="mm"
      showgrid="false"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer3"
      inkscape:document-units="mm"
      inkscape:cy="186.56589"
      inkscape:cx="203.94328"
@@ -4663,10 +4533,10 @@
     </g>
     <g
        transform="matrix(0.81780422,0,0,-0.81780422,195.12789,903.70374)"
-       style="display:inline;opacity:1;filter:url(#filter51765);enable-background:new"
+       style="display:inline;opacity:1;enable-background:new"
        id="g51926-1-4">
       <circle
-         style="display:inline;fill:#a3a3a3;stroke:none;stroke-width:1.06667"
+         style="display:inline;fill:#a3a3a3;stroke:none;stroke-width:1.06667;"
          id="circle51928-5-4"
          r="12.50375"
          cy="42.808315"
@@ -4676,7 +4546,7 @@
          cy="40.132797"
          r="9.3222656"
          id="circle51930-9-9"
-         style="display:inline;fill:#e2dada;fill-opacity:1;stroke:url(#radialGradient51835-9-8);filter:url(#filter51773-0-0)"
+         style="display:inline;fill:#e2dada;fill-opacity:1;stroke:url(#radialGradient51835-9-8);"
          transform="scale(1.0666667)" />
       <circle
          transform="matrix(1.0151921,0,0,1.0151921,0.98514201,2.0658157)"
@@ -4684,7 +4554,7 @@
          cy="40.132797"
          r="11.722265"
          id="circle51932-9-9"
-         style="display:inline;fill:none;stroke:url(#linearGradient51843-7-1);stroke-width:1.0507;stroke-opacity:1;filter:url(#filter51825-3-2)" />
+         style="display:inline;fill:none;stroke:url(#linearGradient51843-7-1);stroke-width:1.0507;stroke-opacity:1;" />
     </g>
     <g
        style="display:inline"
@@ -4739,10 +4609,10 @@
     </g>
     <g
        transform="matrix(1.171875,0,0,-1.171875,52.899773,1067.3609)"
-       style="display:inline;opacity:0.466;filter:url(#filter51765);enable-background:new"
+       style="display:inline;opacity:0.466;enable-background:new"
        id="g2866">
       <circle
-         style="display:inline;fill:#a3a3a3;stroke:none;stroke-width:1.06667"
+         style="display:inline;fill:#a3a3a3;stroke:none;stroke-width:1.06667;"
          id="circle2860"
          r="12.50375"
          cy="42.808315"
@@ -4752,7 +4622,7 @@
          cy="40.132797"
          r="9.3222656"
          id="circle2862"
-         style="display:inline;fill:#e2dada;fill-opacity:1;stroke:url(#radialGradient2904);filter:url(#filter51773-1)"
+         style="display:inline;fill:#e2dada;fill-opacity:1;stroke:url(#radialGradient2904);"
          transform="scale(1.0666667)" />
       <circle
          transform="matrix(1.0151921,0,0,1.0151921,0.98514201,2.0658157)"
@@ -4760,14 +4630,14 @@
          cy="40.132797"
          r="11.722265"
          id="circle2864"
-         style="display:inline;fill:none;stroke:url(#linearGradient2906);stroke-width:1.0507;stroke-opacity:1;filter:url(#filter51825-0)" />
+         style="display:inline;fill:none;stroke:url(#linearGradient2906);stroke-width:1.0507;stroke-opacity:1;" />
     </g>
     <g
        transform="matrix(1.171875,0,0,-1.171875,102.39977,1067.3609)"
-       style="display:inline;opacity:0.466;filter:url(#filter51765);enable-background:new"
+       style="display:inline;opacity:0.466;enable-background:new"
        id="g2874">
       <circle
-         style="display:inline;fill:#a3a3a3;stroke:none;stroke-width:1.06667"
+         style="display:inline;fill:#a3a3a3;stroke:none;stroke-width:1.06667;"
          id="circle2868"
          r="12.50375"
          cy="42.808315"
@@ -4777,7 +4647,7 @@
          cy="40.132797"
          r="9.3222656"
          id="circle2870"
-         style="display:inline;fill:#e2dada;fill-opacity:1;stroke:url(#radialGradient2900);filter:url(#filter51773-1-9)"
+         style="display:inline;fill:#e2dada;fill-opacity:1;stroke:url(#radialGradient2900);"
          transform="scale(1.0666667)" />
       <circle
          transform="matrix(1.0151921,0,0,1.0151921,0.98514201,2.0658157)"
@@ -4785,14 +4655,14 @@
          cy="40.132797"
          r="11.722265"
          id="circle2872"
-         style="display:inline;fill:none;stroke:url(#linearGradient2902);stroke-width:1.0507;stroke-opacity:1;filter:url(#filter51825-0-9)" />
+         style="display:inline;fill:none;stroke:url(#linearGradient2902);stroke-width:1.0507;stroke-opacity:1;" />
     </g>
     <g
        transform="matrix(1.171875,0,0,-1.171875,273.39978,1067.3609)"
-       style="display:inline;opacity:0.466;filter:url(#filter51765);enable-background:new"
+       style="display:inline;opacity:0.466;enable-background:new"
        id="g2882">
       <circle
-         style="display:inline;fill:#a3a3a3;stroke:none;stroke-width:1.06667"
+         style="display:inline;fill:#a3a3a3;stroke:none;stroke-width:1.06667;"
          id="circle2876"
          r="12.50375"
          cy="42.808315"
@@ -4802,7 +4672,7 @@
          cy="40.132797"
          r="9.3222656"
          id="circle2878"
-         style="display:inline;fill:#e2dada;fill-opacity:1;stroke:url(#radialGradient2896);filter:url(#filter51773-1-5)"
+         style="display:inline;fill:#e2dada;fill-opacity:1;stroke:url(#radialGradient2896);"
          transform="scale(1.0666667)" />
       <circle
          transform="matrix(1.0151921,0,0,1.0151921,0.98514201,2.0658157)"
@@ -4810,14 +4680,14 @@
          cy="40.132797"
          r="11.722265"
          id="circle2880"
-         style="display:inline;fill:none;stroke:url(#linearGradient2898);stroke-width:1.0507;stroke-opacity:1;filter:url(#filter51825-0-96)" />
+         style="display:inline;fill:none;stroke:url(#linearGradient2898);stroke-width:1.0507;stroke-opacity:1;" />
     </g>
     <g
        transform="matrix(1.171875,0,0,-1.171875,322.89977,1067.3609)"
-       style="display:inline;opacity:0.466;filter:url(#filter51765);enable-background:new"
+       style="display:inline;opacity:0.466;enable-background:new"
        id="g2890">
       <circle
-         style="display:inline;fill:#a3a3a3;stroke:none;stroke-width:1.06667"
+         style="display:inline;fill:#a3a3a3;stroke:none;stroke-width:1.06667;"
          id="circle2884"
          r="12.50375"
          cy="42.808315"
@@ -4827,7 +4697,7 @@
          cy="40.132797"
          r="9.3222656"
          id="circle2886"
-         style="display:inline;fill:#e2dada;fill-opacity:1;stroke:url(#radialGradient2892);filter:url(#filter51773-1-2)"
+         style="display:inline;fill:#e2dada;fill-opacity:1;stroke:url(#radialGradient2892);"
          transform="scale(1.0666667)" />
       <circle
          transform="matrix(1.0151921,0,0,1.0151921,0.98514201,2.0658157)"
@@ -4835,7 +4705,7 @@
          cy="40.132797"
          r="11.722265"
          id="circle2888"
-         style="display:inline;fill:none;stroke:url(#linearGradient2894);stroke-width:1.0507;stroke-opacity:1;filter:url(#filter51825-0-92)" />
+         style="display:inline;fill:none;stroke:url(#linearGradient2894);stroke-width:1.0507;stroke-opacity:1;" />
     </g>
     <path
        style="fill:none;stroke:#ff0000;stroke-width:0.938976;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleInM)"
@@ -4876,45 +4746,45 @@
        xml:space="preserve"
        style="font-size:10px;line-height:1.25;font-family:Helvetica-Normal;-inkscape-font-specification:Helvetica-Normal;letter-spacing:0px;word-spacing:0px;stroke-width:0.9375"
        x="-71.074455"
-       y="797.47241"
+       y="799.34741"
        id="text4871"><tspan
          sodipodi:role="line"
          id="tspan4869"
          x="-71.074455"
-         y="797.47241"
+         y="799.34741"
          style="font-size:10px;stroke-width:0.9375">CV Outputs</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:10px;line-height:1.25;font-family:Helvetica-Normal;-inkscape-font-specification:Helvetica-Normal;letter-spacing:0px;word-spacing:0px;stroke-width:0.9375"
        x="-71.374458"
-       y="864.20831"
+       y="867.25061"
        id="text4875"><tspan
          sodipodi:role="line"
          id="tspan4873"
          x="-71.374458"
-         y="864.20831"
+         y="867.25061"
          style="font-size:10px;stroke-width:0.9375">Mode Button</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:10px;line-height:1.25;font-family:Helvetica-Normal;-inkscape-font-specification:Helvetica-Normal;letter-spacing:0px;word-spacing:0px;stroke-width:0.9375"
        x="-71.074455"
-       y="891.84845"
+       y="893.72345"
        id="text4879"><tspan
          sodipodi:role="line"
          id="tspan4877"
          x="-71.074455"
-         y="891.84845"
+         y="893.72345"
          style="font-size:10px;stroke-width:0.9375">Control Knobs</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:10px;line-height:1.25;font-family:Helvetica-Normal;-inkscape-font-specification:Helvetica-Normal;letter-spacing:0px;word-spacing:0px;stroke-width:0.9375"
        x="-71.374458"
-       y="1012.7384"
+       y="1014.6134"
        id="text4883"><tspan
          sodipodi:role="line"
          id="tspan4881"
          x="-71.374458"
-         y="1012.7384"
+         y="1014.6134"
          style="font-size:10px;stroke-width:0.9375">Buttons</tspan></text>
     <path
        style="fill:none;stroke:#ff0000;stroke-width:0.938973;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker4895)"
@@ -4924,12 +4794,12 @@
        xml:space="preserve"
        style="font-size:10px;line-height:1.25;font-family:Helvetica-Normal;-inkscape-font-specification:Helvetica-Normal;letter-spacing:0px;word-spacing:0px;stroke-width:0.9375"
        x="-70.901955"
-       y="959.25427"
+       y="961.12927"
        id="text5439"><tspan
          sodipodi:role="line"
          id="tspan5437"
          x="-70.901955"
-         y="959.25427"
+         y="961.12927"
          style="font-size:10px;stroke-width:0.9375">Trigger Inputs</tspan></text>
     <path
        style="fill:none;stroke:#ff0000;stroke-width:0.938973;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker5452)"
@@ -4939,12 +4809,12 @@
        xml:space="preserve"
        style="font-size:10px;line-height:1.25;font-family:Helvetica-Normal;-inkscape-font-specification:Helvetica-Normal;letter-spacing:0px;word-spacing:0px;stroke-width:0.9375"
        x="-71.074455"
-       y="824.24213"
+       y="826.11713"
        id="text5642"><tspan
          sodipodi:role="line"
          id="tspan5640"
          x="-71.074455"
-         y="824.24213"
+         y="826.11713"
          style="font-size:10px;stroke-width:0.9375">CV Inputs</tspan></text>
     <path
        style="fill:none;stroke:#ff0000;stroke-width:0.938973;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker5664)"
@@ -4954,12 +4824,12 @@
        xml:space="preserve"
        style="font-size:10px;line-height:1.25;font-family:Helvetica-Normal;-inkscape-font-specification:Helvetica-Normal;letter-spacing:0px;word-spacing:0px;stroke-width:0.9375"
        x="-70.901955"
-       y="985.9693"
+       y="987.8443"
        id="text5886"><tspan
          sodipodi:role="line"
          id="tspan5884"
          x="-70.901955"
-         y="985.9693"
+         y="987.8443"
          style="font-size:10px;stroke-width:0.9375">Trigger Outputs</tspan></text>
     <text
        xml:space="preserve"
@@ -4969,12 +4839,12 @@
        xml:space="preserve"
        style="font-size:10px;line-height:1.25;font-family:Helvetica-Normal;-inkscape-font-specification:Helvetica-Normal;letter-spacing:0px;word-spacing:0px;stroke-width:0.9375"
        x="442.54236"
-       y="769.66455"
+       y="772.35229"
        id="text5900"><tspan
          sodipodi:role="line"
          id="tspan5898"
          x="442.54236"
-         y="769.66455"
+         y="772.35229"
          style="font-size:10px;stroke-width:0.9375">Stereo Out</tspan></text>
     <path
        style="display:inline;fill:none;stroke:#ff0000;stroke-width:0.938973;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker2139)"
@@ -4985,12 +4855,12 @@
        xml:space="preserve"
        style="font-size:10px;line-height:1.25;font-family:Helvetica-Normal;-inkscape-font-specification:Helvetica-Normal;letter-spacing:0px;word-spacing:0px;stroke-width:0.9375"
        x="436.99127"
-       y="735.91455"
+       y="737.78955"
        id="text7823"><tspan
          sodipodi:role="line"
          id="tspan7821"
          x="436.99127"
-         y="735.91455"
+         y="737.78955"
          style="font-size:10px;stroke-width:0.9375">USB Device</tspan></text>
     <path
        style="display:inline;fill:none;stroke:#ff0000;stroke-width:0.938973;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker7835)"
@@ -5006,12 +4876,12 @@
        xml:space="preserve"
        style="font-size:10px;line-height:1.25;font-family:Helvetica-Normal;-inkscape-font-specification:Helvetica-Normal;letter-spacing:0px;word-spacing:0px;stroke-width:0.9375"
        x="-71.133736"
-       y="735.96454"
+       y="737.83954"
        id="text8377"><tspan
          sodipodi:role="line"
          id="tspan8375"
          x="-71.133736"
-         y="735.96454"
+         y="737.83954"
          style="font-size:10px;stroke-width:0.9375">9V DC Power</tspan></text>
     <text
        xml:space="preserve"
@@ -5037,7 +4907,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       style="font-size:12px;overflow:visible;fill:#ffffff;stroke:#606060;stroke-width:1.93909;stroke-linecap:square;stroke-miterlimit:3;stroke-opacity:1"
+       style="font-size:12px;overflow:visible;fill:#eeeeee;stroke:#606060;stroke-width:1.93909;stroke-linecap:square;stroke-miterlimit:3;stroke-opacity:1;fill-opacity:1"
        transform="matrix(0.92270847,0,0,0.91793199,277.26612,547.00985)"
        id="shape50-97">
       <title
@@ -5046,7 +4916,7 @@
          sodipodi:nodetypes="ccccc"
          d="m 5.75,237.74 h 31.47 v 20.61 H 5.75 Z"
          id="path280"
-         style="fill:#ffffff;stroke:#606060;stroke-width:1.08226;stroke-linecap:butt;stroke-opacity:1"
+         style="fill:#eeeeee;stroke:#606060;stroke-width:1.08226;stroke-linecap:butt;stroke-opacity:1;fill-opacity:1"
          inkscape:connector-curvature="0" />
     </g>
     <g
