@@ -247,6 +247,27 @@ function drawADSR() {
 }
 
 
+function showPatch(pid){
+    $('.multi-collapse').collapse('hide');
+    if(pid == 1){
+	$('#cardSubtract').collapse('show');
+	$('#cardAdsr').collapse('show');
+	$('#cardLfo').collapse('show');
+    }else if(pid == 2){
+	$('#cardVosim').collapse('show');
+	$('#cardAdsr').collapse('show');
+	$('#cardLfo').collapse('show');
+    }else if(pid == 3){
+	$('#cardWavebank').collapse('show');
+	$('#cardAdsr').collapse('show');
+	$('#cardLfo').collapse('show');
+    }else if(pid == 4){
+	$('#cardQuadsampler').collapse('show');
+    }else if(pid == 0){
+	$('#cardIntro').collapse('show');	
+    }
+}
+
 $(document).ready(function() {
     connectToOwl();
 
@@ -262,5 +283,5 @@ $(document).ready(function() {
     // document.getElementById('collapse2').hide();
     // $('#collapse2').hide();
     // $('#accordionMain .accordion-body').hide()
-    
+    showPatch(0);
 });

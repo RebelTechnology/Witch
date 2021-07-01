@@ -41,49 +41,37 @@
       <!-- </li> -->
       
       <li class="nav-item">
-        <a class="nav-link"
-	   role="button" data-bs-toggle="collapse" data-bs-target="#accordion0" aria-expanded="true" aria-controls="accordion0">
+        <a class="nav-link" role="button" onclick="showPatch(0)">
           <i class="fas fa-fw fa-info"></i>
-        <span>Dashboard</span></a>
+        <span>Intro</span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0" />
 
-      <!-- Nav Item - Dashboard -->
-      <!-- <li class="nav-item active"> -->
-      <!--   <a class="nav-link" href="index.html"> -->
-      <!--     <i class="fas fa-fw fa-wrench"></i> -->
-      <!--     <span>Dashboard</span></a> -->
-      <!-- </li> -->
-
       <!-- Heading -->
       <div class="sidebar-heading">Patches</div>
 
       <li class="nav-item">
-        <a class="nav-link"
-	   role="button" data-bs-toggle="collapse" data-bs-target="#accordion1" aria-expanded="false" aria-controls="accordion1">
+        <a class="nav-link" role="button" onclick="showPatch(1)">
           <i class="fas fa-fw fa-cog"></i>
         <span>SubTract</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link"
-	   role="button" data-bs-toggle="collapse" data-bs-target="#accordion2" aria-expanded="false" aria-controls="accordion2">
+        <a class="nav-link" role="button" onclick="showPatch(2)">
           <i class="fas fa-fw fa-cog"></i>
         <span>VoSim</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link"
-	   role="button" data-bs-toggle="collapse" data-bs-target="#accordion3" aria-expanded="false" aria-controls="accordion3">
+        <a class="nav-link" role="button" onclick="showPatch(3)">
           <i class="fas fa-fw fa-cog"></i>
         <span>WaveBank</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link"
-	   role="button" data-bs-toggle="collapse" data-bs-target="#accordion4" aria-expanded="false" aria-controls="accordion4">
+        <a class="nav-link" role="button" onclick="showPatch(4)">
           <i class="fas fa-fw fa-cog"></i>
         <span>QuadSampler</span></a>
       </li>
@@ -162,178 +150,157 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-	  <div class="accordion accordion-flush" id="accordionContent">
-
-	    <div class="accordion-item">
-	      <div id="accordion0" class="accordion-collapse collapse show" aria-labelledby="heading0" data-bs-parent="#accordionContent">
-		<div class="accordion-body">
-		  <img src="img/WitchLogo.svg" alt="The Witch" width="20%" />
-		  <p><strong>The Witch is a compact and versatile polyphonic synthesizer.</strong></p>
-		  <p>This website is a MIDI synth editor for <a href="https://www.rebeltech.org/product/witch" target="_blank">the Witch</a>. Use a <a href="https://www.midi.org/midi-articles/about-web-midi" target="_blank">WebMIDI</a> capable browser (such as Chome/Chromium) and connect your Witch with a USB cable to your computer to enable the editor functions.</p>
-		  
-		  <img src="img/WitchSystemControls.svg" alt="The Witch" width="60%" />
-
-		  <p>The Witch comes with a set of eight factory patches, implementing four different synthesis engines:</p>
-		  <div class="row">
-		    <button class="col" type="button" data-bs-toggle="collapse" data-bs-target="#accordion1" aria-expanded="false" aria-controls="accordion1">SubTract</button>
-		    <button class="col" type="button" data-bs-toggle="collapse" data-bs-target="#accordion2" aria-expanded="false" aria-controls="accordion2">VoSim</button>
-		    <button class="col" type="button" data-bs-toggle="collapse" data-bs-target="#accordion3" aria-expanded="false" aria-controls="accordion3">WaveBank</button>
-		    <button class="col" type="button" data-bs-toggle="collapse" data-bs-target="#accordion4" aria-expanded="false" aria-controls="accordion4">QuadSampler</button>
-		    <button class="col" type="button" data-bs-toggle="collapse" data-bs-target="#accordion0" aria-expanded="true" aria-controls="accordion0"><span class="fa fa-angle-up"/></button>
-		  </div>
-		</div>
+	  <div class="collapse multi-collapse" id="cardIntro">
+	    <div class="card card-body">
+	      <h3>Intro</h3>
+	      <img src="img/WitchLogo.svg" alt="The Witch" width="20%" />
+	      <p><strong>The Witch is a compact and versatile polyphonic synthesizer.</strong></p>
+	      <p>This website is a MIDI synth editor for <a href="https://www.rebeltech.org/product/witch" target="_blank">the Witch</a>. Use a <a href="https://www.midi.org/midi-articles/about-web-midi" target="_blank">WebMIDI</a> capable browser (such as Chome/Chromium) and connect your Witch with a USB cable to your computer to enable the editor functions.</p>
+	      
+	      <p>The Witch comes with a set of eight factory patches, implementing four different synthesis engines:</p>
+	      <div class="row">
+		<button class="col" type="button" onclick="showPatch(1)">SubTract</button>
+		<button class="col" type="button" onclick="showPatch(2)">VoSim</button>
+		<button class="col" type="button" onclick="showPatch(3)">WaveBank</button>
+		<button class="col" type="button" onclick="showPatch(4)">QuadSampler</button>
+		<button class="col" type="button" onclick="showPatch(0)"><span class="fa fa-angle-up"/></button>
 	      </div>
 	    </div>
+	  </div>
 
-	    <div class="accordion-item">
-	      <div id="accordion1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#accordionContent">
-		<h2 class="accordion-header" id="heading1">SubTract</h2>
-		<div class="accordion-body">
-		  <p><strong>Virtual analogue synthesizer with 48dB resonant low pass filter and overdrive effect.</strong></p>
-		  <img src="img/WitchSubTract.svg" alt="SubTract Patch" />
+	  <div class="collapse multi-collapse" id="cardSubtract">
+	    <div class="card card-body">
+	      <h3>SubTract</h3>
+	      <p><strong>Virtual Analogue synthesizer with 48dB resonant low pass filter and overdrive effect.</strong></p>
+	      <img src="img/WitchSubTract.svg" alt="SubTract Patch" />
 
-		  <pre>
-Polyphony: 8 voices
-Controls:
-A: Oscillator Frequency
-B: Filter Cutoff
-C: Filter Resonance
-D: Envelope
-E: Overdrive
-Out F: LFO1 Sine
-Out G: LFO2 Agnesi
-1: Note
-2: Tap LFO1
-3: Tap LFO2
-4: Sustain
-Out 5: LFO1 Clock
-Out 6: LFO2 Clock
-In Left: Oscillator Linear FM
-In Right: Audio Through</pre>
+	      <pre>
+		  Polyphony: 8 voices
+		  Controls:
+		  A: Oscillator Frequency
+		  B: Filter Cutoff
+		  C: Filter Resonance
+		  D: Envelope
+		  E: Overdrive
+		  Out F: LFO1 Sine
+		  Out G: LFO2 Agnesi
+		  1: Note
+		  2: Tap LFO1
+		  3: Tap LFO2
+		  4: Sustain
+		  Out 5: LFO1 Clock
+		  Out 6: LFO2 Clock
+		  In Left: Oscillator Linear FM
+   		  In Right: Audio Through</pre>
+		  <button class="btn btn-link" onclick="loadPatch('SubTractExpression')">Load SubTract Expression Patch</button>
+		  <button class="btn btn-link" onclick="loadPatch('SubTractPerformance')">Load SubTract Performance Patch</button>
+	    </div>
+	  </div>
 
-	  <div class="card">
-	    <div class="card-body">
+	  <div class="collapse multi-collapse" id="cardVosim">
+	    <div class="card card-body">
+	      <h3>VoSim</h3>
+	      <p><strong>Voice Simulator formant synthesizer</strong></p>
+	      <img src="img/WitchVosim.svg" alt="VoSim Patch" />
+	      <pre>
+		  Polyphony: 6 voices
+		  A: Frequency
+		  B: Formant Low
+		  C: Formant High
+		  D: Envelope
+		  E: Phaser
+		  Out F: LFO1 Sine
+		  Out G: LFO2 Agnesi
+		  1: Note
+		  2: Tap LFO1
+		  3: Tap LFO2
+		  4: Sustain
+		  Out 5: LFO1 Clock
+		  Out 6: LFO2 Clock
+		  In Left: Oscillator Linear FM
+  		  In Right: Audio Through</pre>
+		  <button class="btn btn-link" onclick="loadPatch('VosimExpression')">Load VoSim Expression Patch</button>
+		  <button class="btn btn-link" onclick="loadPatch('VosimPerformance')">Load VoSim Performance Patch</button>
+	    </div>
+	  </div>
+
+	  <div class="collapse multi-collapse" id="cardWavebank">
+	    <div class="card card-body">
+	      <h3>WaveBank</h3>
+	      <p><strong>Multidimensional wavetable synthesizer with x/y morphing.</strong></p>
+	      <img src="img/WitchWaveBank.svg" alt="WaveBank Patch" />
+	      <pre>
+		  Polyphony: 4 voices
+		  A: Frequency
+		  B: Morph X
+		  C: Morph Y
+		  D: Envelope
+		  E: Overdrive
+		  Out F: LFO1 Sine
+		  Out G: LFO2 Agnesi
+		  1: Note
+		  2: Tap LFO1
+		  3: Tap LFO2
+		  4: Sustain
+		  Out 5: LFO1 Clock
+		  Out 6: LFO2 Clock
+		  In Left: FM Left
+		  In Right: FM Right</pre>			    
+	    </div>
+	    <button class="btn btn-link" onclick="loadPatch('WaveBankExpression')">Load WaveBank Expression Patch</button>
+	    <button class="btn btn-link" onclick="loadPatch('WaveBankPerformance')">Load WaveBank Performance Patch</button>
+	    <p>The WaveBank patch loads two resources. Each contains a bank of 8 x 8 single cycle waveforms. One is for the left output channel, the other for the right. The wavebanks are standard 16-bit mono wav files, and are compatible with the popular WaveEdit software and its online <a href="https://waveeditonline.com/" target="_blank">library of free wavetable banks</a>.
+	    </p>
+	    <form>
+	      <div class="mb-3">
+		<input type="file" name="files[]" class="form-control" id="inputWavetableFile" aria-describedby="inputWavetableFileHelp" />
+		<div id="inputWavetableFileHelp" class="form-text">Select a 16-bit mono wavebank with 8 x 128 samples</div>
+		<div class="input-group mb-3">
+		  <label class="input-group-text">Store</label>
+		  <button class="btn btn-outline-secondary" type="button" onclick="saveResource(wavetable1.wav', this.form[0].files)">Wavetable 1</button>
+		  <button class="btn btn-outline-secondary" type="button" onclick="saveResource(wavetable2.wav', this.form[0].files)">Wavetable 2</button>
+		</div>
+	      </div>
+	    </form>
+	  </div>
+
+	  <div class="collapse multi-collapse" id="cardAdsr">
+	    <div class="card card-body">
 	      <h3>Envelope</h3>
 	      <div>The patch has an ADSR envelope which controls the output amplitude.
-The envelope attack and release times can be adjusted with Parameter E. The setting goes from long attack/short release, to short attack/short release, short attack/long release, and finally long attack and long release in the fully clockwise position.
-The MIDI controls for the envelope are:
-<pre>
-CC75: Attack
-CC76: Decay
-CC77: Sustain
-CC78: Release
-</pre>
+	      The envelope attack and release times can be adjusted with Parameter E. The setting goes from long attack/short release, to short attack/short release, short attack/long release, and finally long attack and long release in the fully clockwise position.
+	      The MIDI controls for the envelope are:
+	      <pre>
+		CC75: Attack
+		CC76: Decay
+		CC77: Sustain
+		CC78: Release</pre>
 	      </div>
 	    </div>
 	  </div>
-	  <div class="card">
-	    <div class="card-body">
-	      <h3>Low Frequency Oscillators</h3>
-	      <div>There are two LFOs, one with a sine output (CV output F), the other with a special Agnesi curve (CV output G). The LFO speeds are set by tap tempo on buttons 2 and 3, or with an input clock connected to the corresponding gate/trigger input jack.
-LFO1 sets the effect time basis. Apart from this the LFOs are unassigned and can be patched to any function.
-	      </div>
-	    </div>
-	  </div>
-	  <button class="btn btn-link" onclick="loadPatch('SubTractExpression')">Load SubTract Expression Patch</button>
-	  <button class="btn btn-link" onclick="loadPatch('SubTractPerformance')">Load SubTract Performance Patch</button>
-		</div> <!-- accordion-body -->
-	      </div>
-	    </div>
-	    <div class="accordion-item">
-	      <div id="accordion2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionContent">
-		<h2 class="accordion-header" id="heading2">VoSim</h2>
-		<div class="accordion-body">
-		  <p><strong>Voice Simulator formant synthesizer</strong></p>
-		  <img src="img/WitchVosim.svg" alt="VoSim Patch" />
-		  <pre>
-Polyphony: 6 voices
-A: Frequency
-B: Formant Low
-C: Formant High
-D: Envelope
-E: Phaser
-Out F: LFO1 Sine
-Out G: LFO2 Agnesi
-1: Note
-2: Tap LFO1
-3: Tap LFO2
-4: Sustain
-Out 5: LFO1 Clock
-Out 6: LFO2 Clock
-In Left: Oscillator Linear FM
-In Right: Audio Through</pre>
-<button class="btn btn-link" onclick="loadPatch('VosimExpression')">Load VoSim Expression Patch</button>
-<button class="btn btn-link" onclick="loadPatch('VosimPerformance')">Load VoSim Performance Patch</button>
 
-		</div>
-	      </div>
-	    </div>
-	    <div class="accordion-item">
-	      <div id="accordion3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionContent">
-		<h2 class="accordion-header" id="heading3">WaveBank</h2>
-		<div class="accordion-body">
-		  <p><strong>Multidimensional wavetable synthesizer with x/y morphing.</strong></p>
-		  <img src="img/WitchWaveBank.svg" alt="WaveBank Patch" />
-		  <pre>
-Polyphony: 4 voices
-A: Frequency
-B: Morph X
-C: Morph Y
-D: Envelope
-E: Overdrive
-Out F: LFO1 Sine
-Out G: LFO2 Agnesi
-1: Note
-2: Tap LFO1
-3: Tap LFO2
-4: Sustain
-Out 5: LFO1 Clock
-Out 6: LFO2 Clock
-In Left: FM Left
-In Right: FM Right</pre>			    
-		</div>
-		<button class="btn btn-link" onclick="loadPatch('WaveBankExpression')">Load WaveBank Expression Patch</button>
-		<button class="btn btn-link" onclick="loadPatch('WaveBankPerformance')">Load WaveBank Performance Patch</button>
-		<p>The WaveBank patch loads two resources. Each contains a bank of 8 x 8 single cycle waveforms. One is for the left output channel, the other for the right. The wavebanks are standard 16-bit mono wav files, and are compatible with the popular WaveEdit software and its online <a href="https://waveeditonline.com/" target="_blank">library of free wavetable banks</a>.
-		</p>
-		<form>
-		  <div class="mb-3">
-		    <input type="file" name="files[]" class="form-control" id="inputWavetableFile" aria-describedby="inputWavetableFileHelp" />
-		    <div id="inputWavetableFileHelp" class="form-text">Select a 16-bit mono wavebank with 8 x 128 samples</div>
-		    <div class="input-group mb-3">
-		      <label class="input-group-text">Store</label>
-		      <button class="btn btn-outline-secondary" type="button" onclick="saveResource(wavetable1.wav', this.form[0].files)">Wavetable 1</button>
-		      <button class="btn btn-outline-secondary" type="button" onclick="saveResource(wavetable2.wav', this.form[0].files)">Wavetable 2</button>
-		    </div>
-		  </div>
-		</form>
-	      </div>
-	    </div>
-	    <div class="accordion-item">
-	      <div id="accordion4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionContent">
-		<h2 class="accordion-header" id="heading4">QuadSampler</h2>
-		<div class="accordion-body">
-		  <p><strong>Four voice sampler with resonant peaking filter</strong></p>
-		  <img src="img/WitchQuadSampler.svg" alt="QuadSampler Patch" />
-		  <pre>
-Polyphony: 4 voices
-A: Frequency
-B: Filter Cutoff
-C: Filter Resonance
-D: Envelope Decay
-E: LFO Rate
-Out F: LFO1 Sine
-Out G: LFO2 Agnesi
-1: Sample 1
-2: Sample 2
-3: Sample 3
-4: Sample 4
-Out 5: LFO1 Clock
-Out 6: Envelope
-In Left: todo
-In Right: todo</pre>
-
+	  <div class="collapse multi-collapse" id="cardQuadsampler">
+	    <div class="card card-body">
+	      <h3>QuadSampler</h3>
+	      <p><strong>Four voice sampler with resonant peaking filter</strong></p>
+	      <img src="img/WitchQuadSampler.svg" alt="QuadSampler Patch" />
+	      <pre>
+		  Polyphony: 4 voices
+		  A: Frequency
+		  B: Filter Cutoff
+		  C: Filter Resonance
+		  D: Envelope Decay
+		  E: LFO Rate
+		  Out F: LFO1 Sine
+		  Out G: LFO2 Agnesi
+		  1: Sample 1
+		  2: Sample 2
+		  3: Sample 3
+		  4: Sample 4
+		  Out 5: LFO1 Clock
+		  Out 6: Envelope
+		  In Left: External audio
+		  In Right: External audio</pre>
 		  <button class="btn btn-link" onclick="loadPatch('QuadSamplerExpression')">Load QuadSampler Expression Patch</button>
 		  <button class="btn btn-link" onclick="loadPatch('QuadSamplerPerformance')">Load QuadSampler Performance Patch</button>
 		  <p>The QuadSampler loads four samples in 16-bit mono or stereo wav file format. The samples can be replaced by the user. Use the links below to upload and store new samples.</p>
@@ -352,8 +319,14 @@ In Right: todo</pre>
 		      </div>
 		    </form>
 		  </div>
+	    </div>
+	  </div>
 
-		</div> <!-- accordion-body -->
+	  <div class="collapse multi-collapse" id="cardLfo">
+	    <div class="card card-body">
+	      <h3>Low Frequency Oscillators</h3>
+	      <div>There are two LFOs, one with a sine output (CV output F), the other with a special Agnesi curve (CV output G). The LFO speeds are set by tap tempo on buttons 2 and 3, or with an input clock connected to the corresponding gate/trigger input jack.
+	      LFO1 sets the effect time basis. Apart from this the LFOs are unassigned and can be patched to any function.
 	      </div>
 	    </div>
 	  </div>
