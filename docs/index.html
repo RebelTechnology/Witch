@@ -172,26 +172,26 @@
 	    <div class="card card-body">
 	      <h3>SubTract</h3>
 	      <p><strong>Virtual Analogue synthesizer with 48dB resonant low pass filter and overdrive effect.</strong></p>
-	      <img src="img/WitchSubTract.svg" alt="SubTract Patch" />
-
+	      <img src="img/WitchSubTract.svg" alt="SubTract Patch" class="img-fluid" width="800" />
 	      <pre>
-		  Polyphony: 8 voices
-		  Controls:
-		  A: Oscillator Frequency
-		  B: Filter Cutoff
-		  C: Filter Resonance
-		  D: Envelope
-		  E: Overdrive
-		  Out F: LFO1 Sine
-		  Out G: LFO2 Agnesi
-		  1: Note
-		  2: Tap LFO1
-		  3: Tap LFO2
-		  4: Sustain
-		  Out 5: LFO1 Clock
-		  Out 6: LFO2 Clock
-		  In Left: Oscillator Linear FM
-   		  In Right: Audio Through</pre>
+		
+Polyphony: 8 voices
+Controls:
+A: Oscillator Frequency
+B: Filter Cutoff
+C: Filter Resonance
+D: Envelope
+E: Overdrive
+Out F: LFO1 Sine
+Out G: LFO2 Agnesi
+1: Note
+2: Tap LFO1
+3: Tap LFO2
+4: Sustain
+Out 5: LFO1 Clock
+Out 6: LFO2 Clock
+In Left: Oscillator Linear FM
+In Right: Audio Through</pre>
 		  <button class="btn btn-link" onclick="loadPatch('SubTractExpression')">Load SubTract Expression Patch</button>
 		  <button class="btn btn-link" onclick="loadPatch('SubTractPerformance')">Load SubTract Performance Patch</button>
 	    </div>
@@ -201,24 +201,25 @@
 	    <div class="card card-body">
 	      <h3>VoSim</h3>
 	      <p><strong>Voice Simulator formant synthesizer</strong></p>
-	      <img src="img/WitchVosim.svg" alt="VoSim Patch" />
+	      <img src="img/WitchVosim.svg" alt="VoSim Patch" class="img-fluid" width="800" />
 	      <pre>
-		  Polyphony: 6 voices
-		  A: Frequency
-		  B: Formant Low
-		  C: Formant High
-		  D: Envelope
-		  E: Phaser
-		  Out F: LFO1 Sine
-		  Out G: LFO2 Agnesi
-		  1: Note
-		  2: Tap LFO1
-		  3: Tap LFO2
-		  4: Sustain
-		  Out 5: LFO1 Clock
-		  Out 6: LFO2 Clock
-		  In Left: Oscillator Linear FM
-  		  In Right: Audio Through</pre>
+		
+Polyphony: 6 voices
+A: Frequency
+B: Formant Low
+C: Formant High
+D: Envelope
+E: Phaser
+Out F: LFO1 Sine
+Out G: LFO2 Agnesi
+1: Note
+2: Tap LFO1
+3: Tap LFO2
+4: Sustain
+Out 5: LFO1 Clock
+Out 6: LFO2 Clock
+In Left: Oscillator Linear FM
+In Right: Audio Through</pre>
 		  <button class="btn btn-link" onclick="loadPatch('VosimExpression')">Load VoSim Expression Patch</button>
 		  <button class="btn btn-link" onclick="loadPatch('VosimPerformance')">Load VoSim Performance Patch</button>
 	    </div>
@@ -228,24 +229,25 @@
 	    <div class="card card-body">
 	      <h3>WaveBank</h3>
 	      <p><strong>Multidimensional wavetable synthesizer with x/y morphing.</strong></p>
-	      <img src="img/WitchWaveBank.svg" alt="WaveBank Patch" />
+	      <img src="img/WitchWaveBank.svg" alt="WaveBank Patch" class="img-fluid" width="800" />
 	      <pre>
-		  Polyphony: 4 voices
-		  A: Frequency
-		  B: Morph X
-		  C: Morph Y
-		  D: Envelope
-		  E: Overdrive
-		  Out F: LFO1 Sine
-		  Out G: LFO2 Agnesi
-		  1: Note
-		  2: Tap LFO1
-		  3: Tap LFO2
-		  4: Sustain
-		  Out 5: LFO1 Clock
-		  Out 6: LFO2 Clock
-		  In Left: FM Left
-		  In Right: FM Right</pre>			    
+		
+Polyphony: 4 voices
+A: Frequency
+B: Morph X
+C: Morph Y
+D: Envelope
+E: Overdrive
+Out F: LFO1 Sine
+Out G: LFO2 Agnesi
+1: Note
+2: Tap LFO1
+3: Tap LFO2
+4: Sustain
+Out 5: LFO1 Clock
+Out 6: LFO2 Clock
+In Left: FM Left
+In Right: FM Right</pre>
 	      <button class="btn btn-link" onclick="loadPatch('WaveBankExpression')">Load WaveBank Expression Patch</button>
 	      <button class="btn btn-link" onclick="loadPatch('WaveBankPerformance')">Load WaveBank Performance Patch</button>
 	      <p>The WaveBank patch loads two resources. Each contains a bank of 8 x 8 single cycle waveforms. One is for the left output channel, the other for the right. The wavebanks are standard 16-bit mono wav files, and are compatible with the popular WaveEdit software and its online <a href="https://waveeditonline.com/" target="_blank">library of free wavetable banks</a>.</p>
@@ -270,10 +272,10 @@
 	      The envelope attack and release times can be adjusted with Parameter E. The setting goes from long attack/short release, to short attack/short release, short attack/long release, and finally long attack and long release in the fully clockwise position.
 	      The MIDI controls for the envelope are:
 	      <pre>
-		CC75: Attack
-		CC76: Decay
-		CC77: Sustain
-		CC78: Release</pre>
+CC75: Attack
+CC76: Decay
+CC77: Sustain
+CC78: Release</pre>
 	      </div>
 	    </div>
 	  </div>
@@ -282,27 +284,28 @@
 	    <div class="card card-body">
 	      <h3>QuadSampler</h3>
 	      <p><strong>Four voice sampler with resonant peaking filter</strong></p>
-	      <img src="img/WitchQuadSampler.svg" alt="QuadSampler Patch" />
+	      <img src="img/WitchQuadSampler.svg" alt="QuadSampler Patch" class="img-fluid" width="800"/>
 	      <pre>
-		  Polyphony: 4 voices
-		  A: Frequency
-		  B: Filter Cutoff
-		  C: Filter Resonance
-		  D: Envelope Decay
-		  E: LFO Rate
-		  Out F: LFO1 Sine
-		  Out G: LFO2 Agnesi
-		  1: Sample 1
-		  2: Sample 2
-		  3: Sample 3
-		  4: Sample 4
-		  Out 5: LFO1 Clock
-		  Out 6: Envelope
-		  In Left: External audio
-		  In Right: External audio</pre>
+		
+Polyphony: 4 voices
+A: Frequency
+B: Filter Cutoff
+C: Filter Resonance
+D: Envelope Decay
+E: LFO Rate
+Out F: LFO1 Sine
+Out G: LFO2 Agnesi
+1: Sample 1
+2: Sample 2
+3: Sample 3
+4: Sample 4
+Out 5: LFO1 Clock
+Out 6: Envelope
+In Left: External audio
+In Right: External audio</pre>
 		  <button class="btn btn-link" onclick="loadPatch('QuadSamplerExpression')">Load QuadSampler Expression Patch</button>
 		  <button class="btn btn-link" onclick="loadPatch('QuadSamplerPerformance')">Load QuadSampler Performance Patch</button>
-		  <p>The QuadSampler loads four samples in 16-bit mono or stereo wav file format. The samples can be replaced by the user. Use the links below to upload and store new samples.</p>
+		  <p>The QuadSampler uses four samples in 16-bit mono or stereo wav file format. The samples can be replaced by the user. Use the links below to upload and store new samples.</p>
 		  <div class="container">
 		    <form>
 		      <div class="mb-3">
@@ -324,9 +327,14 @@
 	  <div class="collapse multi-collapse" id="cardLfo">
 	    <div class="card card-body">
 	      <h3>Low Frequency Oscillators</h3>
-	      <div>There are two LFOs, one with a sine output (CV output F), the other with a special Agnesi curve (CV output G). The LFO speeds are set by tap tempo on buttons 2 and 3, or with an input clock connected to the corresponding gate/trigger input jack.
-	      LFO1 sets the effect time basis. Apart from this the LFOs are unassigned and can be patched to any function.
-	      </div>
+	      <p>There are two LFOs, one with a default sine output (CV output F), the other with a special Agnesi curve (CV output G), vaguely resembling a church bell. The LFO speeds are set by tap tempo on buttons 2 and 3, or with an input clock connected to the corresponding gate/trigger input jack.</p>
+	      <p>LFO1 controls the time basis of the currently selected effect. Apart from this the LFOs are unassigned and can be patched to any function.</p>
+	      <p>The LFO shapes are continuously variable between five different basic shapes. 
+	      The MIDI controls for the LFO shapes are:</p>
+	      <pre>
+CC81 LFO1 shape
+CC82 LFO2 shape
+	      </pre>
 	    </div>
 	  </div>
 
@@ -383,6 +391,9 @@
 		  <div class="row d-none">
 		    <div class="col-2">Decay/Release Curve</div>
 		    <div id="ratioDRSlider"></div>
+		  </div>
+		  <div class="row">
+		    Note: Attack and Release times are in addition to the Envelope patch control.
 		  </div>
 		</div>
 	      </div>
@@ -487,7 +498,7 @@
 		    <div class="col-2">FX Select</div>
 		    <div class="col" id="select1"></div>
 		  </div>
-		  <div class="row">
+		<div class="row">
 		    <div class="col-2">LFO1 Curve</div>
 		    <div class="col-4" id="lfo1curve"></div>
 		    <div class="col">
