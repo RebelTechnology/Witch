@@ -289,18 +289,18 @@ CC78: Release</pre>
 		
 Polyphony: 4 voices
 A: Frequency
-B: Filter Cutoff
-C: Filter Resonance
-D: Envelope Decay
+B: Filter Center Frequency
+C: Filter Peak
+D: Decay Envelope
 E: LFO Rate
-Out F: LFO1 Sine
-Out G: LFO2 Agnesi
+Out F: LFO Out
+Out G: Decay Envelope Out
 1: Sample 1
 2: Sample 2
 3: Sample 3
 4: Sample 4
-Out 5: LFO1 Clock
-Out 6: Envelope
+Out 5: LFO 1/4 Notes Clock Out
+Out 6: LFO 1/16 Notes Clock Out
 In Left: External audio
 In Right: External audio</pre>
 		  <button class="btn btn-link" onclick="loadPatch('QuadSamplerExpression')">Load QuadSampler Expression Patch</button>
@@ -479,17 +479,22 @@ CC82 LFO2 shape
 	      <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5b">
 		<div class="accordion-body">
 		  <div class="row">
-		    <div class="col-2">External In Left</div>
+		    <div class="col-2">FM/Ext Left</div>
 		    <div class="col" id="extL"></div>
 		  </div>
 		  <div class="row">
-		    <div class="col-2">External In Right</div>
+		    <div class="col-2">FM/Ext Right</div>
 		    <div class="col" id="extR"></div>
 		  </div>
 		  <div class="row">
 		    <div class="col-2">Waveshape</div>
 		    <div class="col" id="waveshape"></div>
 		  </div>
+		  <!-- todo: SubTract and Vosim: Waveshape, WaveBank: Stereo Mix, QuadSampler: FX Amount -->
+		  <!-- <div class="row"> -->
+		  <!--   <div class="col-2">Stereo Mix</div> -->
+		  <!--   <div class="col" id="stereomix"></div> -->
+		  <!-- </div> -->
 		  <div class="row">
 		    <div class="col-2">Output Gain</div>
 		    <div class="col" id="gain"></div>
