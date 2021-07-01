@@ -142,6 +142,25 @@ attenuvertD.on('change',function(v) {
     HoxtonOwl.midiClient.sendCc(cc.ATTENUATE_D, v);
 })
 
+var button1 = new Nexus.Button('#button1', {mode: 'button'});
+button1.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(v ? OpenWareMidiControl.PATCH_BUTTON_ON : OpenWareMidiControl.PATCH_BUTTON_OFF, 4);
+})
+
+var button2 = new Nexus.Button('#button2', {mode: 'button'});
+button2.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(v ? OpenWareMidiControl.PATCH_BUTTON_ON : OpenWareMidiControl.PATCH_BUTTON_OFF, 5);
+})
+
+var button3 = new Nexus.Button('#button3', {mode: 'button'});
+button3.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(v ? OpenWareMidiControl.PATCH_BUTTON_ON : OpenWareMidiControl.PATCH_BUTTON_OFF, 6);
+})
+
+var button4 = new Nexus.Button('#button4', {mode: 'button'});
+button4.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(v ? OpenWareMidiControl.PATCH_BUTTON_ON : OpenWareMidiControl.PATCH_BUTTON_OFF, 7);
+})
 
 var scope = new Nexus.Oscilloscope('#scope',{
   'size': [300,150]

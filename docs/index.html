@@ -327,7 +327,7 @@ In Right: External audio</pre>
 	  <div class="collapse multi-collapse" id="cardLfo">
 	    <div class="card card-body">
 	      <h3>Low Frequency Oscillators</h3>
-	      <p>There are two LFOs, one with a default sine output (CV output F), the other with a special Agnesi curve (CV output G), vaguely resembling a church bell. The LFO speeds are set by tap tempo on buttons 2 and 3, or with an input clock connected to the corresponding gate/trigger input jack.</p>
+	      <p>There are two LFOs, one with a default sine output (CV output F), the other with a special Agnesi curve (CV output G). The LFO speeds are set by tap tempo on buttons 2 and 3. The LFO's can also be easily synchronised to an external clock by connecting itto the corresponding Trigger Input jack.</p>
 	      <p>LFO1 controls the time basis of the currently selected effect. Apart from this the LFOs are unassigned and can be patched to any function.</p>
 	      <p>The LFO shapes are continuously variable between five different basic shapes. 
 	      The MIDI controls for the LFO shapes are:</p>
@@ -469,14 +469,32 @@ CC82 LFO2 shape
 		</div>
 	      </div>
 	    </div>
-	    
+
 	    <div class="accordion-item">
 	      <h2 class="accordion-header" id="heading5b">
 		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-		  Patch Settings
+		  Patch Buttons
 		</button>
 	      </h2>
 	      <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5b">
+		<div class="accordion-body">
+		  <div class="row">
+		    <div class="col" id="button1"></div>
+		    <div class="col" id="button2"></div>
+		    <div class="col" id="button3"></div>
+		    <div class="col" id="button4"></div>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+
+	    <div class="accordion-item">
+	      <h2 class="accordion-header" id="heading6b">
+		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+		  Patch Settings
+		</button>
+	      </h2>
+	      <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6b">
 		<div class="accordion-body">
 		  <div class="row">
 		    <div class="col-2">FM/Ext Left</div>
@@ -544,15 +562,14 @@ CC82 LFO2 shape
 		</div>
 	      </div>
 	    </div>
-
 	    
 	    <div class="accordion-item">
-	      <h2 class="accordion-header" id="heading6b">
-		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+	      <h2 class="accordion-header" id="heading7b">
+		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
 		  Scope and Spectrogram
 		</button>
 	      </h2>
-	      <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6b">
+	      <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7b">
 		<div class="accordion-body">
 		  <div class="row">
 		    <div id="scope"></div>
