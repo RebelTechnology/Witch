@@ -246,22 +246,21 @@
 		  Out 6: LFO2 Clock
 		  In Left: FM Left
 		  In Right: FM Right</pre>			    
-	    </div>
-	    <button class="btn btn-link" onclick="loadPatch('WaveBankExpression')">Load WaveBank Expression Patch</button>
-	    <button class="btn btn-link" onclick="loadPatch('WaveBankPerformance')">Load WaveBank Performance Patch</button>
-	    <p>The WaveBank patch loads two resources. Each contains a bank of 8 x 8 single cycle waveforms. One is for the left output channel, the other for the right. The wavebanks are standard 16-bit mono wav files, and are compatible with the popular WaveEdit software and its online <a href="https://waveeditonline.com/" target="_blank">library of free wavetable banks</a>.
-	    </p>
-	    <form>
-	      <div class="mb-3">
-		<input type="file" name="files[]" class="form-control" id="inputWavetableFile" aria-describedby="inputWavetableFileHelp" />
-		<div id="inputWavetableFileHelp" class="form-text">Select a 16-bit mono wavebank with 8 x 128 samples</div>
-		<div class="input-group mb-3">
-		  <label class="input-group-text">Store</label>
-		  <button class="btn btn-outline-secondary" type="button" onclick="saveResource(wavetable1.wav', this.form[0].files)">Wavetable 1</button>
-		  <button class="btn btn-outline-secondary" type="button" onclick="saveResource(wavetable2.wav', this.form[0].files)">Wavetable 2</button>
+	      <button class="btn btn-link" onclick="loadPatch('WaveBankExpression')">Load WaveBank Expression Patch</button>
+	      <button class="btn btn-link" onclick="loadPatch('WaveBankPerformance')">Load WaveBank Performance Patch</button>
+	      <p>The WaveBank patch loads two resources. Each contains a bank of 8 x 8 single cycle waveforms. One is for the left output channel, the other for the right. The wavebanks are standard 16-bit mono wav files, and are compatible with the popular WaveEdit software and its online <a href="https://waveeditonline.com/" target="_blank">library of free wavetable banks</a>.</p>
+	      <form>
+		<div class="mb-3">
+		  <input type="file" name="files[]" class="form-control" id="inputWavetableFile" aria-describedby="inputWavetableFileHelp" />
+		  <div id="inputWavetableFileHelp" class="form-text">Select a 16-bit mono wavebank with 8 x 128 samples</div>
+		  <div class="input-group mb-3">
+		    <label class="input-group-text">Store</label>
+		    <button class="btn btn-outline-secondary" type="button" onclick="saveResource(wavetable1.wav', this.form[0].files)">Wavetable 1</button>
+		    <button class="btn btn-outline-secondary" type="button" onclick="saveResource(wavetable2.wav', this.form[0].files)">Wavetable 2</button>
+		  </div>
 		</div>
-	      </div>
-	    </form>
+	      </form>
+	    </div>
 	  </div>
 
 	  <div class="collapse multi-collapse" id="cardAdsr">
