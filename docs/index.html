@@ -171,6 +171,9 @@
 		  <img src="img/WitchLogo.svg" alt="The Witch" width="20%" />
 		  <p><strong>The Witch is a compact and versatile polyphonic synthesizer.</strong></p>
 		  <p>This website is a MIDI synth editor for <a href="https://www.rebeltech.org/product/witch" target="_blank">the Witch</a>. Use a <a href="https://www.midi.org/midi-articles/about-web-midi" target="_blank">WebMIDI</a> capable browser (such as Chome/Chromium) and connect your Witch with a USB cable to your computer to enable the editor functions.</p>
+		  
+		  <img src="img/WitchSystemControls.svg" alt="The Witch" width="60%" />
+
 		  <p>The Witch comes with a set of eight factory patches, implementing four different synthesis engines:</p>
 		  <div class="row">
 		    <button class="col" type="button" data-bs-toggle="collapse" data-bs-target="#accordion1" aria-expanded="false" aria-controls="accordion1">SubTract</button>
@@ -206,22 +209,33 @@ Out 5: LFO1 Clock
 Out 6: LFO2 Clock
 In Left: Oscillator Linear FM
 In Right: Audio Through</pre>
-		  <pre>The patch has an ADSR envelope which controls the output amplitude.
+
+	  <div class="card">
+	    <div class="card-body">
+	      <h3>Envelope</h3>
+	      <div>The patch has an ADSR envelope which controls the output amplitude.
 The envelope attack and release times can be adjusted with Parameter E. The setting goes from long attack/short release, to short attack/short release, short attack/long release, and finally long attack and long release in the fully clockwise position.
 The MIDI controls for the envelope are:
+<pre>
 CC75: Attack
 CC76: Decay
 CC77: Sustain
 CC78: Release
-		  </pre>
-		  <pre>
-There are two LFOs, one with a sine output (CV output F), the other with a special Agnesi curve (CV output G). The LFO speeds are set by tap tempo on buttons 2 and 3, or with an input clock connected to the corresponding gate/trigger input jack.
+</pre>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="card">
+	    <div class="card-body">
+	      <h3>Low Frequency Oscillators</h3>
+	      <div>There are two LFOs, one with a sine output (CV output F), the other with a special Agnesi curve (CV output G). The LFO speeds are set by tap tempo on buttons 2 and 3, or with an input clock connected to the corresponding gate/trigger input jack.
 LFO1 sets the effect time basis. Apart from this the LFOs are unassigned and can be patched to any function.
-
-		  </pre>
-<button class="btn btn-link" onclick="loadPatch('SubTractExpression')">Load SubTract Expression Patch</button>
-<button class="btn btn-link" onclick="loadPatch('SubTractPerformance')">Load SubTract Performance Patch</button>
-		</div>
+	      </div>
+	    </div>
+	  </div>
+	  <button class="btn btn-link" onclick="loadPatch('SubTractExpression')">Load SubTract Expression Patch</button>
+	  <button class="btn btn-link" onclick="loadPatch('SubTractPerformance')">Load SubTract Performance Patch</button>
+		</div> <!-- accordion-body -->
 	      </div>
 	    </div>
 	    <div class="accordion-item">
@@ -498,9 +512,7 @@ In Right: todo</pre>
 		  </div>
 		  <div class="row">
 		    <div class="col-2">LFO1 Curve</div>
-		    <div class="col" id="lfo1curve"></div>
-		  </div>
-		  <div class="row">
+		    <div class="col-4" id="lfo1curve"></div>
 		    <div class="col">
 		      <button type="button" class="btn btn-light" onclick="lfo1curve.value=0">Agnesi</button>
 		    </div>
@@ -519,9 +531,7 @@ In Right: todo</pre>
 		  </div>
 		  <div class="row">
 		    <div class="col-2">LFO2 Curve</div>
-		    <div class="col" id="lfo2curve"></div>
-		  </div>
-		  <div class="row">
+		    <div class="col-4" id="lfo2curve"></div>
 		    <div class="col">
 		      <button type="button" class="btn btn-light" onclick="lfo2curve.value=0">Agnesi</button>
 		    </div>
