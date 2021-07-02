@@ -39,18 +39,25 @@
 	  <!-- <div class="sidebar-brand-text mx-3">The Witch</div> -->
       	<!-- </a> -->
       <!-- </li> -->
+
       
-      <li class="nav-item">
-        <a class="nav-link" role="button" onclick="showPatch(0)">
-          <i class="fas fa-fw fa-info"></i>
-        <span>Intro</span></a>
-      </li>
+      <li class="nav-item active" aria-current="page">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-cog"></i>
+        <span>Dashboard</span></a>
+      </li>      
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0" />
 
       <!-- Heading -->
       <div class="sidebar-heading">Patches</div>
+      
+      <li class="nav-item">
+        <a class="nav-link" role="button" onclick="showPatch(0)">
+          <i class="fas fa-fw fa-info"></i>
+        <span>Intro</span></a>
+      </li>
 
       <li class="nav-item">
         <a class="nav-link" role="button" onclick="showPatch(1)">
@@ -79,14 +86,14 @@
       <!-- Divider -->
       <hr class="sidebar-divider" />
 
-      <!-- Heading -->
-      <!-- <div class="sidebar-heading">Tools</div> -->
-
-      <!-- Divider -->
-      <!-- <hr class="sidebar-divider d-none d-md-block" /> -->
+      <li class="nav-item">
+        <a class="nav-link" href="restore.html">
+          <i class="fas fa-fw fa-cog"></i>
+        <span>Restore</span></a>
+      </li>
 
       <li class="nav-item">
-        <a class="nav-link active" href="instructions.html">
+        <a class="nav-link" href="instructions.html">
           <i class="fas fa-fw fa-info"></i>
         <span>Instructions</span></a>
       </li>
@@ -257,8 +264,8 @@ In Right: FM Right</pre>
 		  <div id="inputWavetableFileHelp" class="form-text">Select a 16-bit mono wavebank with 8 x 128 samples</div>
 		  <div class="input-group mb-3">
 		    <label class="input-group-text">Store</label>
-		    <button class="btn btn-outline-secondary" type="button" onclick="saveResource(wavetable1.wav', this.form[0].files)">Wavetable 1</button>
-		    <button class="btn btn-outline-secondary" type="button" onclick="saveResource(wavetable2.wav', this.form[0].files)">Wavetable 2</button>
+		    <button class="btn btn-outline-secondary" type="button" onclick="saveResource('wavetable1.wav', this.form[0].files)">Wavetable 1</button>
+		    <button class="btn btn-outline-secondary" type="button" onclick="saveResource('wavetable2.wav', this.form[0].files)">Wavetable 2</button>
 		  </div>
 		</div>
 	      </form>
@@ -622,10 +629,10 @@ CC88 LFO2 shape
 
   <script src="https://cdn.jsdelivr.net/npm/nexusui@2.1.6/dist/NexusUI.js"></script>
   <script src="js/sb-admin-2.js"></script>
-  <script src="js/script.js"></script>
+  <script src="js/OpenWareMidiControl.js"></script>
   <script src="js/midiclient.js"></script>
   <script src="js/owlcmd.js"></script>
-  <script src="js/OpenWareMidiControl.js"></script>
+  <script src="js/script.js"></script>
   
   <script type="text/javascript" src="js/ADSR.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flotr2@0.1.0/flotr2.min.js" integrity="sha256-jpHTJcuJpXPIfsh5MKF6DdTha1mSbUvMBmkcJuN6ufw=" crossorigin="anonymous"></script>

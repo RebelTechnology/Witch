@@ -221,7 +221,7 @@ var crc32 = function(str) {
     var crcTable = window.crcTable || (window.crcTable = makeCRCTable());
     var crc = 0 ^ (-1);
     for (var i = 0; i < str.length; i++ ) {
-        crc = (crc >>> 8) ^ crcTable[(crc ^ str.charCodeAt(i)) & 0xFF];
+        crc = (crc >>> 8) ^ crcTable[(crc ^ str[i]) & 0xFF];
     }
     return (crc ^ (-1)) >>> 0;
 };
@@ -254,8 +254,8 @@ function encodeSysexData(data){
     var pos = 0;
     sysex[0] = 0;
     for(cnt = 0; cnt < data.length; cnt++) {
-	var c = data.charCodeAt(cnt) & 0x7F;
-	var msb = data.charCodeAt(cnt) >> 7;
+	var c = data[cnt] & 0x7F;
+	var msb = data[cnt] >> 7;
 	sysex[pos] |= msb << cnt7;
 	sysex[pos + 1 + cnt7] = c;
 	if(cnt7++ == 6) {
@@ -293,7 +293,7 @@ function packageSysexData(raw){
     msg = [0xf0, MIDI_SYSEX_MANUFACTURER, MIDI_SYSEX_OMNI_DEVICE, OpenWareMidiSysexCommand.SYSEX_FIRMWARE_UPLOAD];
     msg = msg.concat(encodeInt(packageIndex++));
     var checksum = crc32(raw);
-    console.log("Checksum: "+checksum);
+    console.log("Checksum: 0x"+checksum.toString(16));
     msg = msg.concat(encodeInt(checksum));
     msg.push(0xf7);
     chunks.push(msg);
@@ -339,13 +339,35 @@ function sendResource(files, resolve){
 	    reader.onload = (function(theFile) {
 		return function(e) {
 		    console.log("Read resource "+theFile.name);
-		    var chunks = packageSysexData(e.target.result);
-		    sendDataChunks(0, chunks, resolve);
+                    var data = new Uint8Array(e.target.result);
+		    var chunks = packageSysexData(data);
+		    resolve = sendDataChunks(0, chunks, resolve);
+		    resolve && resolve();
 		};
 	    })(f);
 	    // reader.readAsDataURL(f);
-	    reader.readAsBinaryString(f);
+	    // reader.readAsBinaryString(f);
+	    reader.readAsArrayBuffer(f);
 	}	
+    });
+}
+
+function sendResourceFromUrl(url, resolve){
+    return new Promise((resolve, reject) => {
+        console.log("sending resource from url "+url.substring(0, 64));
+        var oReq = new XMLHttpRequest();
+        oReq.responseType = "arraybuffer";
+        oReq.onload = function (oEvent) {   
+            var arrayBuffer = oReq.response; // Note: not oReq.responseText
+            if(arrayBuffer) {  
+                var data = new Uint8Array(arrayBuffer);
+		var chunks = packageSysexData(data);
+		resolve = sendDataChunks(0, chunks, resolve);
+		resolve && resolve();
+	    }
+        }
+        oReq.open("GET", url, true);
+        oReq.send();
     });
 }
 
@@ -437,7 +459,7 @@ function sendDataChunks(index, chunks, resolve){
     if(index < chunks.length){
         // HoxtonOwl.midiClient.logMidiData(chunks[index]);
         if(HoxtonOwl.midiClient.midiOutput){
-            console.log("sending chunk "+ index + ' with '+ chunks[index].length +" bytes sysex");
+            // console.log("sending chunk "+ index + ' with '+ chunks[index].length +" bytes sysex");
             HoxtonOwl.midiClient.midiOutput.send(chunks[index], 0);            
         }
         window.setTimeout(function(){

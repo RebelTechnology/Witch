@@ -229,6 +229,27 @@ function loadPatch(name){
 	.then(function(){ sendProgramRun(); }, function(err){ console.error(err); });			    
 }
 
+function storePatch(name, slot){
+    var url = "patches/"+name+".syx";
+    console.log("storing patch "+url);
+    sendProgramFromUrl(url)
+	.then(function(){ sendProgramStore(slot); }, function(err){ console.error(err); });			    
+}
+
+function loadResource(name, slot){
+    var url = "patches/"+name+".syx";
+    console.log("storing resource "+url);
+    sendResourceFromUrl(url)
+	.then(function(){ console.log("loaded"); }, function(err){ console.error(err); });
+}
+
+function storeResource(name, slot){
+    var url = "patches/"+name+".syx";
+    console.log("storing resource "+url);
+    sendResourceFromUrl(url)
+	.then(function(){ sendResourceSave(slot); }, function(err){ console.error(err); });
+}
+
 function setButton(bid, ison){
     HoxtonOwl.midiClient.sendCc(ison ? OpenWareMidiControl.PATCH_BUTTON_ON :
 				OpenWareMidiControl.PATCH_BUTTON_OFF, bid+3);

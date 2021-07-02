@@ -42,7 +42,7 @@
       
       <li class="nav-item">
         <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-info"></i>
+          <i class="fas fa-fw fa-cog"></i>
         <span>Dashboard</span></a>
       </li>
 
@@ -50,13 +50,19 @@
       <hr class="sidebar-divider my-0" />
 
       <li class="nav-item">
-        <a class="nav-link active" href="instructions.html">
+        <a class="nav-link" href="restore.html">
+          <i class="fas fa-fw fa-cog"></i>
+        <span>Restore</span></a>
+      </li>
+
+      <li class="nav-item active" aria-current="page">
+        <a class="nav-link" href="instructions.html">
           <i class="fas fa-fw fa-info"></i>
         <span>Instructions</span></a>
       </li>
-
+      
       <li class="nav-item">
-        <a class="nav-link active" href="about.html">
+        <a class="nav-link" href="about.html">
           <i class="fas fa-fw fa-info"></i>
         <span>About</span></a>
       </li>
@@ -103,7 +109,7 @@
         <div class="container-fluid">
 
 	  <div class="card card-body">
-	    <img src="img/WitchSystemControls.svg" alt="The Witch" class="img-fluid" width="800"/>
+	    <img src="img/WitchSystemControls.svg" alt="Witch System Controls" class="img-fluid" width="800"/>
 	  </div>
 
 	  <div class="card card-body">
@@ -112,6 +118,31 @@
 	      The Expression version of each patch provides continuous pitch control on parameter A, and supports MPE controllers (MIDI Polyphonic Expression).
 The Performance version has discrete pitch control on parameter A, supports regular MIDI controllers, and allows for sustained polyphonic voicings without the use of a controller.
 	    </div>
+	  </div>
+
+	  <div class="card card-body">
+	    <h3>Takeover Controls</h3>
+	    <div>
+	      If the parameter value does not correspond with the current knob position then the LED above the knob will be fully lit. This can happen if the knob has been moved with the Mode button down, or if the parameter value has been changed over MIDI.
+	    </div>
+	    <div>
+	    In essence, each knob serves a dual purpose, and the Mode button determines which one is active. To prevent snap-back when the button is released, or inadvertently changing a setting, we only update the value when it aligns with the knob position. This is what is known as takeover logic. When a parameter is in <strong>takeover</strong>, that is to say, its present value is different from the one indicated by the knob, we indicate this with the LED above it (or the two LEDs above it, in the case of knob E).
+	    </div>
+	    <div>To take back control, turn the knob until it matches the parameter value. The LED will then return to normal function.</div>
+	    <div>The patch parameters can be controlled by MIDI. Changing a parameter value by MIDI will also put the knob in takeover mode. The MIDI Control Change messages to set the parameter values are:</div>
+	    <pre>
+CC75 Control Parameter A
+CC76 Control Parameter B
+CC77 Control Parameter C
+CC78 Control Parameter D
+CC79 Control Parameter E</pre>
+	  </div>
+
+	  <div class="card card-body">
+	    <h3>Mode Functions</h3>
+	    <img src="img/WitchModeControls.svg" alt="Witch Mode Functions" class="img-fluid" width="800"/>
+	    <div>With the Mode Button pressed down the knobs and buttons have alternate functions:</div>
+	    <div>The buttons change patches, knob E changes the output volume, and knobs A to D changes the associated CV attenuation.</div>
 	  </div>
 
 	  <div class="card card-body">
@@ -127,21 +158,6 @@ The Performance version has discrete pitch control on parameter A, supports regu
 	  </div>
 
 	  <div class="card card-body">
-	    <h3>Takeover Controls</h3>
-	    <div>
-	      Each knob serves a dual purpose, and the Mode button determines which one is active. To prevent snap-back when the button is released, or inadvertently changing a setting, we only update the value when it aligns with the knob position. This is what is known as 'takeover' logic. When a parameter is in 'takeover', that is to say, its present value is different from the one indicated by the knob, we indicate this with the LED above it (or the two LEDs above it, in the case of knob E). To take back control, turn the knob to match the value. The LED will then return to normal function.
-	    </div>
-	    <div>The patch parameters can be controlled by MIDI. Changing a parameter value by MIDI will also put the knob in takeover mode. The MIDI Control Change messages to set the parameter values are:
-	    </div>
-	    <pre>
-CC75 Control Parameter A
-CC76 Control Parameter B
-CC77 Control Parameter C
-CC78 Control Parameter D
-CC79 Control Parameter E</pre>
-	  </div>
-
-	  <div class="card card-body">
 	    <h3>Changing Output Volume</h3>
 	    <div>
 	      To change the output volume, first press and hold the Mode button. Then turn knob E until the two middle LEDs are no longer lit. While still holding down the Mode button, turn knob E to the required volume setting then release the Mode button. The two middle LEDs will light up again, to indicate that parameter E is in takeover mode. Turn the E knob again until the LEDs resume their normal function of indicating the CV output levels.
@@ -152,7 +168,7 @@ CC79 Control Parameter E</pre>
 	  <div class="card card-body">
 	    <h3>Changing CV Attenuation</h3>
 	    <div>
-	      Pressing the Mode button allows you to adjust the CV attenuation for each of the CV inputs A to D. Press and hold the Mode button, then turn the knob corresponding to the CV that you want to adjust. When the knob reaches the current attenuation value (default is around the 2 o'clock position) then the LED light will go out. You can now turn the knob up or down to the attenuation level you want. Centre position means 0 gain (full attenuation). Turn it clockwise for up to 2x gain, or anti-clockwise for up to -2x inverted gain.
+	      Pressing the Mode button also allows you to adjust the CV attenuation for each of the CV inputs A to D. Press and hold the Mode button, then turn the knob corresponding to the CV that you want to adjust. When the knob reaches the current attenuation value (default is around the 2 o'clock position) then the LED light will go out. You can now turn the knob up or down to the attenuation level you want. Centre position means 0 gain (full attenuation). Turn it clockwise for up to 2x gain, or anti-clockwise for up to -2x inverted gain.
 	    </div>
 	    <div>When you release the mode button, the LED corresponding to the adjusted parameter (or parameters) will again light up, until the knob is moved back to the previous position.
 	    </div>

@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>The Witch</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.css" rel="stylesheet" />
+
+  <!-- favicon -->
+  <link rel="shortcut icon" type="image/png" href="favicon.png" />
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <!-- <li> -->
+      	<!-- <a href="index.html" target="_blank"> -->
+	  <img src="img/WitchLogo.svg" alt="The Witch" />
+	  <!-- <div class="sidebar-brand-text mx-3">The Witch</div> -->
+      	<!-- </a> -->
+      <!-- </li> -->
+      
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-cog"></i>
+        <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0" />
+
+      <li class="nav-item active" aria-current="page">
+        <a class="nav-link" href="restore.html">
+          <i class="fas fa-fw fa-cog"></i>
+        <span>Restore</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="instructions.html">
+          <i class="fas fa-fw fa-info"></i>
+        <span>Instructions</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">
+          <i class="fas fa-fw fa-info"></i>
+        <span>About</span></a>
+      </li>
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+      <!-- Sidebar Message -->
+      <div class="sidebar-card d-none d-lg-flex">
+	<a href="https://www.rebeltech.org" target="_blank">
+          <img class="sidebar-card-illustration mb-2" src="img/RebelCircular.svg" alt="Rebel Technology" />
+	</a>
+        <p class="text-center mb-2"><strong>Rebel Technology</strong></p>
+        <a class="btn btn-secondary btn-sm" href="https://www.rebeltech.org" target="_blank">Visit Website</a>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+          <!-- Topbar Navbar -->
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+	  <div class="card card-body">
+	    <h3>Restore Patches</h3>
+	    <div>Patches can be loaded into RAM or stored in non-volatile memory on the device. Note that storing patches will overwrite any previous patch in the same slot.</div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">SubTract Expression</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="loadPatch('SubTractExpression')">Load</button>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="storePatch('SubTractExpression')">Store</button>
+	    </div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">SubTract Performance</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="loadPatch('SubTractPerformance')">Load</button>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="storePatch('SubTractPerformance)">Store</button>
+	    </div>
+
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">Vosim Expression</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="loadPatch('VosimExpression')">Load</button>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="storePatch('VosimExpression')">Store</button>
+	    </div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">Vosim Performance</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="loadPatch('VosimPerformance')">Load</button>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="storePatch('VosimPerformance)">Store</button>
+	    </div>
+
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">WaveBank Expression</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="loadPatch('WaveBankExpression')">Load</button>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="storePatch('WaveBankExpression')">Store</button>
+	    </div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">WaveBank Performance</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="loadPatch('WaveBankPerformance')">Load</button>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="storePatch('WaveBankPerformance)">Store</button>
+	    </div>
+
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">QuadSampler Expression</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="loadPatch('QuadSamplerExpression')">Load</button>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="storePatch('QuadSamplerExpression')">Store</button>
+	    </div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">QuadSampler Performance</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="loadPatch('QuadSamplerPerformance')">Load</button>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="storePatch('QuadSamplerPerformance)">Store</button>
+	    </div>
+
+	    <div id="spinner_patch" class="spinner-border text-link collapse" role="status">
+	      <span class="visually-hidden">Loading...</span>
+	    </div>
+	  </div>
+
+	  <div class="card card-body">
+	    <h3>Restore Resources</h3>
+	    <div>The default factory wavebanks and samples can be stored in non-volatile memory on the device. Note that storing resources will overwrite any previous resource with the same name.</div>
+
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">Wavetable 1</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="storeResource('wavetable1.wav', 'wavetable1.wav')">Store</button>
+	    </div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">Wavetable 2</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="storeResource('wavetable2.wav', 'wavetable2.wav')">Store</button>
+	    </div>
+
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">Sample 1</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="storeResource('sample1.wav', 'sample1.wav')">Store</button>
+	    </div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">Sample 2</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="storeResource('sample2.wav', 'sample2.wav')">Store</button>
+	    </div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">Sample 3</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="storeResource('sample3.wav', 'sample3.wav')">Store</button>
+	    </div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">Sample 4</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="storeResource('sample4.wav', 'sample4.wav')">Store</button>
+	    </div>
+	    <div id="spinner_resource" class="spinner-border text-link collapse" role="status">
+	      <span class="visually-hidden">Loading...</span>
+	    </div>
+	</div>
+      </div>
+      <!-- End of Main Content -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Footer -->
+  <footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+      <div class="copyright text-center my-auto">
+	<span>Copyright &copy; Rebel Technology 2021</span>
+      </div>
+    </div>
+  </footer>
+  <!-- End of Footer -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>	    
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  
+  <!-- Core plugin JavaScript-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/nexusui@2.1.6/dist/NexusUI.js"></script>
+  <script src="js/sb-admin-2.js"></script>
+
+  <script src="js/OpenWareMidiControl.js"></script>
+  <script src="js/midiclient.js"></script>
+  <script src="js/owlcmd.js"></script>
+  <script src="js/restore.js"></script>
+
+</body>
+
+</html>
