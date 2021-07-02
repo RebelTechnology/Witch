@@ -33,7 +33,7 @@ function storeResource(slot, name){
     $('#spinner_resource').toggleClass('show');
     sendResourceFromUrl(url)
 	.then(function(){
-	    // sendResourceSave(slot);
+	    sendResourceSave(slot);
 	    console.log("stored resource in slot "+slot);	    
 	    $('#spinner_resource').toggleClass('show');
 	    $('.btn').toggleClass('disabled');
