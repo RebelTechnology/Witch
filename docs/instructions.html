@@ -144,7 +144,7 @@ CC79 Control Parameter E</pre>
 	  <div class="card card-body">
 	    <h3>Changing Output Volume</h3>
 	    <div>
-	      Press and hold the Mode button. Turn knob E until the two middle LEDs are no longer lit. Turn it to the required volume setting then release the Mode button. The two middle LEDs will light up again, to indicate that parameter E is in takeover mode. Turn the E knob again until the LEDs resume their normal function of indicating the CV output levels.
+	      To change the output volume, first press and hold the Mode button. Then turn knob E until the two middle LEDs are no longer lit. While still holding down the Mode button, turn knob E to the required volume setting then release the Mode button. The two middle LEDs will light up again, to indicate that parameter E is in takeover mode. Turn the E knob again until the LEDs resume their normal function of indicating the CV output levels.
 	    </div>
 	    <div>You can also set the output volume with MIDI CC7, the Volume controller.</div>
  	  </div>
@@ -152,9 +152,11 @@ CC79 Control Parameter E</pre>
 	  <div class="card card-body">
 	    <h3>Changing CV Attenuation</h3>
 	    <div>
-	      The Mode button allows adjustment of the CV attenuation for each of the CV inputs A to D. Press and hold the Mode button, then turn the knob corresponding to the CV attenuation you want to adjust. When the knob reaches the current value (default is in the mid position) then the LED light will go out. You can now turn the knob up or down to the attenuation level you want. When you release the mode button, the LED corresponding to the adjusted parameter (or parameters) will again light up, until the knob is moved back to the previous position.
+	      Pressing the Mode button allows you to adjust the CV attenuation for each of the CV inputs A to D. Press and hold the Mode button, then turn the knob corresponding to the CV that you want to adjust. When the knob reaches the current attenuation value (default is around the 2 o'clock position) then the LED light will go out. You can now turn the knob up or down to the attenuation level you want. Centre position means 0 gain (full attenuation). Turn it clockwise for up to 2x gain, or anti-clockwise for up to -2x inverted gain.
 	    </div>
-	    <div>The CV attenuation for each parameter can also be set by MIDI. Values from 63 to 127 sets a positive amount of gain, up to 2x. Below 63 to 0 sets an inverted gain, down to -2x. A value of 97 sets 1V/Octave, 5V CV range. The controls are:</div>
+	    <div>When you release the mode button, the LED corresponding to the adjusted parameter (or parameters) will again light up, until the knob is moved back to the previous position.
+	    </div>
+	    <div>The CV attenuation for each parameter can also be set by MIDI. Values from 63 to 127 sets a positive amount of gain, up to 2x. Below 63 to 0 sets an inverted gain, down to -2x. A value of 97 sets 1V/Octave, 5V CV range. The MIDI controls are:</div>
 	    <pre>
 CC83 CV Attenuverter A
 CC84 CV Attenuverter B
