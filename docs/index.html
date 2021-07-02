@@ -158,12 +158,12 @@
 	      <p>This website is a MIDI synth editor for <a href="https://www.rebeltech.org/product/witch" target="_blank">the Witch</a>. Use a <a href="https://www.midi.org/midi-articles/about-web-midi" target="_blank">WebMIDI</a> capable browser (such as Chome/Chromium) and connect your Witch with a USB cable to your computer to enable the editor functions.</p>
 	      
 	      <p>The Witch comes with a set of eight factory patches, implementing four different synthesis engines:</p>
-	      <div class="row">
-		<button class="col" type="button" onclick="showPatch(1)">SubTract</button>
-		<button class="col" type="button" onclick="showPatch(2)">VoSim</button>
-		<button class="col" type="button" onclick="showPatch(3)">WaveBank</button>
-		<button class="col" type="button" onclick="showPatch(4)">QuadSampler</button>
-		<button class="col" type="button" onclick="showPatch(0)"><span class="fa fa-angle-up"/></button>
+	      <div class="btn-group" role="group" aria-label="Patch Links">
+		<button class="btn btn-secondary" type="button" onclick="showPatch(1)">SubTract</button>
+		<button class="btn btn-secondary" type="button" onclick="showPatch(2)">VoSim</button>
+		<button class="btn btn-secondary" type="button" onclick="showPatch(3)">WaveBank</button>
+		<button class="btn btn-secondary" type="button" onclick="showPatch(4)">QuadSampler</button>
+		<button class="btn btn-secondary" type="button" onclick="showPatch(0)"><span class="fa fa-angle-up"/></button>
 	      </div>
 	    </div>
 	  </div>
@@ -332,8 +332,8 @@ In Right: External audio</pre>
 	      <p>The LFO shapes are continuously variable between five different basic shapes. 
 	      The MIDI controls for the LFO shapes are:</p>
 	      <pre>
-CC81 LFO1 shape
-CC82 LFO2 shape
+CC87 LFO1 shape
+CC88 LFO2 shape
 	      </pre>
 	    </div>
 	  </div>

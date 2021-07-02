@@ -49,13 +49,13 @@ release.on('change',function(v) {
 
 var ratioA = new Nexus.Slider('#ratioASlider', { mode:'absolute', size: [240, 20] });
 ratioA.on('change',function(v) {
-    // HoxtonOwl.midiClient.sendCc(cc._??, v*127);
+    HoxtonOwl.midiClient.sendCc(cc.ATTACK_CURVE, v*127);
     envADSR.setTargetRatioA(0.001 * (Math.exp(12.0*v)-1.0)); drawADSR();
 })
 
 var ratioDR = new Nexus.Slider('#ratioDRSlider', { mode:'absolute', size: [240, 20] });
 ratioDR.on('change',function(v) {
-    // HoxtonOwl.midiClient.sendCc(cc._??, v*127);
+    HoxtonOwl.midiClient.sendCc(cc.RELEASE_CURVE, v*127);
     envADSR.setTargetRatioDR(0.001 * (Math.exp(12.0*v)-1.0)); drawADSR();
 })
 
@@ -293,25 +293,27 @@ $(document).ready(function() {
 
     cc = {
 	GAIN:                    7,
-	FX_AMOUNT:               OpenWareMidiControl.PATCH_PARAMETER_E,
-	FX_SELECT:               OpenWareMidiControl.PATCH_PARAMETER_H,
-	ATTACK:                  OpenWareMidiControl.PATCH_PARAMETER_AA,
-	DECAY:                   OpenWareMidiControl.PATCH_PARAMETER_AB,
-	SUSTAIN:                 OpenWareMidiControl.PATCH_PARAMETER_AC,
-	RELEASE:                 OpenWareMidiControl.PATCH_PARAMETER_AD,
-	EXTL_AMOUNT:             OpenWareMidiControl.PATCH_PARAMETER_AE,
-	EXTR_AMOUNT:             OpenWareMidiControl.PATCH_PARAMETER_AF,
+	FX_AMOUNT:               OpenWareMidiControl.PATCH_PARAMETER_E,  // 24
+	FX_SELECT:               OpenWareMidiControl.PATCH_PARAMETER_H,  // 13
+	ATTACK:                  OpenWareMidiControl.PATCH_PARAMETER_AA, // 75
+	DECAY:                   OpenWareMidiControl.PATCH_PARAMETER_AB, // 76
+	SUSTAIN:                 OpenWareMidiControl.PATCH_PARAMETER_AC, // 77
+	RELEASE:                 OpenWareMidiControl.PATCH_PARAMETER_AD, // 78
+	ATTACK_CURVE:            OpenWareMidiControl.PATCH_PARAMETER_AE, // 79
+	RELEASE_CURVE:           OpenWareMidiControl.PATCH_PARAMETER_AF, // 80
+	EXTL_AMOUNT:             OpenWareMidiControl.PATCH_PARAMETER_AG, // 81
+	EXTR_AMOUNT:             OpenWareMidiControl.PATCH_PARAMETER_AH, // 82
 
-	ATTENUATE_A:             OpenWareMidiControl.PATCH_PARAMETER_BA,
-	ATTENUATE_B:             OpenWareMidiControl.PATCH_PARAMETER_BB,
-	ATTENUATE_C:             OpenWareMidiControl.PATCH_PARAMETER_BC,
-	ATTENUATE_D:             OpenWareMidiControl.PATCH_PARAMETER_BD,
+	ATTENUATE_A:             OpenWareMidiControl.PATCH_PARAMETER_BA, // 83
+	ATTENUATE_B:             OpenWareMidiControl.PATCH_PARAMETER_BB, // 84
+	ATTENUATE_C:             OpenWareMidiControl.PATCH_PARAMETER_BC, // 85
+	ATTENUATE_D:             OpenWareMidiControl.PATCH_PARAMETER_BD, // 86
 
-	LFO1_SHAPE:              OpenWareMidiControl.PATCH_PARAMETER_AG,
-	LFO2_SHAPE:              OpenWareMidiControl.PATCH_PARAMETER_AH,
+	LFO1_SHAPE:              OpenWareMidiControl.PATCH_PARAMETER_BE, // 87
+	LFO2_SHAPE:              OpenWareMidiControl.PATCH_PARAMETER_BF, // 88
 
-	WAVESHAPE:               OpenWareMidiControl.PATCH_PARAMETER_AG,
-	STEREO_MIX:              OpenWareMidiControl.PATCH_PARAMETER_AG
+	WAVESHAPE:               OpenWareMidiControl.PATCH_PARAMETER_BG, // 89
+	STEREO_MIX:              OpenWareMidiControl.PATCH_PARAMETER_BG
     };
 
     connectToOwl();
@@ -322,6 +324,8 @@ $(document).ready(function() {
     decay.value = 0.2;
     sustain.value = 0.8;
     release.value = 0.2;
+    // ratioA.value = 1;
+    // ratioDR.value = 1;
     ratioA.value = 1;
     ratioDR.value = 1;
     $('#collapse2').toggleClass('show');

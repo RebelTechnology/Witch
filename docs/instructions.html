@@ -117,33 +117,51 @@ The Performance version has discrete pitch control on parameter A, supports regu
 	  <div class="card card-body">
 	    <h3>Changing Patches</h3>
 	    <div>
-	      <!-- You can change the active patch at any point using the Mode button, or with a MIDI PC message. -->
-	      Press and hold the Mode button. The currently active patch number will be indicated on the buttons, in yellow for patches 1 to 4, and red for patches 5 to 8. Press a button to select the new patch, then press again to toggle between red and yellow (high and low patch numbers). Release the Mode button to start the new patch.
+	      To change patches on the device, simply press and hold the Mode button. The currently active patch number will be indicated on the buttons, in yellow for patches 1 to 4, and red for patches 5 to 8. Press a button to select the new patch. To toggle between red and yellow (high and low patch numbers), press again. Release the Mode button to start the new patch.
 	    </div>
 	    <div class="container-sm">
-	      <img src="img/PatchNumbers.png" class="img-fluid" alt="Patch Numbering" />
+	      <img src="img/PatchNumbers.png" class="img-fluid" width="326" alt="Patch Numbering" />
 	    </div>
+	    <div>Note: be careful to disconnect or deactivate any external triggers before pressing the Mode button, or you may inadvertently change patches!</div>
+	    <div>You can also change the active patch by sending the device a MIDI Program Change (aka PC) message.</div>
 	  </div>
 
 	  <div class="card card-body">
 	    <h3>Takeover Controls</h3>
 	    <div>
-	      Each knob serves a dual purpose, and the Mode button determines which one is active. To prevent snap-back when the button is used, or inadvertently changing a setting, we only update the value when it aligns with the knob position. This is what is known as 'takeover' logic. When a parameter is in 'takeover', that is to say, its present value is different from the one indicated by the knob, we indicate this with the LED above it (or the two LEDs above it, in the case of knob E).
+	      Each knob serves a dual purpose, and the Mode button determines which one is active. To prevent snap-back when the button is released, or inadvertently changing a setting, we only update the value when it aligns with the knob position. This is what is known as 'takeover' logic. When a parameter is in 'takeover', that is to say, its present value is different from the one indicated by the knob, we indicate this with the LED above it (or the two LEDs above it, in the case of knob E). To take back control, turn the knob to match the value. The LED will then return to normal function.
 	    </div>
+	    <div>The patch parameters can be controlled by MIDI. Changing a parameter value by MIDI will also put the knob in takeover mode. The MIDI Control Change messages to set the parameter values are:
+	    </div>
+	    <pre>
+CC75 Control Parameter A
+CC76 Control Parameter B
+CC77 Control Parameter C
+CC78 Control Parameter D
+CC79 Control Parameter E</pre>
 	  </div>
 
 	  <div class="card card-body">
 	    <h3>Changing Output Volume</h3>
 	    <div>
-Press and hold the Mode button. Turn knob E until the two middle LEDs are no longer lit. Turn it to the required volume setting then release the Mode button. The two middle LEDs will light up again, to indicate that parameter E is in takeover mode. Turn the E knob again until the LEDs resume their normal function of indicating the CV output levels.
+	      Press and hold the Mode button. Turn knob E until the two middle LEDs are no longer lit. Turn it to the required volume setting then release the Mode button. The two middle LEDs will light up again, to indicate that parameter E is in takeover mode. Turn the E knob again until the LEDs resume their normal function of indicating the CV output levels.
 	    </div>
-	  </div>
+	    <div>You can also set the output volume with MIDI CC7, the Volume controller.</div>
+ 	  </div>
 
 	  <div class="card card-body">
 	    <h3>Changing CV Attenuation</h3>
 	    <div>
 	      The Mode button allows adjustment of the CV attenuation for each of the CV inputs A to D. Press and hold the Mode button, then turn the knob corresponding to the CV attenuation you want to adjust. When the knob reaches the current value (default is in the mid position) then the LED light will go out. You can now turn the knob up or down to the attenuation level you want. When you release the mode button, the LED corresponding to the adjusted parameter (or parameters) will again light up, until the knob is moved back to the previous position.
 	    </div>
+	    <div>The CV attenuation for each parameter can also be set by MIDI. Values from 63 to 127 sets a positive amount of gain, up to 2x. Below 63 to 0 sets an inverted gain, down to -2x. A value of 97 sets 1V/Octave, 5V CV range. The controls are:</div>
+	    <pre>
+CC83 CV Attenuverter A
+CC84 CV Attenuverter B
+CC85 CV Attenuverter C
+CC86 CV Attenuverter D
+	    </pre>
+	    
 	  </div>
 
 	</div>
