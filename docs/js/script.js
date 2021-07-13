@@ -95,6 +95,59 @@ select1.on('change', function(v) {
     HoxtonOwl.midiClient.sendCc(cc.FX_SELECT, value);
 })
 
+var pb_range = new Nexus.Slider('#pb_range', { min: 0, max: 127, value: 2, mode:'absolute', size: [240, 20] });
+pb_range.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(101, 0);
+    HoxtonOwl.midiClient.sendCc(100, 0); // RPN 0 Pitch Bend Range
+    HoxtonOwl.midiClient.sendCc(06, v);
+})
+
+var mod_range = new Nexus.Slider('#mod_range', { min: 0, max: 16384, value: 8192, mode:'absolute', size: [240, 20] });
+mod_range.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(101, 0);
+    HoxtonOwl.midiClient.sendCc(100, 5); // RPN 5 Modulation Depth Range
+    HoxtonOwl.midiClient.sendCc(06, (v>>7) & 0x7f);
+    HoxtonOwl.midiClient.sendCc(38, v & 0x7f);
+})
+
+var dyn_range = new Nexus.Slider('#dyn_range', { min: 0, max: 127, value: 72, mode:'absolute', size: [240, 20] });
+dyn_range.on('change',function(v) {
+    HoxtonOwl.midiClient.sendCc(cc.DYNAMIC_RANGE, v);
+})
+
+function noteToFrequency(note){
+    return 440 * Math.pow(2, (note - 69) / 12);
+}
+function frequencyToNote(freq){
+    return 12 * Math.log2f(freq / 440) + 69;
+}
+
+var coarse_tune = new Nexus.Slider('#coarse_tune', { min: -64, max: 63, value: 0, step: 1, mode:'absolute', size: [240, 20] });
+coarse_tune.on('change',function(value) {
+    value += 64;
+    HoxtonOwl.midiClient.sendCc(101, 0);
+    HoxtonOwl.midiClient.sendCc(100, 2); // RPN 2 Coarse Tune
+    HoxtonOwl.midiClient.sendCc(06, value);
+    if(fine_tune)
+	fine_tune.value = 0;
+})
+
+var coarse_tune_number = new Nexus.Number('#coarse_tune_number');
+coarse_tune_number.link(coarse_tune);
+
+var fine_tune = new Nexus.Slider('#fine_tune', { min: -100, max: 100, value: 0, step: 0.0122, mode:'absolute', size: [240, 20] });
+fine_tune.on('change',function(value) {
+    value = 8192 + (value * 8192) / 100;
+    HoxtonOwl.midiClient.sendCc(101, 0);
+    HoxtonOwl.midiClient.sendCc(100, 1); // RPN 1 Fine Tune
+    HoxtonOwl.midiClient.sendCc(06, (value>>7) & 0x7f);
+    HoxtonOwl.midiClient.sendCc(38, value & 0x7f);
+    var hz = noteToFrequency(69 + coarse_tune.value + fine_tune.value/100);
+    $("#tuning").html(hz.toPrecision(5)+" Hz");
+})
+
+var fine_tune_number = new Nexus.Number('#fine_tune_number');
+fine_tune_number.link(fine_tune);     
 
 var parameterA = new Nexus.Dial('#parameterA', { value: 0.5, mode:'absolute', size: [80, 80] });
 parameterA.on('change',function(v) {
@@ -202,11 +255,17 @@ scopebutton.on('change',function(v) {
     }
 });
 
-function controlChange(status, cc, value){
+function controlChange(status, controller, value){
     var ch = parseInt(status)&0x0f;
-    cc = parseInt(cc);
-    console.log("received CC "+ch+":"+cc+":"+value);
-    switch(cc){
+    controller = parseInt(controller);
+    console.log("received CC "+ch+":"+controller+":"+value);
+    switch(controller){
+    case cc.EXTL_AMOUNT:
+	extL.value = value/127;
+	break;
+    case cc.EXTR_AMOUNT:
+	extR.value = value/127;
+	break;
     case cc.ATTACK:
 	attack.value = value/127;
 	break;
@@ -218,6 +277,33 @@ function controlChange(status, cc, value){
 	break;
     case cc.RELEASE:
 	release.value = value/127;
+	break;
+    case cc.ATTENUATE_A:
+	attenuvertA.value = value;
+	break;
+    case cc.ATTENUATE_B:
+	attenuvertB.value = value;
+	break;
+    case cc.ATTENUATE_C:
+	attenuvertC.value = value;
+	break;
+    case cc.ATTENUATE_D:
+	attenuvertD.value = value;
+	break;
+    case cc.WAVESHAPE:
+	waveshape.value = value/127;
+	break;
+    case cc.LFO1_SHAPE:
+	lfo1curve.value = value;
+	break;
+    case cc.LFO2_SHAPE:
+	lfo2curve.value = value;
+	break;
+    case cc.FX_SELECT:
+	select1.selectedIndex = Math.floor(value*4/127);
+	break;
+    case cc.DYNAMIC_RANGE:
+	dyn_range.value = value;
 	break;
     }
 }
@@ -266,6 +352,8 @@ function drawAllADSR() {
 }
 
 function drawADSR() {
+    if(!$('#adsr').is(":visible"))
+	return;
     var val;
     var envPlot = [];
     envADSR.reset();
@@ -295,19 +383,70 @@ function showPatch(pid){
 	$('#cardSubtract').collapse('show');
 	$('#cardAdsr').collapse('show');
 	$('#cardLfo').collapse('show');
+	$('#cardFx').collapse('show');
     }else if(pid == 2){
 	$('#cardVosim').collapse('show');
 	$('#cardAdsr').collapse('show');
 	$('#cardLfo').collapse('show');
+	$('#cardFx').collapse('show');
     }else if(pid == 3){
 	$('#cardWavebank').collapse('show');
 	$('#cardAdsr').collapse('show');
 	$('#cardLfo').collapse('show');
+	$('#cardFx').collapse('show');
     }else if(pid == 4){
 	$('#cardQuadsampler').collapse('show');
+	$('#cardFx').collapse('show');
     }else if(pid == 0){
 	$('#cardIntro').collapse('show');	
     }
+}
+
+function msb16(value){
+    return ((value*8192) >> 8) & 0xff;
+}
+
+function lsb16(value){
+    return (value*8192) & 0xff;
+}
+
+function storeSettings(resolve){
+    var name = $('#patchname').text() + ".cfg";
+    console.log("storing settings for patch "+name);
+    var cfg = [
+	0xb0, 7, msb16(waveshape.value), lsb16(waveshape.value),
+	0xb0, 8, msb16(attack.value), lsb16(attack.value),
+	0xb0, 9, msb16(decay.value), lsb16(decay.value),
+	0xb0,10, msb16(sustain.value), lsb16(sustain.value),
+	0xb0,11, msb16(release.value), lsb16(release.value),
+	// 0xb0,12, msb16(ratioA.value), lsb16(ratioA.value),
+	// 0xb0,13, msb16(ratioDR.value), lsb16(ratioDR.value),
+	0xb0,14, msb16(extL.value), lsb16(extL.value),
+	0xb0,15, msb16(extR.value), lsb16(extR.value),
+	0x0B, 0xb0, cc.ATTENUATE_A, attenuvertA.value,
+	0x0B, 0xb0, cc.ATTENUATE_B, attenuvertB.value,
+	0x0B, 0xb0, cc.ATTENUATE_C, attenuvertC.value,
+	0x0B, 0xb0, cc.ATTENUATE_D, attenuvertD.value,
+	0x0B, 0xb0, cc.LFO1_SHAPE, lfo1curve.value,
+	0x0B, 0xb0, cc.LFO2_SHAPE, lfo2curve.value,
+	0x0B, 0xb0, cc.DYNAMIC_RANGE, dyn_range.value,
+	0x0B, 0xb0, cc.FX_SELECT, Math.floor((select1.selectedIndex+0.5)*127/4)
+	// 0xb0,16, msb16(attenuvertA.value/127), lsb16(attenuvertA.value/127),
+	// 0xb0,17, msb16(attenuvertB.value/127), lsb16(attenuvertB.value/127),
+	// 0xb0,18, msb16(attenuvertC.value/127), lsb16(attenuvertC.value/127),
+	// 0xb0,19, msb16(attenuvertD.value/127), lsb16(attenuvertD.value/127),
+	// 0xb0,20, msb16(lfo1curve.value/127), lsb16(lfo1curve.value/127),
+	// 0xb0,21, msb16(lfo2curve.value/127), lsb16(lfo2curve.value/127),
+    ];
+    var promise = new Promise((resolve, reject) => {
+	var data = new Uint8Array(cfg);
+	resolve = sendDataChunks(0, packageSysexData(data), resolve);
+	resolve && resolve();
+    });
+    promise.then(function(){
+	console.log("saving resource "+name);
+	sendResourceSave(name);
+    }, function(err){ console.error(err); });
 }
 
 $(document).ready(function() {
@@ -315,7 +454,8 @@ $(document).ready(function() {
     cc = {
 	GAIN:                    7,
 	FX_AMOUNT:               OpenWareMidiControl.PATCH_PARAMETER_E,  // 24
-	FX_SELECT:               OpenWareMidiControl.PATCH_PARAMETER_H,  // 13
+	WAVESHAPE:               OpenWareMidiControl.PATCH_PARAMETER_H,  // 13
+	STEREO_MIX:              OpenWareMidiControl.PATCH_PARAMETER_H,  // 13
 	ATTACK:                  OpenWareMidiControl.PATCH_PARAMETER_AA, // 75
 	DECAY:                   OpenWareMidiControl.PATCH_PARAMETER_AB, // 76
 	SUSTAIN:                 OpenWareMidiControl.PATCH_PARAMETER_AC, // 77
@@ -333,8 +473,8 @@ $(document).ready(function() {
 	LFO1_SHAPE:              OpenWareMidiControl.PATCH_PARAMETER_BE, // 87
 	LFO2_SHAPE:              OpenWareMidiControl.PATCH_PARAMETER_BF, // 88
 
-	WAVESHAPE:               OpenWareMidiControl.PATCH_PARAMETER_BG, // 89
-	STEREO_MIX:              OpenWareMidiControl.PATCH_PARAMETER_BG
+	FX_SELECT:               OpenWareMidiControl.PATCH_PARAMETER_BG, // 89
+	DYNAMIC_RANGE:           OpenWareMidiControl.PATCH_PARAMETER_BH, // 90
     };
 
     connectToOwl();
@@ -347,9 +487,9 @@ $(document).ready(function() {
     release.value = 0.2;
     // ratioA.value = 1;
     // ratioDR.value = 1;
-    ratioA.value = 1;
-    ratioDR.value = 1;
-    $('#collapse2').toggleClass('show');
+    ratioA.value = 0.2;
+    ratioDR.value = 0.2;
+    // $('#collapse2').toggleClass('show');
     // document.getElementById('collapse2').hide();
     // $('#collapse2').hide();
     // $('#accordionMain .accordion-body').hide()

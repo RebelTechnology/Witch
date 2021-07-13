@@ -113,6 +113,11 @@
 	  </div>
 
 	  <div class="card card-body">
+	    <h3>Specifications</h3>
+	    <p>8 Megabyte patch and sample storage. 8 Megabyte audio buffers. ARM Cortex M4 core. 48k Hz, 24-bit stereo codec. 48k Hz, 16-bit USB audio. 48k Hz, 32-bit floating point DSP.</p>
+	  </div>
+
+	  <div class="card card-body">
 	    <h3>Expression vs Performance</h3>
 	    <div>
 	      The Expression version of each patch provides continuous pitch control on parameter A, and supports MPE controllers (MIDI Polyphonic Expression).
@@ -178,11 +183,69 @@ CC83 CV Attenuverter A
 CC84 CV Attenuverter B
 CC85 CV Attenuverter C
 CC86 CV Attenuverter D
+	    </pre>	    
+	  </div>
+
+	  
+	  <div class="card card-body">
+	    <h3>Status Indicators</h3>
+	    <div>When the device is busy, for example loading a patch or resource, the top row of LEDs will indicate progress by lighting up from left to right.</div>
+	    <div>In case of an error, the Witch flashes the top row lights, alternating between the middle two and the flanking lights. To exit error mode, select or load a new patch, or simply press the Mode button to suppress the blinking.</div>
+	  </div>
+
+	  <div class="card card-body">
+	    <h3>MIDI Implementation Chart</h3>
+	    <pre>
+Control Change Messages Received:
+	PATCH_PARAMETER_A:     CC20
+	PATCH_PARAMETER_B:     CC21
+	PATCH_PARAMETER_C:     CC22
+	PATCH_PARAMETER_D:     CC23
+	PATCH_PARAMETER_E:     CC24
+
+        FX_AMOUNT:             CC24
+	WAVESHAPE:             CC13
+	STEREO_MIX:            CC13
+	ATTACK:                CC75
+	DECAY:                 CC76
+	SUSTAIN:               CC77
+	RELEASE:               CC78
+	ATTACK_CURVE:          CC79
+	RELEASE_CURVE:         CC80
+	EXTL_AMOUNT:           CC81
+	EXTR_AMOUNT:           CC82
+
+	ATTENUATE_A:           CC83
+	ATTENUATE_B:           CC84
+	ATTENUATE_C:           CC85
+	ATTENUATE_D:           CC86
+
+	LFO1_SHAPE:            CC87
+	LFO2_SHAPE:            CC88
+
+	FX_SELECT:             CC89
+	VOLUME:                CC7
+	MODULATION:            CC1
+
+MIDI Polyphonic Expression Messages Received:
+	PITCH_BEND/X           PB
+        BRIGHTNESS/Y           CC74
+	PRESSURE/Z             AT/CP
+
+Registered Parameters Received:
+	Pitch Bend Range:      RPN0
+	MPE Configuration:     RPN6
+	RPN Reset:             RPN3fff
 	    </pre>
-	    
+	  </div>
+
+	  <div class="card card-body">
+	    <h3>MIDI Polyphonic Expression</h3>
+	    <p>The Expression version of the patches support MPE controllers (MIDI Polyphonic Expression). When the patch is selected, the MCM (MPE Configuration Message) is sent. The MCM configures the master channel, and the number of available voices. The Witch will also respond correctly to a received MCM to configure high or low master channel (Upper or Lower Zone), though the number of available voices is fixed. Pitch range defaults to 2 semitones for Zone Level, and 48 semitones for Note Level. Both ranges can be reconfigured with Pitch Bend Sensitivity RPN messages.</p>
 	  </div>
 
 	</div>
+	<!-- End of Page Content-->
       </div>
       <!-- End of Main Content -->
 

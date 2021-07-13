@@ -22,9 +22,25 @@ function getStringFromSysex(data, startOffset, endOffset){
   return str;
 }
 
+var patchnames = [];
+var patchid = 0;
+
 function registerPatch(idx, name){
     console.log("patch name "+idx+": "+name);
-    $('#patchnames').append($("<option>").attr('value',idx).text(name));
+    patchnames[idx] = name;
+    if(idx == patchid)
+	$("#patchname").text(name);
+    // $('#patchnames').append($("<option>").attr('value',idx).text(name));
+}
+
+function programChange(pc){
+    console.log("received PC "+pc);
+    // resetParameterNames();
+    // var name = $("#patchnames option:eq("+pc+")").text();
+    var name = patchnames[pc];
+    console.log("patch name "+name);
+    if(name)
+	$("#patchname").text(name);
 }
 
 function log(msg){
@@ -89,7 +105,7 @@ function systemExclusive(data) {
 	case OpenWareMidiSysexCommand.SYSEX_PROGRAM_ERROR:
             var msg = getStringFromSysex(data, 4, 1);
 	    console.log("program error "+msg);
-	    $("#patchstatus").text(msg);
+	    $("#patcherror").text(msg);
 	    log("Error: "+msg);
 	    break;
 	case OpenWareMidiSysexCommand.SYSEX_DEVICE_STATS:
@@ -103,15 +119,6 @@ function systemExclusive(data) {
 	}
     }
 }
-
-function programChange(pc){
-    console.log("received PC "+pc);
-    // resetParameterNames();
-    var name = $("#patchnames option:eq("+pc+")").text();
-    console.log("patch name "+name);
-    $("#patchname").text(name);			    
-}
-
 
 function sendRequest(type){
     HoxtonOwl.midiClient.sendCc(OpenWareMidiControl.REQUEST_SETTINGS, type);

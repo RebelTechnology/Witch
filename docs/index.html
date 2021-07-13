@@ -68,7 +68,7 @@
       <li class="nav-item">
         <a class="nav-link" role="button" onclick="showPatch(2)">
           <i class="fas fa-fw fa-cog"></i>
-        <span>VoSim</span></a>
+        <span>Vosim</span></a>
       </li>
 
       <li class="nav-item">
@@ -138,6 +138,9 @@
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+	      <p id="patcherror">&nbsp;</p>
+	    </li>
+            <li class="nav-item">
 	      <p id="patchmessage">&nbsp;</p>
 	    </li>
 	    <!--
@@ -160,14 +163,15 @@
 	  <div class="collapse multi-collapse" id="cardIntro">
 	    <div class="card card-body">
 	      <h3>Intro</h3>
-	      <img src="img/WitchLogo.svg" alt="The Witch" width="20%" />
+	      <img src="img/WitchLogo.svg" alt="The Witch" class="img-fluid" width="20%" />
+	      <img src="img/WitchProfile.jpg" alt="The Witch" class="img-fluid" width="800" />
 	      <p><strong>The Witch is a compact and versatile polyphonic synthesizer.</strong></p>
 	      <p>This website is a MIDI synth editor for <a href="https://www.rebeltech.org/product/witch" target="_blank">the Witch</a>. Use a <a href="https://www.midi.org/midi-articles/about-web-midi" target="_blank">WebMIDI</a> capable browser (such as Chome/Chromium) and connect your Witch with a USB cable to your computer to enable the editor functions.</p>
 	      
 	      <p>The Witch comes with a set of eight factory patches, implementing four different synthesis engines:</p>
 	      <div class="btn-group" role="group" aria-label="Patch Links">
 		<button class="btn btn-secondary" type="button" onclick="showPatch(1)">SubTract</button>
-		<button class="btn btn-secondary" type="button" onclick="showPatch(2)">VoSim</button>
+		<button class="btn btn-secondary" type="button" onclick="showPatch(2)">Vosim</button>
 		<button class="btn btn-secondary" type="button" onclick="showPatch(3)">WaveBank</button>
 		<button class="btn btn-secondary" type="button" onclick="showPatch(4)">QuadSampler</button>
 		<button class="btn btn-secondary" type="button" onclick="showPatch(0)"><span class="fa fa-angle-up"/></button>
@@ -204,9 +208,9 @@ In Right: Audio Through</pre>
 
 	  <div class="collapse multi-collapse" id="cardVosim">
 	    <div class="card card-body">
-	      <h3>VoSim</h3>
+	      <h3>Vosim</h3>
 	      <p><strong>Voice Simulator formant synthesizer</strong></p>
-	      <img src="img/WitchVosim.svg" alt="VoSim Patch" class="img-fluid" width="800" />
+	      <img src="img/WitchVosim.svg" alt="Vosim Patch" class="img-fluid" width="800" />
 	      <pre>
 		
 Polyphony: 6 voices
@@ -240,7 +244,7 @@ A: Frequency
 B: Morph X
 C: Morph Y
 D: Envelope
-E: Overdrive
+E: Delay
 Out F: LFO1 Sine
 Out G: LFO2 Agnesi
 1: Note
@@ -255,7 +259,7 @@ In Right: FM Right</pre>
 	      <form>
 		<div class="mb-3">
 		  <input type="file" name="files[]" class="form-control" id="inputWavetableFile" aria-describedby="inputWavetableFileHelp" />
-		  <div id="inputWavetableFileHelp" class="form-text">Select a 16-bit mono wavebank with 8 x 128 samples</div>
+		  <div id="inputWavetableFileHelp" class="form-text">Select a 16-bit mono wavebank with 8 x 8 x 256 samples (should be 32812 bytes long)</div>
 		  <div class="input-group mb-3">
 		    <label class="input-group-text">Store</label>
 		    <button class="btn btn-outline-secondary" type="button" onclick="saveResource('wavetable1.wav', this.form[0].files)">Wavetable 1</button>
@@ -309,7 +313,7 @@ In Right: External audio</pre>
 		    <form>
 		      <div class="mb-3">
 			<input type="file" name="files[]" class="form-control" id="inputSampleFile" aria-describedby="inputSampleFileHelp" />
-			<div id="inputSampleFileHelp" class="form-text">Select a 16-bit mono or stereo wav samples</div>
+			<div id="inputSampleFileHelp" class="form-text">Select a 16-bit mono or stereo wav sample, up to 1Mb in file size.</div>
 			<div class="input-group mb-3">
 			  <label class="input-group-text">Store</label>
 			  <button class="btn btn-outline-secondary" type="button" onclick="saveResource('sample1.wav', this.form[0].files)">Sample 1</button>
@@ -326,13 +330,25 @@ In Right: External audio</pre>
 	  <div class="collapse multi-collapse" id="cardLfo">
 	    <div class="card card-body">
 	      <h3>Low Frequency Oscillators</h3>
-	      <p>There are two LFOs, one with a default sine output (CV output F), the other with a special Agnesi curve (CV output G). The LFO speeds are set by tap tempo on buttons 2 and 3. The LFO's can also be easily synchronised to an external clock by connecting itto the corresponding Trigger Input jack.</p>
+	      <p>There are two LFOs, one with a default sine output (CV output F), the other with a special Agnesi curve (CV output G). The LFO speeds are set by tap tempo on buttons 2 and 3. The LFO's can also be synchronised to an external clock by simply connecting it to the corresponding Trigger Input jack.</p>
 	      <p>LFO1 controls the time basis of the currently selected effect. Apart from this the LFOs are unassigned and can be patched to any function.</p>
 	      <p>The LFO shapes are continuously variable between five different basic shapes. 
 	      The MIDI controls for the LFO shapes are:</p>
 	      <pre>
 CC87 LFO1 shape
 CC88 LFO2 shape
+	      </pre>
+	    </div>
+	  </div>
+	  
+	  <div class="collapse multi-collapse" id="cardFx">
+	    <div class="card card-body">
+	      <h3>Effect</h3>
+	      <p>The patch has a selectable audio effect. On QuadSampler, the effect amount is controlled with MIDI CC13. For the other patches, the effect amount can be controlled by knob E, or MIDI CC24. The time basis of the effect is determined by LFO1.</p>
+	      <p>The default effect for the SubTract patch is Overdrive, Vosim: Phaser, WaveBank and QuadSampler: Delay.</p>
+	      <p>The MIDI control to select effect is:</p>
+	      <pre>
+CC89 FX Select (0-31: Phaser 32-63: Delay 64:95: Overdrive 96-127: Chorus)
 	      </pre>
 	    </div>
 	  </div>
@@ -356,11 +372,11 @@ CC88 LFO2 shape
 
 	    <div class="accordion-item">
 	      <h2 class="accordion-header" id="heading2b">
-		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2" onclick="drawADSR()">
 		  ADSR Envelope
 		</button>
 	      </h2>
-	      <div id="collapse2" class="accordion-collapse collapse show" aria-labelledby="heading2b">
+	      <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2b">
 		<div class="accordion-body">
 		  <div class="row">
 		    <div id="adsr" style="width: 600px; height: 120px; position: relative;">
@@ -392,7 +408,7 @@ CC88 LFO2 shape
 		    <div id="ratioDRSlider"></div>
 		  </div>
 		  <div class="row">
-		    Note: Attack and Release times are in addition to the Envelope patch control.
+		    Note: Attack and Release times are in addition to the Envelope patch control. QuadSampler does not use the ADSR Envelope. 
 		  </div>
 		</div>
 	      </div>
@@ -494,81 +510,139 @@ CC88 LFO2 shape
 		</button>
 	      </h2>
 	      <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6b">
-		<div class="accordion-body">
+		<div class="accordion-body container-fluid justify-content-start">
 		  <div class="row">
 		    <div class="col-2">FM/Ext Left</div>
-		    <div class="col" id="extL"></div>
+		    <div class="col-2" id="extL"></div>
 		  </div>
 		  <div class="row">
 		    <div class="col-2">FM/Ext Right</div>
-		    <div class="col" id="extR"></div>
+		    <div class="col-2" id="extR"></div>
 		  </div>
 		  <div class="row">
-		    <div class="col-2">Waveshape</div>
-		    <div class="col" id="waveshape"></div>
-		  </div>
-		  <!-- todo: SubTract and Vosim: Waveshape, WaveBank: Stereo Mix, QuadSampler: FX Amount -->
-		  <!-- <div class="row"> -->
-		  <!--   <div class="col-2">Stereo Mix</div> -->
-		  <!--   <div class="col" id="stereomix"></div> -->
-		  <!-- </div> -->
-		  <div class="row">
-		    <div class="col-2">Output Gain</div>
-		    <div class="col" id="gain"></div>
+		    <div class="col-2">Shape/Stereo/FX</div>
+		    <div class="col-2" id="waveshape"></div>
+		    <div class="col-8">SubTract/Vosim: Waveshape | WaveBank: Stereo Mix | QuadSampler: FX Amount</div>
 		  </div>
 		  <div class="row">
-		    <div class="col-2">FX Select</div>
-		    <div class="col" id="select1"></div>
+		    <div class="col-2">Velocity Range</div>
+		    <div class="col-2" id="dyn_range"></div>
+		    <div class="col-8">
+		      <button type="button" class="btn btn-light" onclick="dyn_range.value=72">72dB</button>
+		    </div>
 		  </div>
-		<div class="row">
+		  <div class="row">
 		    <div class="col-2">LFO1 Curve</div>
-		    <div class="col-4" id="lfo1curve"></div>
-		    <div class="col">
+		    <div class="col-2" id="lfo1curve"></div>
+		    <div class="col-1">
 		      <button type="button" class="btn btn-light" onclick="lfo1curve.value=0">Agnesi</button>
 		    </div>
-		    <div class="col">
+		    <div class="col-1">
 		      <button type="button" class="btn btn-light" onclick="lfo1curve.value=32">Sine</button>
 		    </div>
-		    <div class="col">
+		    <div class="col-1">
 		      <button type="button" class="btn btn-light" onclick="lfo1curve.value=64">Triangle</button>
 		    </div>
-		    <div class="col">
+		    <div class="col-1">
 		      <button type="button" class="btn btn-light" onclick="lfo1curve.value=96">Ramp</button>
 		    </div>
-		    <div class="col">
+		    <div class="col-1">
 		      <button type="button" class="btn btn-light" onclick="lfo1curve.value=127">Square</button>
 		    </div>
 		  </div>
 		  <div class="row">
 		    <div class="col-2">LFO2 Curve</div>
-		    <div class="col-4" id="lfo2curve"></div>
-		    <div class="col">
+		    <div class="col-2" id="lfo2curve"></div>
+		    <div class="col-1">
 		      <button type="button" class="btn btn-light" onclick="lfo2curve.value=0">Agnesi</button>
 		    </div>
-		    <div class="col">
+		    <div class="col-1">
 		      <button type="button" class="btn btn-light" onclick="lfo2curve.value=32">Sine</button>
 		    </div>
-		    <div class="col">
+		    <div class="col-1">
 		      <button type="button" class="btn btn-light" onclick="lfo2curve.value=64">Triangle</button>
 		    </div>
-		    <div class="col">
+		    <div class="col-1">
 		      <button type="button" class="btn btn-light" onclick="lfo2curve.value=96">Ramp</button>
 		    </div>
-		    <div class="col">
+		    <div class="col-1">
 		      <button type="button" class="btn btn-light" onclick="lfo2curve.value=127">Square</button>
+		    </div>
+		  </div>
+		  <div class="row">
+		    <div class="col-2">FX Select</div>
+		    <div class="col-2" id="select1"></div>
+		  </div>
+		  <div class="row">
+		    <div class="col-2">Save Settings</div>
+		    <div class="col-2">
+		      <button type="button" class="btn btn-light" onclick="storeSettings()">Store</button>
+		    </div>
+		    <div class="col-8">
+		      Store settings for current patch: <span id="patchname">Unknown</span>
 		    </div>
 		  </div>
 		</div>
 	      </div>
 	    </div>
-	    
+
 	    <div class="accordion-item">
 	      <h2 class="accordion-header" id="heading7b">
 		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
-		  Scope and Spectrogram
+		  Device Settings
 		</button>
 	      </h2>
 	      <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7b">
+		<div class="accordion-body container-fluid justify-content-start">
+		  <div class="row">
+		    <div class="col-2">Output Gain</div>
+		    <div class="col-2" id="gain"></div>
+		  </div>
+		  <div class="row">
+		    <div class="col-2">Modulation Depth</div>
+		    <div class="col-2" id="mod_range"></div>
+		    <div class="col-8">
+		      <button type="button" class="btn btn-light" onclick="mod_range.value=8192">50%</button>
+		    </div>
+		  </div>
+		  <div class="row">
+		    <div class="col-2">Pitch Bend Range</div>
+		    <div class="col-2" id="pb_range"></div>
+		    <div class="col">
+		      <button type="button" class="btn btn-light" onclick="pb_range.value=2">2 Semitones</button>
+		    </div>
+		  </div>
+		  <div class="row">
+		    <div class="col-2">Tuning Semitones</div>
+		    <div class="col-2" id="coarse_tune"></div>
+		    <div class="col-1" id="coarse_tune_number"></div>
+		    <div class="col-1">
+		      <button type="button" class="btn btn-light" onclick="coarse_tune.value=0">+/- 0</button>
+		    </div>
+		  </div>
+		  <div class="row">
+		    <div class="col-2">Tuning Cents</div>
+		    <div class="col-2" id="fine_tune"></div>
+		    <div class="col-1" id="fine_tune_number"></div>
+		    <div class="col-1">
+		      <button type="button" class="btn btn-light" onclick="fine_tune.value=0">+/- 0</button>
+		    </div>
+		  </div>
+		  <div class="row">
+		    <div class="col-2">Middle A</div>
+		    <div class="col-2" id="tuning">440Hz</div>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+
+	    <div class="accordion-item">
+	      <h2 class="accordion-header" id="heading8b">
+		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+		  Scope and Spectrogram
+		</button>
+	      </h2>
+	      <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8b">
 		<div class="accordion-body">
 		  <div class="row">
 		    <div id="scope"></div>
