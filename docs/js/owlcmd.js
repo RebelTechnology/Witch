@@ -143,7 +143,7 @@ function resetParameterNames(){
 
 function selectOwlPatch(pid){
     console.log("select patch "+pid);
-    sendPc(pid);
+    HoxtonOwl.midiClient.sendPc(pid);
 }
 
 function sendLoadRequest(){

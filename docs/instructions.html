@@ -97,11 +97,19 @@
             <i class="fa fa-bars"></i>
           </button>
           <!-- Topbar Navbar -->
-          <!-- <ul class="navbar-nav ml-auto"> -->
-            <!-- <li class="nav-item"> -->
-	    <!--   <p>About</p> -->
-	    <!-- </li> -->
-          <!-- </ul> -->
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+	      <p id="patcherror">&nbsp;</p>
+	    </li>
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item">
+	      <p id="patchmessage">&nbsp;</p>
+	    </li>
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item">
+	      <p id="ourstatus">Not Connected</p>
+	    </li>
+          </ul>
         </nav>
         <!-- End of Topbar -->
 
@@ -114,7 +122,7 @@
 
 	  <div class="card card-body">
 	    <h3>Specifications</h3>
-	    <p>8 Megabyte patch and sample storage. 8 Megabyte audio buffers. ARM Cortex M4 core. 48k Hz, 24-bit stereo codec. 48k Hz, 16-bit USB audio. 48k Hz, 32-bit floating point DSP.</p>
+	    <p>8 Megabyte non-volatile patch and sample storage. 8 Megabyte audio RAM buffers. ARM Cortex M4 microcontroller. 48k Hz, 24-bit stereo codec. 48k Hz, 16-bit USB audio. 48k Hz, 32-bit floating point DSP.</p>
 	  </div>
 
 	  <div class="card card-body">
@@ -153,13 +161,47 @@ CC79 Control Parameter E</pre>
 	  <div class="card card-body">
 	    <h3>Changing Patches</h3>
 	    <div>
-	      To change patches on the device, simply press and hold the Mode button. The currently active patch number will be indicated on the buttons, in yellow for patches 1 to 4, and red for patches 5 to 8. Press a button to select the new patch. To toggle between red and yellow (high and low patch numbers), press again. Release the Mode button to start the new patch.
+	      To change patches on the device, simply press and hold the Mode button. The currently active patch slot will be indicated on the buttons, in yellow for patches 1 to 4, and red for patches 5 to 8. Press a button to select the new patch. To toggle between red and yellow (high and low patch slot numbers), press again. Release the Mode button to start the new patch.
 	    </div>
 	    <div class="container-sm">
 	      <img src="img/PatchNumbers.png" class="img-fluid" width="326" alt="Patch Numbering" />
 	    </div>
 	    <div>Note: be careful to disconnect or deactivate any external triggers before pressing the Mode button, or you may inadvertently change patches!</div>
 	    <div>You can also change the active patch by sending the device a MIDI Program Change (aka PC) message.</div>
+
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">SubTract Expression</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="selectOwlPatch(1)">Slot 1</button>
+	    </div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">Vosim Expression</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="selectOwlPatch(2)">Slot 2</button>
+	    </div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">WaveBank Expression</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="selectOwlPatch(3)">Slot 3</button>
+	    </div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">QuadSampler Expression</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="selectOwlPatch(4)">Slot 4</button>
+	    </div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">SubTract Performance</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="selectOwlPatch(5)">Slot 5</button>
+	    </div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">Vosim Performance</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="selectOwlPatch(6)">Slot 6</button>
+	    </div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">WaveBank Performance</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="selectOwlPatch(7)">Slot 7</button>
+	    </div>
+	    <div class="input-group mb-3 row">
+	      <label class="input-group-text col-4">QuadSampler Performance</label>
+	      <button class="btn btn-outline-secondary col" type="button" onclick="selectOwlPatch(8)">Slot 8</button>
+	    </div>
+
 	  </div>
 
 	  <div class="card card-body">
@@ -280,6 +322,11 @@ Registered Parameters Received:
 
   <script src="https://cdn.jsdelivr.net/npm/nexusui@2.1.6/dist/NexusUI.js"></script>
   <script src="js/sb-admin-2.js"></script>
+
+  <script src="js/OpenWareMidiControl.js"></script>
+  <script src="js/midiclient.js"></script>
+  <script src="js/owlcmd.js"></script>
+  <script src="js/restore.js"></script>
 
 </body>
 
