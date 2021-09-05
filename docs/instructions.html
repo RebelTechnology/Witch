@@ -179,7 +179,7 @@ CC79 Control Parameter E</pre>
 	      <img src="img/PatchNumbers.png" class="img-fluid" width="326" alt="Patch Numbering" />
 	    </div>
 	    <div>Note: be careful to disconnect or deactivate any external triggers before pressing the Mode button, or you may inadvertently change patches!</div>
-	    <div>You can also change the active patch by sending the device a MIDI Program Change (aka PC) message.</div>
+	    <div>You can also change the active patch by sending the device a MIDI Program Change (aka PC) message, or pressing one of the buttons below:</div>
 
 	    <div class="input-group mb-3 row">
 	      <label class="input-group-text col-4">SubTract Expression</label>
@@ -242,10 +242,27 @@ CC86 CV Attenuverter D
 
 	  
 	  <div class="card card-body">
-	    <h3>Status Indicators</h3>
+	    <h3>Progress Indication</h3>
 	    <div>When the device is busy, for example loading a patch or resource, the top row of LEDs will indicate progress by lighting up from left to right.</div>
-	    <div>In case of an error, the Witch flashes the top row lights, alternating between the middle two and the flanking lights. To exit error mode, select or load a new patch, or simply press the Mode button to suppress the blinking.</div>
+	    <object data="img/WitchProgressStatus.svg" type="image/svg+xml" class="img-fluid" width="800">
+	      <img src="img/WitchProgressStatus.svg" alt="Witch Progress Status"/>
+	    </object>
+	  </div>
+	  <div class="card card-body">
+	    <h3>Error Indication</h3>
+	    <div>In case of an error, the Witch flashes the top row lights, alternating between the middle two and the flanking lights.</div>
+	    <object data="img/WitchErrorStatus.svg" type="image/svg+xml" class="img-fluid" width="800">
+	      <img src="img/WitchErrorStatus.svg" alt="Witch Error Status"/>
+	    </object>
+	    <div>Usually the cause of the error can be found in a message at the top of e.g. this page, or the <a href="index.html">Dashboard</a> page. To exit error mode, select or load a new patch, or simply press the Mode button to suppress the blinking.</div>
+	  </div>
+	  <div class="card card-body">
+	    <h3>Bootloader Indication</h3>
 	    <div>A third type of indication is given by the bootloader, which alternates the middle F and G lights when it is activated, and when it is loading or storing a firmware image.</div>
+	    <object data="img/WitchBootStatus.svg" type="image/svg+xml" class="img-fluid" width="800">
+	      <img src="img/WitchBootStatus.svg" alt="Witch Boot Status"/>
+	    </object>
+	    <div>Entering bootloader mode happens if the Mode button is held down on startup, or if an unrecoverable error has occurred. To exit the bootloader, reset the device.</div>
 	  </div>
 
 	  <div class="card card-body">
